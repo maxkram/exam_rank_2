@@ -2,12 +2,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (*s == c)
-		return ((char *)s);
-	else if (!*s)
-		return (NULL);
-	else
-		return (ft_strchr(s + 1, c));
+	while (*s)
+	{
+		if (*s == c)
+			return ((char *)s);
+		++s;
+	}
+	return (0);
 }
 
 size_t	ft_strspn(const char *s, const char *accept)
@@ -28,13 +29,15 @@ size_t	ft_strspn(const char *s, const char *accept)
 #include <stdio.h>
 #include <string.h>
 int main () {
-   int len;
+   int len, len1;
    const char str1[] = "ABCDEFG019874";
    const char str2[] = "ABCD";
 
    len = ft_strspn(str1, str2);
+   len1 = strspn(str1, str2);
 
-   printf("Length of initial segment matching %d\n", len );
+   printf("Length of initial segment matching by ft_strspn %d\n", len );
+   printf("Length of initial segment matching by strspn %d\n", len1 );
    
    return(0);
 }

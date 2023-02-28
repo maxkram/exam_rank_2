@@ -7,9 +7,7 @@ void	ft_putchar(char c)
 
 int		ft_check(char *str, char c, int len)
 {
-	int	j;
-
-	j = 0;
+	int	j = 0;
 	while(j < len)
 	{
 		if (str[j] == c)
