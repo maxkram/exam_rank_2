@@ -4,7 +4,7 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		int	i;
+		int	i = 0;
 		int	j;
 
 		while (argv[1][i])
