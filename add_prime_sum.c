@@ -59,37 +59,13 @@ int	is_prime(int nb)
 	return (1);
 }
 
-/* *****************************
-** Another way to write is_prime
-int is_prime(int num)
-{
-	int i;
-
-	i = 3;
-	if (num <= 1)
-		return (0);
-	if (num % 2 == 0 && num > 2)
-		return (0);
-	while (i < (num / 2))
-	{
-		if (num % i == 0)
-			return 0;
-		i += 2;
-	}
-	return 1;
-}
-** ****************************
-*/
-
 int	main(int argc, char *argv[])
 {
-	int	nb;
-	int sum;
+	int sum = 0;
 
 	if (argc == 2)
 	{
-		nb = ft_atoi(argv[1]);
-		sum = 0;
+		int nb = ft_atoi(argv[1]);
 		while (nb > 0)
 			if (is_prime(nb--))
 				sum += (nb + 1);

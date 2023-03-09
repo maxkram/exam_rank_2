@@ -1,21 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-int main(int argc, char **argv)
+int	ft_isblank(char c)
 {
-   if (argc == 4)
-   {
-      if (argv[2][0] == '+')
-         printf("%d", (atoi(argv[1]) + atoi(argv[3])));
-      if (argv[2][0] == '-')
-         printf("%d", (atoi(argv[1]) - atoi(argv[3])));
-      if (argv[2][0] == '*')
-         printf("%d", (atoi(argv[1]) * atoi(argv[3])));
-      if (argv[2][0] == '/')
-         printf("%d", (atoi(argv[1]) / atoi(argv[3])));
-      if (argv[2][0] == '%')
-         printf("%d", (atoi(argv[1]) % atoi(argv[3])));            
-   }
-   printf("\n");
-   return (0);
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
 }
+
+void	rev_wstr(char *s)
+{
+	int	wc = 0;
+	int	i = 0;
+	int	len;
+	int	a;
+
+	while (s[i])
+		if (!ft_isblank(s[i++]) && (!wc || ft_isblank(s[i - 2])))
+			++wc;
+	while (s[--i])
+	{
+		if (!ft_isblank(s[i]) && wc--)
+		{
+			a = 0;
+			len = 1;
+			while (s[i - 1] && !ft_isblank(s[i - 1]) && ++len)
+				--i;
+			while (len-- && write(1, &s[i + a++], 1));
+			(wc) ? write(1, " ", 1) : 0;
+		}
+	}
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 2 && *av[1])
+		rev_wstr(av[1]);
+	write(1, "\n", 1);
+	return (0);
+}
+	
