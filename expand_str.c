@@ -7,11 +7,13 @@ int main(int argc, char **argv)
 	if (argc == 2)
 	{
 		i = 0;
+		while (argv[1][i] == ' ' || argv[1][i] == '\t')
+			i++;
 		while (argv[1][i])
 		{
-			if (argv[1][i] == ' ' || argv[1][i] == ' ')
+			if (argv[1][i] == ' ' || argv[1][i] == '\t')
 				flg = 1;
-			if (!(argv[1][i] == ' ' || argv[1][i] == ' '))
+			if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
 			{
 				if (flg)
 					write(1, "   ", 3);

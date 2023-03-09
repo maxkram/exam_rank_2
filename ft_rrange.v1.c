@@ -11,31 +11,19 @@ int *ft_rrange(int start, int end)
 		return (ft_rrange(end, start));
 	range = (int *)malloc(sizeof(int) * n);
 	if (range)
-	{
 		while (i < n)
-		{
-			range[i] = end;
-			end--;
-			i++;
-		}
-	}
+			range[i++] = end--;
 	return (range);
 }
 
 int		main()
 {
-	int start;
-	int end;
-
-	start = 0;
-	end = 10;
+	int start = 0;
+	int end = 9;
 	int *array;
+	int i = 0;
 
 	array = ft_rrange(start, end);
-	int i = 0;
 	while(i <= end)
-	{
-		printf("%d\n", array[i]);
-		i++;
-	}
+		printf("%d\n", array[i++]);
 }

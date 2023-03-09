@@ -2,20 +2,16 @@
 char    *ft_strdup(char *src)
 {
 	char *tmp;
-	int len;
-	int i;
+	int len = 0;
+	int i = 0;
 
-	len = 0;
-	i = 0;
 	while (src[len++])
 		;
 	tmp = malloc(sizeof(char) * len + 1);
 	if (!tmp)
 		return (NULL);
 	while (src[i++])
-	{
 		tmp[i] = src[i];
-	}
 	tmp[i] = '\0';
 	return (tmp);
 }
@@ -27,10 +23,10 @@ int main()
 {
     char source[] = "GeeksForGeeks";
  
-    // A copy of source is created dynamically
-    // and pointer to copy is returned.
+	printf("%s\n", source);
+
     char* target = strdup(source);
  
-    printf("%s", target);
+    printf("%s\n", target);
     return 0;
 }

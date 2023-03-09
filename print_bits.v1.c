@@ -18,8 +18,8 @@ void	print_bits(unsigned char octet)
 	}	
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
-	print_bits(3);
+	print_bits(2);
 	return (0);
 }

@@ -14,12 +14,11 @@ unsigned int    lcm(unsigned int a, unsigned int b)
 	return (0);
 }
 #include <stdio.h>
-int main(void)
+int	main(void)
 {
-	int x = 13;
-	int y = 14;
-	int z = 0;
-	z = lcm(x, y);
-	printf("%d\n", z);
+	printf("%d\n", lcm(122, 22));
+	printf("%d\n", lcm(100, 10));
+	printf("%d\n", lcm(4242, 42));
+	printf("%d\n", lcm(5, 9));
 	return (0);
 }

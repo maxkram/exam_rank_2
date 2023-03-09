@@ -10,7 +10,9 @@ void str_capitalizer(char *str)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 32;
-		if ((str[i] >= 'a' && str[i] <= 'z') && (str[i - 1] > 8 && str[i - 1] < 14 || str[i - 1] == 32))
+		if ((str[i] >= 'a' && str[i] <= 'z')
+			&& ((str[i - 1] > 8 && str[i - 1] < 14)
+				|| str[i - 1] == 32))
 			str[i] -= 32;
 		write(1, &str[i], 1);
 	}

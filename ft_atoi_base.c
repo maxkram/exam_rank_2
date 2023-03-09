@@ -43,13 +43,10 @@ int ft_atoi_base(const char *str, int base) {
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char **av)
+int		main(void)
 {
-	int		nb;
-	if (ac >= 3)
-	{
-		nb = ft_atoi_base(av[1], atoi(av[2]));
-		printf("%d\n", nb);
-	}
-	return (0);
+	printf("%d\n", ft_atoi_base("011", atoi("2")));
+	printf("%d\n", ft_atoi_base("16", atoi("8")));
+	printf("%d\n", ft_atoi_base("123", atoi("10")));
+	printf("%d\n", ft_atoi_base("FF", atoi("16")));
 }
