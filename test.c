@@ -1,41 +1,38 @@
-#include <unistd.h>
-
-int	ft_isblank(char c)
+int	ft_atoi_base(const char *str, int str_base)
 {
-	if (c == ' ' || c == '\t')
-		return (1);
-	return (0);
-}
-
-void	rev_wstr(char *s)
-{
-	int	wc = 0;
-	int	i = 0;
-	int	len;
-	int	a;
-
-	while (s[i])
-		if (!ft_isblank(s[i++]) && (!wc || ft_isblank(s[i - 2])))
-			++wc;
-	while (s[--i])
+	int res = 0;
+	int sign = 1;
+	while (*str == ' ' || (*str > 8 && *str < 14))
+		str++;
+	if (*str++ == '-')
+		sign = -1;
+	else if (*str == '+')
+		str++;
+	while (*str)
 	{
-		if (!ft_isblank(s[i]) && wc--)
-		{
-			a = 0;
-			len = 1;
-			while (s[i - 1] && !ft_isblank(s[i - 1]) && ++len)
-				--i;
-			while (len-- && write(1, &s[i + a++], 1));
-			(wc) ? write(1, " ", 1) : 0;
-		}
+		int digit;
+		if (*str >= '0' && *str <= '9')
+			digit = *str - '0';
+		else if (*str >= 'a' && *str <= 'f')
+			digit = *str - 'a' + 10;
+		else if (*str >= 'A' && *str <= 'F')
+			digit = *str - 'A' + 10;
+		else
+			break;
+		if (digit >= str_base)
+			break;
+		res = res * str_base + digit;
+		str++;
 	}
+	return (res * sign);
 }
+#include <stdlib.h>
+#include <stdio.h>
 
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac == 2 && *av[1])
-		rev_wstr(av[1]);
-	write(1, "\n", 1);
-	return (0);
+	printf("%d\n", ft_atoi_base("011", atoi("2")));
+	printf("%d\n", ft_atoi_base("16", atoi("8")));
+	printf("%d\n", ft_atoi_base("123", atoi("10")));
+	printf("%d\n", ft_atoi_base("FF", atoi("16")));
 }
-	

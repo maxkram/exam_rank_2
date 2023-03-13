@@ -13,7 +13,8 @@ int main(int argc, char **argv)
 			if (argv[1][i] == ' ' || argv[1][i] == '\t')
 				flg = 1;
 			if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
-			{	if (flg)
+			{
+				if (flg)
 					write(1, " ", 1);
 				flg = 0;
 				write(1, &argv[1][i], 1);

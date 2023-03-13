@@ -2,16 +2,14 @@
 
 int ft_atoi(char *str)
 {
-	int result;
-	int sign;
+	int result = 0;
+	int sign = 1;
 
-	result = 0;
-	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
 		sign = -1;
-	if (*str == '-' || *str == '+')
+	while (*str == '-' || *str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
@@ -44,9 +42,7 @@ void ft_putnbr(int nb)
 
 int	is_prime(int nb)
 {
-	int i;
-
-	i = 2;
+	int i = 2;
 	if (nb <= 1)
 		return (0);
 	while (i <= (nb / 2))
@@ -54,7 +50,7 @@ int	is_prime(int nb)
 		if (!(nb % i))
 			return (0);
 		else
-			i += 1;
+			i++;
 	}
 	return (1);
 }
@@ -68,7 +64,7 @@ int	main(int argc, char *argv[])
 		int nb = ft_atoi(argv[1]);
 		while (nb > 0)
 			if (is_prime(nb--))
-				sum += (nb + 1);
+				sum += nb + 1;
 		ft_putnbr(sum);
 	}
 	if (argc != 2)
