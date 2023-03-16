@@ -3,7 +3,8 @@ int ft_atoi_base(const char *str, int base) {
     int sign = 1;
 
     // Skip leading white space
-    while ((*str >= 9 && *str <= 13) || *str == ' ')
+    while ((*str >= 9 && *str <= 13)
+        || *str == ' ')
         str++;
 
     // Handle sign

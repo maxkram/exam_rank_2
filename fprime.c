@@ -3,13 +3,11 @@
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	number;
+	int	i = 1;
+	int	number = atoi(argv[1]);
 
 	if (argc == 2)
 	{
-		i = 1;
-		number = atoi(argv[1]);
 		if (number == 1)
 			printf("1");
 		while (number >= ++i)

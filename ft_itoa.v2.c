@@ -3,15 +3,13 @@
 
 char	*ft_itoa(int nbr)
 {
-	int		len;
-	long	n_tmp;
-	char	*str;
+	int		len = 0;
+	long	n_tmp = nbr;
+	char	*str = (char *)malloc(sizeof(char) * len + 1);
 
-	len = 0;
-	n_tmp = nbr;
 	if (nbr == -2147483648)
 		return ("-2147483648");
-	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+	if (str == 0)
 		return (NULL);
 	str[len] ='\0';
 	if (nbr == 0)
