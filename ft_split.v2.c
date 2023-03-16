@@ -1,13 +1,13 @@
 #include <stdlib.h>
 
-int			ft_isspace(char c)
+int ft_isspace(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-int		count_words(char *str)
+int count_words(char *str)
 {
-	int	count;
+	int count;
 
 	count = 0;
 	while (*str)
@@ -26,10 +26,10 @@ int		count_words(char *str)
 	return (count);
 }
 
-char	*malloc_word(char *str)
+char *malloc_word(char *str)
 {
 	char *word;
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] && !ft_isspace(str[i]))
@@ -45,7 +45,7 @@ char	*malloc_word(char *str)
 	return (word);
 }
 
-char	**ft_split(char *str)
+char **ft_split(char *str)
 {
 	char **arr = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
 
@@ -72,11 +72,11 @@ char	**ft_split(char *str)
 
 #include <stdio.h>
 
-int		main(void)
+int main(void)
 {
 	char **arr;
-	
-	char *phrase = "   Hello,   Flavio\t Wuensche!  ";
+
+	char *phrase = "   Hello,\n   Flavio\t Wuensche!  ";
 	arr = ft_split(phrase);
 	printf("%s\n", arr[0]);
 	printf("%s\n", arr[1]);
