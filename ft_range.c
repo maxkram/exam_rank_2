@@ -2,13 +2,10 @@
 
 int	*ft_range(int start, int end)
 {
-	int	*res;
-	int	size;
-	int	i;
+	int	size = (end - start) + 1;
+	int	*res = (int *) malloc(size * sizeof(int));
+	int	i = 0;
 
-	size = (end - start) + 1;
-	i = 0;
-	res = (int *) malloc(size * sizeof(int));
 	if (!res)
 		return (NULL);
 	while (i++ < size)
@@ -20,18 +17,11 @@ int	*ft_range(int start, int end)
 
 int		main()
 {
-	int start;
-	int end;
+	int start = 0;
+	int end = 10;
 
-	start = 0;
-	end = 10;
-	int *array;
-
-	array = ft_range(start, end);
+	int *array = ft_range(start, end);
 	int i = 0;
 	while(i <= end)
-	{
-		printf("%d\n", array[i]);
-		i++;
-	}
+		printf("%d\n", array[i++]);
 }
