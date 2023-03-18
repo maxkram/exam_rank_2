@@ -16,7 +16,13 @@ int	main(int argc, char **argv)
 		}
 	}
 	write(1, "\n", 1);
+	return (0);
 }
+
+// Assignment name  : ulstr
+// Expected files   : ulstr.c
+// Allowed functions: write
+// --------------------------------------------------------------------------------
 
 // Write a program that takes a string and reverses the case of all its letters.
 // Other characters remain unchanged.

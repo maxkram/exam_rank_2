@@ -1,4 +1,4 @@
-	#include <stdio.h>
+#include <stdio.h>
 
 unsigned char swap_bits(unsigned char c)
 {

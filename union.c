@@ -29,6 +29,11 @@ int main (int argc, char **argv)
 	return (0);
 }
 
+// Assignment name  : union
+// Expected files   : union.c
+// Allowed functions: write
+// --------------------------------------------------------------------------------
+
 // Write a program that takes two strings and displays, without doubles, the
 // characters that appear in either one of the strings.
 

@@ -1,57 +1,62 @@
 #include <stdlib.h>
+#include "sort_list.h"
+
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+{
+	int swap;
+	t_list *tmp;
+	tmp = lst;
+	while(lst->next != NULL)
+	{
+		if (((*cmp)(lst->data, lst->next->data)) == 0)
+		{
+			swap = lst->data;
+			lst->data = lst->next->data;
+			lst->next->data = swap;
+			lst = tmp;
+		}
+		else
+			lst = lst->next;
+	}
+	lst = tmp;
+	return (lst);
+}
+
 #include <stdio.h>
+#include <stdlib.h>
 
-char *ft_strncpy(char *s1, char *s2, int n)
+t_list	*add_int(t_list *list, int nb)
 {
-    int i = -1;
-    while (++i < n && s2[i])
-        s1[i] = s2[i];
-    s1[i] = '\0';
-    return (s1);
+	t_list *new;
+
+	new = (t_list*)malloc(sizeof(t_list));
+	new->data = nb;
+	new->next = list;
+	return (new);
 }
 
-char **ft_split(char *str)
+int		ascending(int a, int b)
 {
-    int i = 0;
-    int j = 0;
-    int k = 0;
-    int wc = 0;
-    while (str[i])
-    {
-        while (str[i] && (str[i] == 32 || str[i] == 9 || str[i] == 10))
-            i++;
-        if (str[i])
-            wc++;
-        while (str[i] && (str[i] != 32 && str[i] != 9 && str[i] != 10))
-            i++;
-    }
-    char **out = (char **)malloc(sizeof(char *) * (wc + 1));
-    i = 0;
-    while (str[i])
-    {
-        while (str[i] && (str[i] == 32 || str[i] == 9 || str[i] == 10))
-            i++;
-        j = i;
-        while (str[i] && (str[i] != 32 && str[i] != 9 && str[i] != 10))
-            i++;
-        if (i > j)
-        {
-            out[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
-            ft_strncpy(out[k++], &str[j], i - j);
-        }
-    }
-    out[k] = NULL;
-    return (out);
+		return (a <= b);
 }
 
-int main(void)
+int	main(void)
 {
-    int i = 0;
-    char **tab = ft_split("Breaking bad and Better call Saul");
-    while (tab[i])
-    {
-        printf("string %d : %s\n", i, tab[i]);
-        i++;
-    }
-    return (0);
+	t_list *list;
+
+	list = NULL;
+	list = add_int(list, 9);
+	list = add_int(list, 3);
+	list = add_int(list, 2);
+	list = add_int(list, 4);
+	list = add_int(list, 1);
+	list = sort_list(list, &ascending);
+
+	while(list != NULL)
+	{
+		printf("%d\n", list->data);
+		list = list->next;
+	}
+	
+	return (0);
 }

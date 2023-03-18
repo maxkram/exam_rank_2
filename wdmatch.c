@@ -22,6 +22,11 @@ int main(int argc, char **argv)
 }
 
 
+// Assignment name  : wdmatch
+// Expected files   : wdmatch.c
+// Allowed functions: write
+// --------------------------------------------------------------------------------
+
 // Write a program that takes two strings and checks whether it's possible to
 // write the first string with characters from the second string, while respecting
 // the order in which these characters appear in the second string.
