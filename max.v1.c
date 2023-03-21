@@ -1,24 +1,39 @@
 int		max(int* tab, unsigned int len)
 {
-	int count = 0;
-	int result = 0;
-	int i = 0;
-	if (len > 0)
+	unsigned int		i = 0;
+	int		max_value = 0;
+	if (tab)
 	{
-		while (count < len)
+		max_value = tab[0];
+		while (i < len)
 		{
-			if (tab[i] > result)
-				result = tab[i];
+			if(tab[i] > max_value)
+				max_value = tab[i];
 			i++;
-			count++;
 		}
-		return (result);
 	}
-	return (0);
+	return (max_value);
 }
 #include <stdio.h>
 int main(void)
 {
-	int tab[] = {4,7,3,5,1};
-	printf("%d", max(tab, 5));
+	int tab[] = {4,7,3,8,5,1};
+	printf("%d", max(tab, 6));
 }
+
+
+// Assignment name  : max
+// Expected files   : max.c
+// Allowed functions:
+// --------------------------------------------------------------------------------
+
+// Write the following function:
+
+// int		max(int* tab, unsigned int len);
+
+// The first parameter is an array of int, the second is the number of elements in
+// the array.
+
+// The function returns the largest number found in the array.
+
+// If the array is empty, the function returns 0.
