@@ -2,18 +2,12 @@ int ft_atoi_base(const char *str, int base) {
     int result = 0;
     int sign = 1;
 
-    // Skip leading white space
-    while ((*str >= 9 && *str <= 13)
-        || *str == ' ')
+    while ((*str >= 9 && *str <= 13) || *str == ' ')
         str++;
-
-    // Handle sign
     if (*str++ == '-')
         sign = -1;
     else if (*str == '+')
         str++;
-    
-    // Convert string to integer
     while (*str)
     {
         int digit;
@@ -25,10 +19,10 @@ int ft_atoi_base(const char *str, int base) {
         else if (*str >= 'A' && *str <= 'F')
             digit = *str - 'A' + 10;
         else
-            break; // Invalid character, stop parsing
+            break;
 
         if (digit >= base)
-            break; // Digit not valid in this base, stop parsing
+            break;
 
         result = result * base + digit;
         str++;
@@ -47,3 +41,24 @@ int		main(void)
 	printf("%d\n", ft_atoi_base("123", atoi("10")));
 	printf("%d\n", ft_atoi_base("FF", atoi("16")));
 }
+
+// Assignment name  : ft_atoi_base
+// Expected files   : ft_atoi_base.c
+// Allowed functions: None
+// --------------------------------------------------------------------------------
+
+// Write a function that converts the string argument str (base N <= 16)
+// to an integer (base 10) and returns it.
+
+// The characters recognized in the input are: 0123456789abcdef
+// Those are, of course, to be trimmed according to the requested base. For
+// example, base 4 recognizes "0123" and base 16 recognizes "0123456789abcdef".
+
+// Uppercase letters must also be recognized: "12fdb3" is the same as "12FDB3".
+
+// Minus signs ('-') are interpreted only if they are the first character of the
+// string.
+
+// Your function must be declared as follows:
+
+// int	ft_atoi_base(const char *str, int str_base);
