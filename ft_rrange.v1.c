@@ -1,41 +1,68 @@
-#include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
-
-int *ft_rrange(int start, int end)
+void	ft_putchar(char c)
 {
-<<<<<<< HEAD
-	int i = 0;
-	int n = end - start + 1;
-	int *range = (int *)malloc(sizeof(int) * n);
-=======
-	int n = end - start + 1;
-	int *range = (int *)malloc(sizeof(int) * n);
-	int i = 0;
->>>>>>> 4f837c8bc54ef53e2cb241ceac3673fbecaf35bf
-
+	write(1, &c, 1);
+}
+void	ft_putnbr(int n)
+{
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar('-');
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar((n % 10) + '0');
+}
+int		*ft_rrange(int start, int end)
+{
+	int		*rrange;
+	int		i;
 	if (start > end)
-		return (ft_rrange(end, start));
-	if (range)
-		while (i < n)
-			range[i++] = end--;
-	return (range);
+		i = (start - end) + 1;
+	else
+		i = (end - start) + 1;
+	rrange = (int *)malloc(sizeof(int) * i);
+	while (i--)
+	{
+		rrange[i] = start;
+		start -= (start < end) ? (-1) : (1);
+	}
+	rrange[i] = end;
+	return (rrange);
 }
-
-<<<<<<< HEAD
 int		main(void)
-=======
-int main(void)
->>>>>>> 4f837c8bc54ef53e2cb241ceac3673fbecaf35bf
 {
-	int start = 0;
-	int end = 9;
-	int *array = ft_rrange(start, end);
-	int i = 0;
-<<<<<<< HEAD
-	while(i <= end)
-=======
-
-	while (i <= end)
->>>>>>> 4f837c8bc54ef53e2cb241ceac3673fbecaf35bf
-		printf("%d\n", array[i++]);
+	int	*arr;
+	int	i;
+	i = 1;
+	arr = ft_rrange(0, 0);
+	while (i--)
+	{
+		ft_putnbr(arr[i]);
+		ft_putchar('\n');
+	}
+	return (0);
 }
+
+
+// Assignment name  : ft_rrange
+// Expected files   : ft_rrange.c
+// Allowed functions: malloc
+// --------------------------------------------------------------------------------
+
+// Write the following function:
+
+// int     *ft_rrange(int start, int end);
+
+// It must allocate (with malloc()) an array of integers, fill it with consecutive
+// values that begin at end and end at start (Including start and end !), then
+// return a pointer to the first value of the array.
+
+// Examples:
+
+// - With (1, 3) you will return an array containing 3, 2 and 1
+// - With (-1, 2) you will return an array containing 2, 1, 0 and -1.
+// - With (0, 0) you will return an array containing 0.
+// - With (0, -3) you will return an array containing -3, -2, -1 and 0.

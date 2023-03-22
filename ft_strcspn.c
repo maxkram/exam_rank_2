@@ -1,13 +1,10 @@
-#include <stdio.h>
-
 size_t  ft_strcspn(const char *s, const char *reject)
 {
     int     i = 0;
-    int     j = 0;
 
     while (s[i])
     {
-		j = 0;
+		int j = 0;
         while (reject[j])
         {
             if(s[i] == reject[j])
@@ -22,17 +19,23 @@ size_t  ft_strcspn(const char *s, const char *reject)
 #include <stdio.h>
 #include <string.h>
 
-int main () {
-   int len;
-   int len1;
-   const char str1[] = "ABCDEF4960910";
-   const char str2[] = "913";
-
-   len = strcspn(str1, str2);
-   len1 = ft_strcspn(str1, str2);
-
-   printf("First matched character is at %d\n", len + 1);
-   printf("First matched character is at %d\n", len1 + 1);
-  
-   return(0);
+int main ()
+{
+  char str[] = "fcba73";
+  char keys[] = "1234567890";
+  int i = ft_strcspn (str,keys);
+  printf ("The first number in str is at position %d.\n", i+1);
+  return 0;
 }
+
+// Assignment name	: ft_strcspn
+// Expected files	: ft_strcspn.c
+// Allowed functions: None
+// ---------------------------------------------------------------
+
+// Reproduce exactly the behavior of the function strcspn
+// (man strcspn).
+
+// The function should be prototyped as follows:
+
+// size_t	ft_strcspn(const char *s, const char *reject);

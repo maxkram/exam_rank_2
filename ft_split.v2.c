@@ -7,9 +7,7 @@ int ft_isspace(char c)
 
 int count_words(char *str)
 {
-	int count;
-
-	count = 0;
+	int count = 0;
 	while (*str)
 	{
 		// move to the beggining of a new word
@@ -29,9 +27,7 @@ int count_words(char *str)
 char *malloc_word(char *str)
 {
 	char *word;
-	int i;
-
-	i = 0;
+	int i = 0;
 	while (str[i] && !ft_isspace(str[i]))
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
@@ -83,3 +79,18 @@ int main(void)
 	printf("%s\n", arr[2]);
 	printf("%s\n", arr[3]);
 }
+
+// Assignment name  : ft_split
+// Expected files   : ft_split.c
+// Allowed functions: malloc
+// --------------------------------------------------------------------------------
+
+// Write a function that takes a string, splits it into words, and returns them as
+// a NULL-terminated array of strings.
+
+// A "word" is defined as a part of a string delimited either by spaces/tabs/new
+// lines, or by the start/end of the string.
+
+// Your function must be declared as follows:
+
+// char    **ft_split(char *str);
