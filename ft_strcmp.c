@@ -5,14 +5,25 @@ int    ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
 #include <stdio.h>
 #include <string.h>
+  
 int main(void)
 {
-	char *s1 = "zhopa3";
-	char *s2 = "zhopa2";
-	printf("%d %d", ft_strcmp(s1, s2), strcmp(s1, s2));
-	return (0);
+    // declaring two same string
+    char* first_str = "Geeks2";
+    char* second_str = "Geeks1";
+  
+    // printing the strings
+    printf("First String: %s\n", first_str);
+    printf("Second String: %s\n", second_str);
+  
+    // printing the return value of the strcmp()
+    printf("Return value of strcmp(): %d\n",
+           strcmp(first_str, second_str));
+	printf("Return value of ft_strcmp(): %d\n",
+           ft_strcmp(first_str, second_str));
 }
 
 // Assignment name  : ft_strcmp

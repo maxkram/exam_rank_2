@@ -1,17 +1,17 @@
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-    if (argc == 2)
+    if (ac == 2)
     {
         int i = 0;
-        while (argv[1][i] == 32
-            || (argv[1][i] >= 9 && argv[1][i] <= 13))
+        while (av[1][i] == 32
+            || (av[1][i] > 8 && av[1][i] < 14))
             i++;
-        while (!(argv[1][i] == 32
-            || (argv[1][i] >= 9 && argv[1][i] <= 13))
-                && argv[1][i])
-            write(1, &argv[1][i++],1);
+        while (!(av[1][i] == 32
+            || (av[1][i] > 8 && av[1][i] < 14))
+                && av[1][i])
+            write(1, &av[1][i++],1);
     }
     write(1, "\n", 1);
     return 0;

@@ -10,13 +10,11 @@ int count_words(char *str)
 	int count = 0;
 	while (*str)
 	{
-		// move to the beggining of a new word
 		while (*str && ft_isspace(*str))
 			str++;
 		if (*str && !ft_isspace(*str))
 		{
 			count++;
-			// move to the next whitespace
 			while (*str && !ft_isspace(*str))
 				str++;
 		}
@@ -44,20 +42,15 @@ char *malloc_word(char *str)
 char **ft_split(char *str)
 {
 	char **arr = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
-
-	// same as count_words, except we save word to array instead of counting
 	int i = 0;
 	while (*str)
 	{
-		// move to the beggining of a new word
 		while (*str && ft_isspace(*str))
 			str++;
 		if (*str && !ft_isspace(*str))
 		{
-			// save word to array
 			arr[i] = malloc_word(str);
 			i++;
-			// move to the next whitespace
 			while (*str && !ft_isspace(*str))
 				str++;
 		}
@@ -68,17 +61,33 @@ char **ft_split(char *str)
 
 #include <stdio.h>
 
-int main(void)
+int		main(void)
 {
-	char **arr;
+	// char test[] = "\njrS58VHQ	\n   	p70fL		Kx2sRP0So3E4rC9  \n nebpv3J5ousO84Pa1HjUQOImUhjwZpGn	\n \n	X28iT7Ap9 	DIYAF9ZSpKcs0Rcv\n uzO\n		\nZ7zjEeonALOKQF5xq	\n   \nQxp0b1ufFKGJ	\n2n8R9zUvZEtOwmqf\n	";
+	char test[] = "DIYAF9ZSpKcs0Rcv \n uzO\n		\nZ7zjEeonALOKQF5xq	\n   \nQxp0b1ufFKGJ	\n2n8R9zUvZEtOwmqf\n	";
 
-	char *phrase = "   Hello,\n   Flavio\t Wuensche!  ";
-	arr = ft_split(phrase);
-	printf("%s\n", arr[0]);
-	printf("%s\n", arr[1]);
-	printf("%s\n", arr[2]);
-	printf("%s\n", arr[3]);
+	char **arr = ft_split(test);
+
+	int i = 0;
+	while (arr[i] != 0)
+	{
+		printf("[%s]\n", arr[i]);
+		++i;
+	}
 }
+
+
+// int main(void)
+// {
+// 	char **arr;
+
+// 	char *phrase = "   Hello,\n   Flavio\t Wuensche!  ";
+// 	arr = ft_split(phrase);
+// 	printf("%s\n", arr[0]);
+// 	printf("%s\n", arr[1]);
+// 	printf("%s\n", arr[2]);
+// 	printf("%s\n", arr[3]);
+// }
 
 // Assignment name  : ft_split
 // Expected files   : ft_split.c

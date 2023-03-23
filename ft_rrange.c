@@ -1,20 +1,6 @@
-#include <unistd.h>
 #include <stdlib.h>
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-void	ft_putnbr(int n)
-{
-	if (n < 0)
-	{
-		n = -n;
-		ft_putchar('-');
-	}
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
-}
+#include <stdio.h>
+
 int		*ft_rrange(int start, int end)
 {
 	int		*rrange;
@@ -32,17 +18,47 @@ int		*ft_rrange(int start, int end)
 	rrange[i] = end;
 	return (rrange);
 }
-int		main(void)
+int main(void)
 {
-	int	*arr;
-	int	i;
-	i = 1;
-	arr = ft_rrange(0, 0);
-	while (i--)
+	int i;
+	int *prt;
+
+	i = 0;
+	prt = ft_rrange(1, 3);
+	while(i <= 2)
 	{
-		ft_putnbr(arr[i]);
-		ft_putchar('\n');
+		printf("%d ", prt[i]);
+		i++;
 	}
+	printf("\n");
+
+	i = 0;
+	prt = ft_rrange(-1, 2);
+	while(i <= 3)
+	{
+		printf("%d ", prt[i]);
+		i++;
+	}
+	printf("\n");
+
+	i = 0;
+	prt = ft_rrange(0, 0);
+	while(i <= 0)
+	{
+		printf("%d ", prt[i]);
+		i++;
+	}
+	printf("\n");
+
+	i = 0;
+	prt = ft_rrange(0, -3);
+	while(i <= 3)
+	{
+		printf("%d ", prt[i]);
+		i++;
+	}
+	printf("\n");
+
 	return (0);
 }
 

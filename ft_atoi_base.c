@@ -28,7 +28,7 @@ int ft_atoi_base(const char *str, int base) {
         str++;
     }
 
-    return result * sign;
+    return (result * sign);
 }
 
 #include <stdlib.h>

@@ -1,24 +1,24 @@
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 	int i, flg;
 
-	if (argc == 2)
+	if (ac == 2)
 	{
 		i = 0;
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
+		while (av[1][i] == ' ' || av[1][i] == '\t')
 			i++;
-		while (argv[1][i])
+		while (av[1][i])
 		{
-			if (argv[1][i] == ' ' || argv[1][i] == '\t')
+			if (av[1][i] == ' ' || av[1][i] == '\t')
 				flg = 1;
-			if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
+			if (!(av[1][i] == ' ' || av[1][i] == '\t'))
 			{
 				if (flg)
 					write(1, "   ", 3);
 				flg = 0;
-				write(1, &argv[1][i], 1);
+				write(1, &av[1][i], 1);
 			}
 			i++;
 		}

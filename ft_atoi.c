@@ -20,7 +20,7 @@ int ft_atoi(const char *str)
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main()
+int	main(void)
 {
 	printf("ft_atoi: %d\n", ft_atoi("123456"));
 	printf("atoi: %d\n", atoi("123456"));
@@ -38,8 +38,6 @@ int	main()
 	printf("atoi: %d\n", atoi("\t\n\v\f\r 42"));
 	printf("ft_atoi: %d\n", ft_atoi("5"));
 	printf("atoi: %d\n", atoi("5"));
-
-	return 0;
 }
 
 // Assignment name  : ft_atoi

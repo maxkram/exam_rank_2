@@ -3,8 +3,7 @@
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-    t_list *current;
-    t_list *previous;
+    t_list *current, *previous;
 
     current = *begin_list;
     previous = NULL;

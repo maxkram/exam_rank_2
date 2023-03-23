@@ -2,29 +2,28 @@
 
 int		*ft_range(int start, int end)
 {
-	int		*range;
-	int		i = 0;
-	int size = (start > end) ? (start - end) : (end - start);
-	range = (int *)malloc(sizeof(int) * size + 1);
-	while (start != end)
-	{
-		range[i++] = end;
-		end -= (start > end) ? -1 : 1;
-	}
-	range[i] = end;
-	return (range);
+	int	n;
+	int	*s;
+
+	n = end >= start ? end - start : start - end;
+	if (!(s= (int *)malloc(sizeof(int) * (n))))
+		return (NULL);
+	while (end != start)
+		*s++ = end > start ? start++ : start--;
+	*s = start;
+	return (s - n);
 }
 
 
 #include <stdio.h>
 int main(void)
 {
-	int	min = 5;
-	int	max = 10;
+	int	start = 5;
+	int	end = 10;
 	int	*tab;
 	int	i = 0;
-	int	size = max - min + 1;
-	tab = ft_range(min, max);
+	int	size = end - start + 1;
+	tab = ft_range(start, end);
 	while(i < size)
 	{
 		printf("%d\n", tab[i]);
