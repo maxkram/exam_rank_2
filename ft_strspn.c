@@ -22,7 +22,7 @@ size_t	ft_strspn(const char *s, const char *accept)
     return (i);
 }
 
-int main()
+int main(void)
 {
 	char s[] = "hellpo";
 	char accept[] = "oehl";
@@ -32,10 +32,14 @@ int main()
 	printf("%ld", num1);
 }
 
-// Assignment name	: ft_strspn
-// Expected files	: ft_strspn.c
+// Assignment name	: ft_strcspn
+// Expected files	: ft_strcspn.c
 // Allowed functions: None
 // ---------------------------------------------------------------
-// Точно воспроизведите поведение функции 'strspn' (man strspn).
-// Функция должна быть обьявлена следующим образом:
-// size_t	ft_strspn(const char *s, const char *accept);
+
+// Reproduce exactly the behavior of the function strcspn
+// (man strcspn).
+
+// The function should be prototyped as follows:
+
+// size_t	ft_strcspn(const char *s, const char *reject);

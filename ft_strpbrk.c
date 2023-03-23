@@ -23,7 +23,7 @@ char *ft_strpbrk(const char *s1, const char *s2)
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main(void)
 {
     char s1[] = "geeksforgeeks";
     char s2[] = "app";
@@ -40,8 +40,6 @@ int main()
         printf("\nFirst matching character: %c\n", *t);
     else
         printf("Character not found");
-  
-    return (0);
 }
 
 // Assignment name	: ft_strpbrk

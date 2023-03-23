@@ -17,7 +17,6 @@ int main(void)
 	ft_swap(&old_age, &young_age);
 	printf("swap them ages!\n");
 	printf("old_age: %d\nyoung_age: %d\n", old_age, young_age);
-	return (0);
 }
 
 // Assignment name  : ft_swap

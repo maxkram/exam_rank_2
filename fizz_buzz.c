@@ -7,7 +7,7 @@ void    ft_putnbr(int i)
     write(1, &"0123456789"[i % 10], 1);
 }
 
-int main()
+int main(void)
 {
     int i = 0;
     while (i < 101)
@@ -23,7 +23,6 @@ int main()
         i++;
         write(1, "\n", 1);
     }
-    return 0;
 }
 
 // Assignment name  : fizzbuzz

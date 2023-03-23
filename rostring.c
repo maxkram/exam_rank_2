@@ -2,12 +2,11 @@
 
 void	rostring(char *str)
 {
-	int		i;
+	int		i = 0;
 	int		k;
 
 	if (*str)
 	{
-		i = 0;
 		while (str[i] == ' ' || str[i] == '\t')
 			i++;
 		k = i;

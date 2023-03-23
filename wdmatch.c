@@ -13,10 +13,10 @@ void wdmatch(char *s1, char *s2)
 		write(1, s1, len);
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc == 3)
-		wdmatch(argv[1], argv[2]);
+	if (ac == 3)
+		wdmatch(av[1], av[2]);
 	write(1, "\n", 1);
 	return (0);
 }

@@ -48,14 +48,12 @@ void ft_putnbr(int nb)
 	}
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	int i;
-	int num;
-	if (argc == 2)
+	int i = 1;
+	if (ac == 2)
 	{
-		i = 1;
-		num = ft_atoi(argv[1]);
+		int num = ft_atoi(av[1]);
 		while (i < 10)
 		{
 			ft_putnbr(i);

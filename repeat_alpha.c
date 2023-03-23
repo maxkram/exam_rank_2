@@ -18,10 +18,10 @@ void	ft_repeat_alpha(char *str)
 	}
 }
 
-int		main(int argc, char *argv[])
+int		main(int ac, char *av[])
 {
-	if (argc == 2)
-		ft_repeat_alpha(argv[1]);
+	if (ac == 2)
+		ft_repeat_alpha(av[1]);
 	write(1, "\n", 1);
 	return (0);
 }

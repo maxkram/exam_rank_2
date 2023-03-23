@@ -18,15 +18,16 @@ void str_capitalizer(char *str)
 	}
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc > 1)
+	if (ac > 1)
 	{
 		int i = 1;
-		while (i < argc)
-			str_capitalizer(argv[i++]);
+		while (i < ac)
+			str_capitalizer(av[i++]);
 	}
 	write(1, "\n", 1);
+	return (0);
 }
 
 // Assignment name  : str_capitalizer
