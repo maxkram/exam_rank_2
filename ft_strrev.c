@@ -19,6 +19,7 @@ int	main(void)
 	char s[] = "Hello World";
 	ft_strrev(s);
 	printf("%s\n", s);
+	return 0;
 }
 
 // Assignment name  : ft_strrev

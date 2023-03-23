@@ -7,6 +7,11 @@ void	ft_putstr(char *str)
 		write(1, &str[i++], 1);
 }
 
+int main(int ac, char **av) {
+	(void) ac;
+    ft_putstr(av[1]);
+    return (0);
+}
 // Assignment name  : ft_putstr
 // Expected files   : ft_putstr.c
 // Allowed functions: write

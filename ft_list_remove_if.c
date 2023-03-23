@@ -72,6 +72,7 @@ int		main(void)
 	printf("----------\n");
 	ft_list_remove_if(begin_list, straa, strcmp);
 	print_list(begin_list);
+	return (0);
 }
 
 

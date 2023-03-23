@@ -19,25 +19,11 @@ int ft_atoi(char *str)
 	return (sign * res);
 }
 
-void ft_putnbr(int nb)
+void    ft_putnbr(int i)
 {
-	char c;
-
-	if (nb < 0)
-	{
-		nb = -nb;
-		write(1, "-", 1);
-	}
-	if (nb < 10)
-	{
-		c = nb + '0';
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+    if (i > 9)
+        ft_putnbr(i / 10);
+    write(1, &"0123456789"[i % 10], 1);
 }
 
 int	is_prime(int nb)
@@ -47,7 +33,7 @@ int	is_prime(int nb)
 		return (0);
 	while (i <= (nb / 2))
 	{
-		if (!(nb % i))
+		if (nb % i == 0)
 			return (0);
 		else
 			i++;
@@ -61,10 +47,10 @@ int	main(int argc, char *argv[])
 
 	if (argc == 2)
 	{
-		int nb = ft_atoi(argv[1]);
-		while (nb > 0)
-			if (is_prime(nb--))
-				sum += nb + 1;
+		int n = ft_atoi(argv[1]);
+		while (n > 0)
+			if (is_prime(n--))
+				sum += n + 1;
 		ft_putnbr(sum);
 	}
 	if (argc != 2)

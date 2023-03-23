@@ -37,6 +37,7 @@ int main(void)
     sort_int_tab(tab, 10);
     while (i <= 9)
         printf("%d\n", tab[i++]);
+    return (0);
 }
 
 // Assignment name  : sort_int_tab

@@ -29,6 +29,7 @@ int main(void)
 		printf("%d\n", tab[i]);
 		i++;
 	}
+	return (0);
 }
 
 // Assignment name  : ft_range

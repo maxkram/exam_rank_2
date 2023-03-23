@@ -16,6 +16,7 @@ unsigned char	reverse_bits(unsigned char octet)
 int     main(void)
 {
 	printf("%d", reverse_bits(38));
+	return 0;
 }
 
 // Assignment name  : reverse_bits

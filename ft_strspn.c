@@ -30,6 +30,7 @@ int main(void)
 	size_t num1 = strspn(s, accept);
 	printf("%ld\n", num);
 	printf("%ld", num1);
+    return 0;
 }
 
 // Assignment name	: ft_strcspn

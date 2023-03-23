@@ -40,6 +40,7 @@ int main(void)
         printf("\nFirst matching character: %c\n", *t);
     else
         printf("Character not found");
+	return 0;
 }
 
 // Assignment name	: ft_strpbrk

@@ -74,6 +74,7 @@ int		main(void)
 		printf("[%s]\n", arr[i]);
 		++i;
 	}
+	return (0);
 }
 
 

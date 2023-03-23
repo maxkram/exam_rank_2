@@ -2,7 +2,7 @@ int ft_atoi_base(const char *str, int base) {
     int result = 0;
     int sign = 1;
 
-    while ((*str >= 9 && *str <= 13) || *str == ' ')
+    while ((*str > 8 && *str < 14) || *str == ' ')
         str++;
     if (*str++ == '-')
         sign = -1;
@@ -40,6 +40,7 @@ int		main(void)
 	printf("%d\n", ft_atoi_base("16", atoi("8")));
 	printf("%d\n", ft_atoi_base("123", atoi("10")));
 	printf("%d\n", ft_atoi_base("FF", atoi("16")));
+    return (0);
 }
 
 // Assignment name  : ft_atoi_base

@@ -20,6 +20,7 @@ int	main(void)
 	printf("%d\n", lcm(100, 10));
 	printf("%d\n", lcm(4242, 42));
 	printf("%d\n", lcm(5, 9));
+	return 0;
 }
 
 // Assignment name  : lcm

@@ -19,6 +19,7 @@ int main(void)
 {
 	int tab[] = {4,7,3,8,5,1};
 	printf("%d", max(tab, 6));
+	return 0;
 }
 
 

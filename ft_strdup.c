@@ -32,6 +32,7 @@ int main(void) {
 	printf("%s\n", ft_strdup(greet));
 	printf("test1: %s", test1);
 	printf("test2: %s", test2);
+	return (0);
 }
 
 

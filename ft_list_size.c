@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "ft_list.h"
-
 int		ft_list_size(t_list *begin_list)
 {
 	int	size = 0;
@@ -32,6 +30,7 @@ int	main(void)
 	a->data = &n;
 
 	printf("%d\n", ft_list_size(a));
+	return (0);
 }
 
 // Assignment name  : ft_list_size

@@ -18,6 +18,7 @@ int main(void)
 	printf("%s\n", str1);
 	ft_strcpy(str1, str2);
 	printf("%s\n", str1);
+	return (0);
 }
 
 // Assignment name  : ft_strcpy

@@ -30,6 +30,7 @@ int main(void)
 	write(1, "\n", 1);
 	print_bits(255);
 	write(1, "\n", 1);
+	return 0;
 }
 
 

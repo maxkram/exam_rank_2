@@ -12,6 +12,7 @@ int main(void)
 
 	printf("letter_t after swap: %c\n", swap_bits(letter_t));
 	printf("letter_G after swap: %c\n", swap_bits(letter_G));
+	return (0);
 }
 
 // Assignment name  : swap_bits

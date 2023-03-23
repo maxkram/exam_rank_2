@@ -29,6 +29,7 @@ int main (void)
   printf ("The first number in str is at position %d.\n", i + 1);
   int j = strcspn (str, keys);
   printf ("The first number in str is at position %d.\n", j + 1);
+  return (0);
 }
 
 // Assignment name	: ft_strcspn

@@ -28,6 +28,7 @@ int	main(void)
 	test_list -> next -> next -> next = NULL;
 
 	ft_list_foreach(test_list, print_data);
+	return (0);
 }
 
 

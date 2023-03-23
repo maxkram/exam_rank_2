@@ -38,6 +38,7 @@ int	main(void)
 	printf("atoi: %d\n", atoi("\t\n\v\f\r 42"));
 	printf("ft_atoi: %d\n", ft_atoi("5"));
 	printf("atoi: %d\n", atoi("5"));
+	return (0);
 }
 
 // Assignment name  : ft_atoi

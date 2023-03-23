@@ -24,6 +24,7 @@ int main(void)
            strcmp(first_str, second_str));
 	printf("Return value of ft_strcmp(): %d\n",
            ft_strcmp(first_str, second_str));
+    return (0);
 }
 
 // Assignment name  : ft_strcmp

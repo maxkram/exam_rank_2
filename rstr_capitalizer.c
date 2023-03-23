@@ -23,8 +23,8 @@ int main (int ac, char **av)
 		while (i < ac)
 			rstr_capitalizer(av[i++]);
 	}
-		write(1, "\n", 1);
-		return (0);
+	write(1, "\n", 1);
+	return (0);
 }
 
 // Assignment name  : rstr_capitalizer
