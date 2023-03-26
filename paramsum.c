@@ -1,11 +1,10 @@
 #include <unistd.h>
 
-void ft_putnbr(int n)
+void    ft_putnbr(int i)
 {
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	char digit = (n % 10) + '0';
-	write(1, &digit, 1);
+    if (i > 9)
+        ft_putnbr(i / 10);
+    write(1, &"0123456789"[i % 10], 1);
 }
 
 int main (int argc, char **argv)

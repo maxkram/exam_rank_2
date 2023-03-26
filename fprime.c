@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char *av[])
+int	main(int ac, char **av)
 {
-	int	i = 1;
-	int	number = atoi(av[1]);
 	if (ac == 2)
 	{
+		int	i = 1;
+		int	number = atoi(av[1]);
 		if (number == 1)
 			printf("1");
 		while (number >= ++i)

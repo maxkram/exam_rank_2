@@ -31,7 +31,7 @@ int	is_prime(int nb)
 	int i = 2;
 	if (nb <= 1)
 		return (0);
-	while (i <= (nb / 2))
+	while (i * i <= nb)
 	{
 		if (nb % i == 0)
 			return (0);
@@ -41,19 +41,19 @@ int	is_prime(int nb)
 	return (1);
 }
 
-int	main(int argc, char *argv[])
+int	main(int ac, char *av[])
 {
 	int sum = 0;
 
-	if (argc == 2)
+	if (ac == 2)
 	{
-		int n = ft_atoi(argv[1]);
+		int n = ft_atoi(av[1]);
 		while (n > 0)
 			if (is_prime(n--))
 				sum += n + 1;
 		ft_putnbr(sum);
 	}
-	if (argc != 2)
+	if (ac != 2)
 		ft_putnbr(0);
 	write(1, "\n", 1);
 	return (0);

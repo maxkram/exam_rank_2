@@ -11,7 +11,6 @@ int ft_atoi_base(const char *str, int base) {
     while (*str)
     {
         int digit;
-
         if (*str >= '0' && *str <= '9')
             digit = *str - '0';
         else if (*str >= 'a' && *str <= 'f')
@@ -20,14 +19,11 @@ int ft_atoi_base(const char *str, int base) {
             digit = *str - 'A' + 10;
         else
             break;
-
         if (digit >= base)
             break;
-
         result = result * base + digit;
         str++;
     }
-
     return (result * sign);
 }
 
