@@ -1,17 +1,11 @@
+#include <unistd.h>
 
-#include <stdio.h>
-int main(void)
+
+
+int main(int ac, char **av)
 {
-	int	start = 5;
-	int	end = 10;
-	int	*tab;
-	int	i = 0;
-	int	size = end - start + 1;
-	tab = ft_range(start, end);
-	while(i < size)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
+	if (ac == 3)
+		ft_union(av[1], av[2]);
+	write(1, "\n", 1);
 	return (0);
 }

@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int check (char *s, int max, char c)
+int ft_check (char *s, int max, char c)
 {
 	int i = -1;
 	while (++i < max)
