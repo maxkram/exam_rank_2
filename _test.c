@@ -1,30 +1,51 @@
 #include <unistd.h>
 
-void str_capitalizer(char *str)
+int ft_atoi(char *str)
 {
-	int i = 0;
-	if (str[i] > 96 && str[i] < 123)
-		str[i] -= 32;
-	write(1, &str[i], 1);
-	while (str[++i])
+	int res = 0;
+	int sgn = 1;
+	while (*str == 32 || (*str > 8 && *str < 14))
+		str++;
+	if (*str == 32)
+		sgn = -1;
+	while (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (str[i] > 64 && str[i] < 91)
-			str[i] += 32;
-		if ((str[i] > 96 && str[i] < 123)
-			&& ((str[i - 1] > 8 && str[i - 1] < 14)
-				|| str[i - 1] == 32))
-					str[i] -= 32;
-		write(1, &str[i], 1);
+		res = res * 10 + *str - '0';
+		str++;
 	}
+	return (sgn * res);
+}
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putnbr(int i)
+{
+	if (i > 9)
+		ft_putnbr(i / 10);
+	write(1, &"0123456789"[i % 10], 1);
 }
 
 int main(int ac, char **av)
 {
-	if (ac > 1)
+	int i = 1;
+	if (ac == 2)
 	{
-		int i = 1;
-		while (i < ac)
-			str_capitalizer(av[i++]);
+		int n = ft_atoi(av[1]);
+		while (i < 10)
+		{
+			ft_putnbr(i);
+			write(1, " x ", 3);
+			ft_putnbr(n);
+			write(1, " = ", 3);
+			ft_putnbr(i * n);
+			write(1, "\n", 1);
+			i++;
+		}
 	}
 	write(1, "\n", 1);
 	return (0);

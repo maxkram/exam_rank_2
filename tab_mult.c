@@ -19,16 +19,11 @@ int ft_atoi(char *str)
 	return (sign * result);
 }
 
-void ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void ft_putnbr(int i)
 {
-    if (i > 9)
-        ft_putnbr(i / 10);
-    write(1, &"0123456789"[i % 10], 1);
+	if (i > 9)
+		ft_putnbr(i / 10);
+	write(1, &"0123456789"[i % 10], 1);
 }
 
 int main(int ac, char **av)
