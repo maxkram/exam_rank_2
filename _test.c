@@ -1,12 +1,31 @@
 #include <unistd.h>
 
-int ft_atoi(char *str)
+void str_capitalizer(char *str)
 {
-	int res = 0;
-	int sgn = 1;
-	while (*str == 32 || (*str > 8 && *str < 14))
-		str++;
-	if (*str = '-')
-		sgn = -1;
-	if 
+	int i = 0;
+	if (str[i] > 96 && str[i] < 123)
+		str[i] -= 32;
+	write(1, &str[i], 1);
+	while (str[++i])
+	{
+		if (str[i] > 64 && str[i] < 91)
+			str[i] += 32;
+		if ((str[i] > 96 && str[i] < 123)
+			&& ((str[i - 1] > 8 && str[i - 1] < 14)
+				|| str[i - 1] == 32))
+					str[i] -= 32;
+		write(1, &str[i], 1);
+	}
+}
+
+int main(int ac, char **av)
+{
+	if (ac > 1)
+	{
+		int i = 1;
+		while (i < ac)
+			str_capitalizer(av[i++]);
+	}
+	write(1, "\n", 1);
+	return (0);
 }
