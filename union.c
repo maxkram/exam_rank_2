@@ -14,10 +14,10 @@ void ft_union (char *s1, char *s2)
 	int j = -1;
 	int i = -1;
 	while (s1[++i])
-		if (check(s1, i, s1[i]))
+		if (ft_check(s1, i, s1[i]))
 			write(1, &s1[i], 1);
 	while (s2[++j])
-		if (check(s2, j, s2[j]) && check(s1, i, s2[j]))
+		if (ft_check(s2, j, s2[j]) && ft_check(s1, i, s2[j]))
 			write(1, &s2[j], 1);
 }
 
