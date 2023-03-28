@@ -11,15 +11,12 @@ int    ft_strcmp(char *s1, char *s2)
   
 int main(void)
 {
-    // declaring two same string
     char* first_str = "Geeks2";
     char* second_str = "Geeks1";
   
-    // printing the strings
     printf("First String: %s\n", first_str);
     printf("Second String: %s\n", second_str);
   
-    // printing the return value of the strcmp()
     printf("Return value of strcmp(): %d\n",
            strcmp(first_str, second_str));
 	printf("Return value of ft_strcmp(): %d\n",

@@ -19,8 +19,7 @@ int main(int ac, char **av)
 	return (0);
 }
 
-// Assignment name  : alpha_mirror
-// Expected files   : alpha_mirror.c
+// Assignment name  : alpha_mirror // Expected files   : alpha_mirror.c
 // Allowed functions: write
 // --------------------------------------------------------------------------------
 
