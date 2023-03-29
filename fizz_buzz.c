@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void    ft_putnbr(int i)
+void ft_putnbr(int i)
 {
     if (i > 9)
         ft_putnbr(i / 10);

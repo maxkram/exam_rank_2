@@ -19,14 +19,14 @@ int ft_atoi(char *str)
 	return (sign * res);
 }
 
-void    ft_putnbr(int i)
+void ft_putnbr(int i)
 {
-    if (i > 9)
-        ft_putnbr(i / 10);
-    write(1, &"0123456789"[i % 10], 1);
+	if (i > 9)
+		ft_putnbr(i / 10);
+	write(1, &"0123456789"[i % 10], 1);
 }
 
-int	is_prime(int nb)
+int is_prime(int nb)
 {
 	int i = 2;
 	if (nb <= 1)
@@ -41,7 +41,7 @@ int	is_prime(int nb)
 	return (1);
 }
 
-int	main(int ac, char *av[])
+int main(int ac, char *av[])
 {
 	int sum = 0;
 

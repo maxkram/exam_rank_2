@@ -1,40 +1,49 @@
 #include <stdlib.h>
-#include <stdio.h>
 
-char	*ft_itoa(int nbr)
+char *ft_itoa(int nbr)
 {
-	int		len = 0;
-	long	n_tmp = nbr;
-	char	*str = (char *)malloc(sizeof(char) * len + 1);
-
+	// variables
+	int len = 0;
+	long n_tmp = nbr;
+	char *str = (char *)malloc(sizeof(char) * len + 1);
+	// the corner case
 	if (nbr == -2147483648)
 		return ("-2147483648");
+	// error with malloc
 	if (str == 0)
 		return (NULL);
-	str[len] ='\0';
+	// end of the line
+	str[len] = '\0';
+	// if zero length
 	if (nbr == 0)
 	{
 		str[0] = '0';
 		return (str);
 	}
+	// if negative
 	if (nbr < 0)
 	{
 		len++;
 		nbr *= -1;
 		str[0] = '-';
 	}
+	// finding the length
 	while (n_tmp)
 	{
 		n_tmp /= 10;
 		len++;
 	}
+	// fill the str
 	while (nbr)
 	{
 		str[--len] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
+	// et voila
 	return (str);
 }
+
+#include <stdio.h>
 
 int main(void)
 {

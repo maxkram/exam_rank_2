@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int		ft_list_size(t_list *begin_list)
+int ft_list_size(t_list *begin_list)
 {
-	int	size = 0;
-    while (begin_list)
-    {
-        begin_list = begin_list->next;
-        size++;
-    }
+	int size = 0;
+	while (begin_list)
+	{
+		begin_list = begin_list->next;
+		size++;
+	}
 	return (size);
 }
 
-int	main(void)
+int main(void)
 {
 	int n = 0;
 

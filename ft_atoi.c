@@ -1,14 +1,18 @@
 int ft_atoi(const char *str)
 {
+	// variables
 	int res = 0;
 	int sign = 1;
-
+	// blank spaces
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
+	// minus
 	if (*str == '-')
 		sign = -1;
+	// minus or plus
 	while (*str == '-' || *str == '+')
 		str++;
+	// passing digits
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + *str - '0';
@@ -20,7 +24,7 @@ int ft_atoi(const char *str)
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main(void)
+int main(void)
 {
 	printf("ft_atoi: %d\n", ft_atoi("123456"));
 	printf("atoi: %d\n", atoi("123456"));

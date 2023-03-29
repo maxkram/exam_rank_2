@@ -1,42 +1,47 @@
-int ft_atoi_base(const char *str, int base) {
-    int result = 0;
-    int sign = 1;
+int ft_atoi_base(const char *str, int base)
+{
+	int result = 0;
+	int sign = 1;
+	// blank spaces
+	while ((*str > 8 && *str < 14) || *str == ' ')
+		str++;
+	// minus or plus
+	if (*str++ == '-')
+		sign = -1;
+	else if (*str == '+')
+		str++;
 
-    while ((*str > 8 && *str < 14) || *str == ' ')
-        str++;
-    if (*str++ == '-')
-        sign = -1;
-    else if (*str == '+')
-        str++;
-    while (*str)
-    {
-        int digit;
-        if (*str >= '0' && *str <= '9')
-            digit = *str - '0';
-        else if (*str >= 'a' && *str <= 'f')
-            digit = *str - 'a' + 10;
-        else if (*str >= 'A' && *str <= 'F')
-            digit = *str - 'A' + 10;
-        else
-            break;
-        if (digit >= base)
-            break;
-        result = result * base + digit;
-        str++;
-    }
-    return (result * sign);
+	while (*str)
+	{
+		int digit;
+		if (*str >= '0' && *str <= '9')
+			digit = *str - '0';
+		else if (*str >= 'a' && *str <= 'f')
+			digit = *str - 'a' + 10;
+		else if (*str >= 'A' && *str <= 'F')
+			digit = *str - 'A' + 10;
+		else
+			break;
+		// too much of digit
+		if (digit >= base)
+			break;
+
+		result = result * base + digit;
+		str++;
+	}
+	return (result * sign);
 }
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int		main(void)
+int main(void)
 {
 	printf("%d\n", ft_atoi_base("011", atoi("2")));
 	printf("%d\n", ft_atoi_base("16", atoi("8")));
 	printf("%d\n", ft_atoi_base("123", atoi("10")));
 	printf("%d\n", ft_atoi_base("FF", atoi("16")));
-    return (0);
+	return (0);
 }
 
 // Assignment name  : ft_atoi_base

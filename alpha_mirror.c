@@ -7,8 +7,10 @@ int main(int ac, char **av)
 		int i = 0;
 		while (av[1][i])
 		{
+			// for lower case a+z - var
 			if (av[1][i] > 64 && av[1][i] < 91)
 				av[1][i] = 65 + 90 - av[1][i];
+			// for upper case a+z - var
 			else if (av[1][i] > 96 && av[1][i] < 123)
 				av[1][i] = 97 + 122 - av[1][i];
 			write(1, &av[1][i], 1);

@@ -3,68 +3,72 @@
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-    t_list *current, *previous;
-
-    current = *begin_list;
-    previous = NULL;
-
-    while (current != NULL)
-    {
-        if (cmp(current->data, data_ref) == 0)
-        {
-            if (previous == NULL)
-                *begin_list = current->next;
-            else
-                previous->next = current->next;
-            free(current);
-            current = previous == NULL ? *begin_list : previous->next;
-        }
-        else
-        {
-            previous = current;
-            current = current->next;
-        }
-    }
+	// variables
+	t_list *current, *previous;
+	current = *begin_list;
+	previous = NULL;
+	// use cmp func, if beginning, assign to next
+	// if not, assign prev, than clean current
+	// then assign current
+	while (current != NULL)
+	{
+		// if func works
+		if (cmp(current->data, data_ref) == 0)
+		{
+			if (previous == NULL)
+				*begin_list = current->next;
+			else
+				previous->next = current->next;
+			free(current);
+			current = previous == NULL ? *begin_list : previous->next;
+		}
+		// skip func move over
+		else
+		{
+			previous = current;
+			current = current->next;
+		}
+	}
 }
 
 #include <stdio.h>
 #include <string.h>
 
-void	print_list(t_list **begin_list)
+void print_list(t_list **begin_list)
 {
 	t_list *cur = *begin_list;
 	while (cur != 0)
 	{
-		printf("%s\n", cur -> data);
-		cur = cur -> next;
+		printf("%s\n", cur->data);
+		cur = cur->next;
 	}
 }
 
-int		main(void)
+int main(void)
 {
 	char straa[] = "String aa";
 	t_list *aa = malloc(sizeof(t_list));
-	aa -> next = 0;
-	aa -> data = straa;
+	aa->next = 0;
+	aa->data = straa;
 
 	char strbb[] = "String bb";
 	t_list *bb = malloc(sizeof(t_list));
-	bb -> next = 0;
-	bb -> data = strbb;
+	bb->next = 0;
+	bb->data = strbb;
 
 	char strcc[] = "String cc";
 	t_list *cc = malloc(sizeof(t_list));
-	cc -> next = 0;
-	cc -> data = strcc;
+	cc->next = 0;
+	cc->data = strcc;
 
 	char strdd[] = "String dd";
 	t_list *dd = malloc(sizeof(t_list));
-	dd -> next = 0;
-	dd -> data = strdd;
+	dd->next = 0;
+	dd->data = strdd;
 
-	aa -> next = bb;
-	bb -> next = cc;
-	cc -> next = dd;
+	aa->next = bb;
+	bb->next = cc;
+	cc->next = dd;
 
 	t_list **begin_list = &aa;
 
@@ -74,7 +78,6 @@ int		main(void)
 	print_list(begin_list);
 	return (0);
 }
-
 
 // Assignment name  : ft_list_remove_if
 // Expected files   : ft_list_remove_if.c

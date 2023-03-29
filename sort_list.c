@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "sort_list.h"
 
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 {
 	int swap;
 	t_list *tmp;
@@ -26,22 +26,22 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 #include <stdio.h>
 #include <stdlib.h>
 
-t_list	*add_int(t_list *list, int nb)
+t_list *add_int(t_list *list, int nb)
 {
 	t_list *new;
 
-	new = (t_list*)malloc(sizeof(t_list));
+	new = (t_list *)malloc(sizeof(t_list));
 	new->data = nb;
 	new->next = list;
 	return (new);
 }
 
-int		ascending(int a, int b)
+int ascending(int a, int b)
 {
-		return (a <= b);
+	return (a <= b);
 }
 
-int	main(void)
+int main(void)
 {
 	t_list *list;
 
@@ -53,12 +53,12 @@ int	main(void)
 	list = add_int(list, 1);
 	list = sort_list(list, &ascending);
 
-	while(list != NULL)
+	while (list != NULL)
 	{
 		printf("%d\n", list->data);
 		list = list->next;
 	}
-	
+
 	return (0);
 }
 

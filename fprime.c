@@ -1,27 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		int	i = 1;
-		int	number = atoi(av[1]);
+		int i = 1;
+		int number = atoi(av[1]);
+		// corner case
 		if (number == 1)
 			printf("1");
+		// increase i till number, %-ing number on i, if 0,
+		// write it down, then divide number by i, than assign 1 to i
 		while (number >= ++i)
 		{
 			if (number % i == 0)
 			{
 				printf("%d", i);
+				// avoid the last *
 				if (number == i)
-					break ;
+					break;
+
 				printf("*");
 				number /= i;
 				i = 1;
 			}
 		}
 	}
+
 	printf("\n");
 	return (0);
 }

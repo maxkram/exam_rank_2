@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
-void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
+void ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
 	t_list *list_ptr = begin_list;
 	while (list_ptr)
@@ -12,25 +12,24 @@ void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 }
 
 #include <stdio.h>
-void	print_data(void *data)
+void print_data(void *data)
 {
 	printf("%s\n", data);
 }
 
-int	main(void)
+int main(void)
 {
 	t_list *test_list = malloc(sizeof(t_list));
-	test_list -> data = "what's up";
-	test_list -> next = malloc(sizeof(t_list));
-	test_list -> next -> data = "42";
-	test_list -> next -> next = malloc(sizeof(t_list));
-	test_list -> next -> next -> data = "peeps?";
-	test_list -> next -> next -> next = NULL;
+	test_list->data = "what's up";
+	test_list->next = malloc(sizeof(t_list));
+	test_list->next->data = "42";
+	test_list->next->next = malloc(sizeof(t_list));
+	test_list->next->next->data = "peeps?";
+	test_list->next->next->next = NULL;
 
 	ft_list_foreach(test_list, print_data);
 	return (0);
 }
-
 
 // Assignment name  : ft_list_foreach
 // Expected files   : ft_list_foreach.c, ft_list.h
