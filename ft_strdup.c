@@ -1,30 +1,30 @@
 #include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char *ft_strdup(char *src)
 {
-	int	i = 0;
-	int	length = 0;
-	char	*strcpy;
+	int i = 0;
+	int len = 0;
+	char *strcpy;
 
-	while (src[length])
-		length++;
-	strcpy = malloc(sizeof(*strcpy) * (length + 1));
-	if (strcpy != NULL)
+	while (src[len])
+		len++;
+	strcpy = malloc(sizeof(*strcpy) * len + 1);
+	if (strcpy == NULL)
+		return (NULL);
+	while (src[i])
 	{
-		while (src[i])
-		{
-			strcpy[i] = src[i];
-			i++;
-		}
-		strcpy[i] = '\0';
+		strcpy[i] = src[i];
+		i++;
 	}
+	strcpy[i] = '\0';
 	return (strcpy);
 }
 
 #include <stdio.h>
-char    *ft_strdup(char *src);
+char *ft_strdup(char *src);
 
-int main(void) {
+int main(void)
+{
 	char *greet = "Salut";
 	char *test1 = "Gonna pass this test, even if I gotta dup!\n";
 	char *test2 = ft_strdup(test1);
@@ -34,7 +34,6 @@ int main(void) {
 	printf("test2: %s", test2);
 	return (0);
 }
-
 
 // Assignment name  : ft_strdup
 // Expected files   : ft_strdup.c

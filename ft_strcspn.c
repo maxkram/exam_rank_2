@@ -1,35 +1,35 @@
 #include <stddef.h>
 
-size_t  ft_strcspn(const char *s, const char *reject)
+size_t ft_strcspn(const char *s, const char *reject)
 {
-    int     i = 0;
+	int i = 0;
 
-    while (s[i])
-    {
+	while (s[i])
+	{
 		int j = 0;
-        while (reject[j])
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+		while (reject[j])
+		{
+			if (s[i] == reject[j])
+				return (i);
+			j++;
+		}
+		i++;
+	}
+	return (i);
 }
 
 #include <stdio.h>
 #include <string.h>
 
-int main (void)
+int main(void)
 {
-  char str[] = "fcba73";
-  char keys[] = "1234567890";
-  int i = ft_strcspn (str, keys);
-  printf ("The first number in str is at position %d.\n", i + 1);
-  int j = strcspn (str, keys);
-  printf ("The first number in str is at position %d.\n", j + 1);
-  return (0);
+	char str[] = "fcba73";
+	char keys[] = "1234567890";
+	int i = ft_strcspn(str, keys);
+	printf("The first number in str is at position %d.\n", i + 1);
+	int j = strcspn(str, keys);
+	printf("The first number in str is at position %d.\n", j + 1);
+	return (0);
 }
 
 // Assignment name	: ft_strcspn

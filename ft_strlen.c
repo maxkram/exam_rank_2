@@ -1,6 +1,6 @@
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	i = 0;
+	int i = 0;
 	while (str[i])
 		i++;
 	return (i);
@@ -8,10 +8,11 @@ int	ft_strlen(char *str)
 
 #include <stdio.h>
 
-int main(int ac, char **av) {
-    if (ac > 1)
-    	printf("The length of the message is: %d\n", ft_strlen(av[1]));
-    return 0;
+int main(int ac, char **av)
+{
+	if (ac > 1)
+		printf("The length of the message is: %d\n", ft_strlen(av[1]));
+	return 0;
 }
 
 // Assignment name  : ft_strlen

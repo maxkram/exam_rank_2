@@ -1,4 +1,4 @@
-char    *ft_strrev(char *str)
+char *ft_strrev(char *str)
 {
 	int i = -1;
 	int len = 0;
@@ -14,7 +14,7 @@ char    *ft_strrev(char *str)
 	return (str);
 }
 #include <stdio.h>
-int	main(void)
+int main(void)
 {
 	char s[] = "Hello World";
 	ft_strrev(s);
