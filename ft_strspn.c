@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-size_t	ft_strspn(const char *s, const char *accept)
+size_t ft_strspn(const char *s, const char *accept)
 {
     int i = 0;
     int c = 0;
-    
+
     while (s[i])
     {
         while (accept[c])
@@ -24,23 +24,19 @@ size_t	ft_strspn(const char *s, const char *accept)
 
 int main(void)
 {
-	char s[] = "hellpo";
-	char accept[] = "oehl";
-	size_t num = ft_strspn(s, accept);
-	size_t num1 = strspn(s, accept);
-	printf("%ld\n", num);
-	printf("%ld", num1);
+    char s[] = "hellpo";
+    char accept[] = "oehl";
+    size_t num = ft_strspn(s, accept);
+    size_t num1 = strspn(s, accept);
+    printf("%ld\n", num);
+    printf("%ld", num1);
     return 0;
 }
 
-// Assignment name	: ft_strcspn
-// Expected files	: ft_strcspn.c
+// Assignment name : ft_strspn
+// Expected files : ft_strspn.c
 // Allowed functions: None
-// ---------------------------------------------------------------
-
-// Reproduce exactly the behavior of the function strcspn
-// (man strcspn).
-
-// The function should be prototyped as follows:
-
-// size_t	ft_strcspn(const char *s, const char *reject);
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+// Reproduce exactly the behavior of the strspn function(man strspn).
+// The function should be prototyped as follows :
+// size_t ft_strspn(const char *s, const char *accept);

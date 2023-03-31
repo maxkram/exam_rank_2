@@ -1,13 +1,13 @@
-int		max(int* tab, unsigned int len)
+int max(int *tab, unsigned int len)
 {
-	unsigned int		i = 0;
-	int		max_value = 0;
+	unsigned int i = 0;
+	int max_value = 0;
 	if (tab)
 	{
 		max_value = tab[0];
 		while (i < len)
 		{
-			if(tab[i] > max_value)
+			if (tab[i] > max_value)
 				max_value = tab[i];
 			i++;
 		}
@@ -17,11 +17,10 @@ int		max(int* tab, unsigned int len)
 #include <stdio.h>
 int main(void)
 {
-	int tab[] = {4,7,3,8,5,1};
+	int tab[] = {4, 7, 3, 8, 5, 1};
 	printf("%d", max(tab, 6));
 	return 0;
 }
-
 
 // Assignment name  : max
 // Expected files   : max.c

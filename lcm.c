@@ -1,11 +1,11 @@
-unsigned int    lcm(unsigned int a, unsigned int b)
+unsigned int lcm(unsigned int a, unsigned int b)
 {
-	unsigned int n;
-
 	if (a == 0 || b == 0)
 		return (0);
-	n = (a > b) ? a : b;
-	while(a > 0 && b > 0)
+
+	unsigned int n = (a > b) ? a : b;
+
+	while (a > 0 && b > 0)
 	{
 		if (n % a == 0 && n % b == 0)
 			return (n);
@@ -14,7 +14,7 @@ unsigned int    lcm(unsigned int a, unsigned int b)
 	return (0);
 }
 #include <stdio.h>
-int	main(void)
+int main(void)
 {
 	printf("%d\n", lcm(122, 22));
 	printf("%d\n", lcm(100, 10));

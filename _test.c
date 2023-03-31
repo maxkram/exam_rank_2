@@ -1,40 +1,34 @@
-char *ft_strpbrk(const char *s1, const char *s2)
-{
-	if (!s1 || !s2)
-		return (0);
-	while (*s1)
-	{
-		int i = 0;
-		while (*s2)
-		{
-			if (*s1 == s2[i])
-				return (char *)s1;
-			i++;
-		}
-		s1++;
-	}
-	return (0);
-}
+#include <unistd.h>
 
-#include <stdio.h>
-#include <string.h>
+void print_bits(unsigned char octet)
+{
+	int div = 128;
+	while (div != 0)
+	{
+		if (div <= octet)
+		{
+			write(1, "1", 1);
+			octet %= div;
+		}
+		else
+			write(1, "0", 1);
+		div /= 2;
+	}
+}
 
 int main(void)
 {
-	char s1[] = "geeksforgeeks";
-	char s2[] = "app";
-	char s3[] = "kite";
-	char *r, *t;
-	r = ft_strpbrk(s1, s2);
-	if (r != 0)
-		printf("First matching character: %c\n", *r);
-	else
-		printf("Character not found");
-
-	t = ft_strpbrk(s1, s3);
-	if (t != 0)
-		printf("\nFirst matching character: %c\n", *t);
-	else
-		printf("Character not found");
+	print_bits(32);
+	write(1, "\n", 1);
+	print_bits(1);
+	write(1, "\n", 1);
+	print_bits(2);
+	write(1, "\n", 1);
+	print_bits(10);
+	write(1, "\n", 1);
+	print_bits(113);
+	write(1, "\n", 1);
+	print_bits(255);
+	write(1, "\n", 1);
 	return 0;
 }

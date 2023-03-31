@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void	print_bits(unsigned char octet)
+void print_bits(unsigned char octet)
 {
 	int div = 128;
 	while (div != 0)
@@ -32,7 +32,6 @@ int main(void)
 	write(1, "\n", 1);
 	return 0;
 }
-
 
 // Assignment name  : print_bits
 // Expected files   : print_bits.c

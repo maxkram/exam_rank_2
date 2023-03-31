@@ -1,4 +1,4 @@
-#include <unistd.h>\
+#include <unistd.h>
 
 int main(int ac, char **av)
 {
@@ -17,7 +17,6 @@ int main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
-
 
 // Assignment name  : last_word
 // Expected files   : last_word.c
