@@ -10,16 +10,15 @@ int ft_atoi(char *str)
 
 void print_hex(int n)
 {
-	char hex_arr[] = "0123456789abcdef";
 	if (n >= 16)
 		print_hex(n / 16);
-	write(1, &hex_arr[n % 16], 1);
+	write(1, &"0123456789abcdef"[n % 16], 1);
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc == 2)
-		print_hex(ft_atoi(argv[1]));
+	if (ac == 2)
+		print_hex(ft_atoi(av[1]));
 	write(1, "\n", 1);
 	return (0);
 }

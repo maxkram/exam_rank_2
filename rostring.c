@@ -1,42 +1,44 @@
 #include <unistd.h>
 
-void	rostring(char *str)
+int ft_check(char c)
 {
-	int		i = 0;
-	int		k;
+	return (c == ' ' || c == '\t') ? 1 : 0;
+}
+
+void rostring(char *str)
+{
+	int i = 0;
+	int k;
 
 	if (*str)
 	{
-		while (str[i] == ' ' || str[i] == '\t')
+		while (ft_check(str[i]))
 			i++;
 		k = i;
-		while (str[i] && str[i] != ' ' && str[i] != '\t')
+		while (str[i] && !ft_check(str[i]))
 			i++;
 		while (str[i])
 		{
-			if (str[i] && (str[i] != ' ' && str[i] != '\t') \
-				&& (str[i - 1] == ' ' || str[i - 1] == '\t'))
+			if (str[i] && !(ft_check(str[i])) && (ft_check(str[i - 1])))
 			{
-				while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+				while (str[i] && !(ft_check(str[i])))
 					write(1, &str[i++], 1);
 				write(1, " ", 1);
 			}
 			i++;
 		}
-		while (str[k] && (str[k] != ' ' && str[k] != '\t'))
+		while (str[k] && !(ft_check(str[k])))
 			write(1, &str[k++], 1);
 	}
 }
 
-int		main(int argc, char *argv[])
+int main(int ac, char *av[])
 {
-	if (argc > 1)
-		rostring(argv[1]);
+	if (ac > 1)
+		rostring(av[1]);
 	write(1, "\n", 1);
 	return (0);
 }
-
-
 
 // Assignment name  : rostring
 // Expected files   : rostring.c

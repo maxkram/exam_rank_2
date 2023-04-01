@@ -1,5 +1,10 @@
 #include <unistd.h>
 
+int ft_check(char c)
+{
+	return (c == '\0' || c == ' ' || c == '\t') ? 1 : 0;
+}
+
 int main(int ac, char **av)
 {
 	int start, end, i = 0;
@@ -9,13 +14,11 @@ int main(int ac, char **av)
 			i++;
 		while (i >= 0)
 		{
-			while (av[1][i] == '\0' || av[1][i] == ' ' \
-				|| av[1][i] == '\t')
-					i--;
+			while (ft_check(av[1][i]))
+				i--;
 			end = i;
-			while (av[1][i] && av[1][i] != ' ' \
-				&& av[1][i] != '\t')
-					i--;
+			while (av[1][i] && !(ft_check(av[1][i])))
+				i--;
 			start = i + 1;
 			int flag = start;
 			while (start <= end)

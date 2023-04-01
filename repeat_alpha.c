@@ -1,24 +1,24 @@
 #include <unistd.h>
 
-void	ft_repeat_alpha(char *str)
+void ft_repeat_alpha(char *str)
 {
-	int	letter, i = 0;			
+	int letter, i = 0;
 	while (str[i])
 	{
 		letter = 0;
-		if (str[i] >= 'A' && str[i] <='Z')
+		if (str[i] > 64 && str[i] < 91)
 			letter = str[i] - 64;
-		else if (str[i] >= 'a' && str[i] <= 'z')
+		else if (str[i] > 64 && str[i] < 123)
 			letter = str[i] - 96;
-		else						
-			letter = 1;						
-		while (letter--)				
+		else
+			letter = 1;
+		while (letter--)
 			write(1, &str[i], 1);
 		i++;
 	}
 }
 
-int		main(int ac, char *av[])
+int main(int ac, char *av[])
 {
 	if (ac == 2)
 		ft_repeat_alpha(av[1]);
