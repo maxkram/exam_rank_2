@@ -4,22 +4,22 @@
 int *ft_rrange(int start, int end)
 {
 	int *rrange;
-	int i;
+	int len;
 
 	if (start > end)
-		i = (start - end) + 1;
+		len = (start - end) + 1;
 	else
-		i = (end - start) + 1;
+		len = (end - start) + 1;
 
-	rrange = (int *)malloc(sizeof(int) * i);
+	rrange = (int *)malloc(sizeof(int) * len);
 
-	while (i--)
+	while (len--)
 	{
-		rrange[i] = start;
+		rrange[len] = start;
 		start -= (start < end) ? (-1) : (1);
 	}
 
-	rrange[i] = end;
+	rrange[len] = end;
 
 	return (rrange);
 }
