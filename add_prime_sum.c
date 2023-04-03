@@ -26,18 +26,13 @@ void ft_putnbr(int i)
 	write(1, &"0123456789"[i % 10], 1);
 }
 
-int is_prime(int nb)
+int is_prime(int n)
 {
 	int i = 2;
-	if (nb <= 1)
+	if (n <= 1)
 		return (0);
-	while (i * i <= nb)
-	{
-		if (nb % i == 0)
-			return (0);
-		else
-			i++;
-	}
+	while (i * i <= n)
+		return (n % i == 0) ? 0 : i++;
 	return (1);
 }
 

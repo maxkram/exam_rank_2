@@ -3,7 +3,7 @@ int ft_atoi_base(const char *str, int base)
 	int result = 0;
 	int sign = 1;
 	// blank spaces
-	while ((*str > 8 && *str < 14) || *str == ' ')
+	while ((*str > 8 && *str < 14) || *str == 32)
 		str++;
 	// minus or plus
 	if (*str++ == '-')

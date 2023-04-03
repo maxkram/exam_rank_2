@@ -4,29 +4,29 @@
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 	// variables
-	t_list *current, *previous;
-	current = *begin_list;
-	previous = NULL;
+	t_list *curr, *prev;
+	curr = *begin_list;
+	prev = NULL;
 	// use cmp func, if beginning, assign to next
-	// if not, assign prev, than clean current
-	// then assign current
-	while (current != NULL)
+	// if not, assign prev, than clean curr
+	// then assign curr
+	while (curr != NULL)
 	{
 		// if func works
-		if (cmp(current->data, data_ref) == 0)
+		if (cmp(curr->data, data_ref) == 0)
 		{
-			if (previous == NULL)
-				*begin_list = current->next;
+			if (prev == NULL)
+				*begin_list = curr->next;
 			else
-				previous->next = current->next;
-			free(current);
-			current = previous == NULL ? *begin_list : previous->next;
+				prev->next = curr->next;
+			free(curr);
+			curr = prev == NULL ? *begin_list : prev->next;
 		}
 		// skip func move over
 		else
 		{
-			previous = current;
-			current = current->next;
+			prev = curr;
+			curr = curr->next;
 		}
 	}
 }

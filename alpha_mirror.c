@@ -13,8 +13,7 @@ int main(int ac, char **av)
 			// for upper case a+z - var
 			else if (av[1][i] > 96 && av[1][i] < 123)
 				av[1][i] = 97 + 122 - av[1][i];
-			write(1, &av[1][i], 1);
-			i++;
+			write(1, &av[1][i++], 1);
 		}
 	}
 	write(1, "\n", 1);

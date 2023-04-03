@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	if (ac == 2)
 	{
@@ -10,11 +10,9 @@ int	main(int ac, char **av)
 		{
 			if (av[1][i] == 90 || av[1][i] == 122)
 				av[1][i] -= 25;
-			else if ((av[1][i] > 64 && av[1][i] < 90)
-				|| (av[1][i] > 96 && av[1][i] < 122))
-				av[1][i] += 1;
-			write(1, &av[1][i], 1);
-			i++;
+			else if ((av[1][i] > 64 && av[1][i] < 90) || (av[1][i] > 96 && av[1][i] < 122))
+				av[1][i]++;
+			write(1, &av[1][i++], 1);
 		}
 	}
 	write(1, "\n", 1);
