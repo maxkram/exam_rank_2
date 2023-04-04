@@ -1,50 +1,61 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int *ft_rrange(int start, int end)
+int ft_isspace(char c)
 {
+	return (c == 32 || c == '\n' || c == '\t');
 }
 
-int main(void)
+int count_word(char *str)
 {
-	int i;
-	int *prt;
-
-	i = 0;
-	prt = ft_rrange(1, 3);
-	while (i <= 2)
+	int cnt;
+	while (*str)
 	{
-		printf("%d ", prt[i]);
+		while (*str && ft_isspace(*str))
+			str++;
+		if (*str && !ft_isspace(*str))
+		{
+			cnt++;
+			while (*str && ft_isspace(*str))
+				str++;
+		}
+	}
+	return (cnt);
+}
+
+char *malloc_word(char *str)
+{
+	char *word;
+	int i = 0;
+	while (str[i] && !ft_isspace(str[i]))
+		i++;
+	word = (char *)malloc(sizeof(char) * (i + 1));
+	i = 0;
+	while (str[i] && !ft_isspace(str[i]))
+	{
+		word[i] = str[i];
 		i++;
 	}
-	printf("\n");
+	word[i] = '\0';
+	return (word);
+}
 
-	i = 0;
-	prt = ft_rrange(-1, 2);
-	while (i <= 3)
+char **ft_split(char *str)
+{
+	char **arr = (char **)malloc(sizeof(char *) * (count_word(str) + 1));
+	int i = 0;
+	while (*str)
 	{
-		printf("%d ", prt[i]);
-		i++;
+		while (*str && ft_isspace(*str))
+			str++;
+		if (*str && ft_isspace(*str))
+		{
+			arr[i] = malloc_word(str);
+			i++;
+			while (*str && !ft_isspace(*str))
+				str++;
+		}
 	}
-	printf("\n");
-
-	i = 0;
-	prt = ft_rrange(0, 0);
-	while (i <= 0)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
-	printf("\n");
-
-	i = 0;
-	prt = ft_rrange(0, -3);
-	while (i <= 3)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
-	printf("\n");
-
-	return (0);
+	arr[i] = NULL;
+	return (arr);
 }
