@@ -1,0 +1,11 @@
+given a str print 1st word
+
+lib unistd
+main
+ac==2
+create i = 0
+while loop checking if empty spaces
+	increase str
+while loop checking if not empty spaces
+	write this av
+	increase i

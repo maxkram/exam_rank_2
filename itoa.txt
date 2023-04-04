@@ -1,0 +1,8 @@
+lib stdlib for malloc
+
+create int len = 0, long n_tmp = num
+create *str with malloc and len + 1
+if num is the smallest integer
+	return "smallest integer"
+if !str
+	return NULL

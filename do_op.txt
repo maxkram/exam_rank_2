@@ -1,0 +1,11 @@
+given 3 av do arithmetic
+
+lib stdio (for printf)
+lib stdlib (for atoi)
+
+main
+	check if ac==4
+		create n1, n2 with atoi from av
+		use switch with 2nd av
+		iterate 5 cases (+-*/%) with break
+	printf num

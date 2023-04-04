@@ -1,0 +1,16 @@
+lib sdtlib(atoi) and stdio(printf)
+
+main
+check if ac==2
+create i = 1
+create num with atoi from av
+check if num == 1
+	printf 1
+while loop if num >= i
+	if num % i == 0
+		printf i
+		check if num == i
+			stop
+		printf *
+		divide num on i and update num
+		make i equal 1 again

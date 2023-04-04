@@ -1,0 +1,13 @@
+given str we change letter like mirror in alphabet
+
+lib unistd
+main
+	check ac==2
+		create i=0
+		while loop
+			if 2nd av capital letter
+				this av equal sum of 1st and \
+					last letter minus this av
+			else if the same for minuscule letter
+			write this av
+			increase i
