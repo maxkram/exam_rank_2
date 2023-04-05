@@ -1,0 +1,9 @@
+create int iterator i equal 0
+while i of s exists
+	create int iterator j equal 0
+	while j of reject exists
+		if i of s equals j of reject
+			return i
+		increase j
+	increase i
+return i

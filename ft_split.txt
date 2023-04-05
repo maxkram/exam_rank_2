@@ -1,0 +1,41 @@
+include stdlib for malloc
+1 int ft_isspace
+	check if c equals ' ' or '\n' or '\t'
+
+2 int count words
+	create int count equals 0
+	while *str exists
+		while *str exists and check if it spaces
+			increase str
+		if *str exists and check if it is not spaces
+			increase count
+			while *str exists and check if it is not spaces
+				increase str
+	return count
+
+3 char *malloc_word from *str
+	create char *word (array)
+	create iterator i equal 0
+	while str[i] exist and no blank spaces
+		increase i
+	create word with malloc with size of i plus 1
+	i equal 0
+	while str[i] exists and no blank spaces
+		word[i] equals str[i]
+		increase i
+	word[i] equals end sign '\0'
+	return word
+
+4 char **ft_split from *str
+	create char **arr with malloc with length from count_words + 1
+	create iterator i = 0
+	while *str exist
+		while *str exist and there are blank spaces
+			increase str
+		while *str exist and there are no blank spaces
+			arr[i] element equal result of malloc_word with str
+			increase i
+			while *str exist and no blank spaces
+				increase str
+	the last i of array is NULL
+	return arr

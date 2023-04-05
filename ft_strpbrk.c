@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 char *ft_strpbrk(const char *s1, const char *s2)
 {
 	if (!s1 || !s2)
@@ -22,24 +19,25 @@ char *ft_strpbrk(const char *s1, const char *s2)
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main()
 {
-	char s1[] = "geeksforgeeks";
-	char s2[] = "app";
-	char s3[] = "kite";
-	char *r, *t;
-	r = ft_strpbrk(s1, s2);
-	if (r != 0)
-		printf("First matching character: %c\n", *r);
+	const char str1[] = "abcde2fghi3jk4l";
+	const char str2[] = "34";
+
+	char *ret = strpbrk(str1, str2);
+	char *ret1 = ft_strpbrk(str1, str2);
+
+	if (ret)
+		printf("First matching character: %c\n", *ret);
 	else
 		printf("Character not found");
 
-	t = ft_strpbrk(s1, s3);
-	if (t != 0)
-		printf("\nFirst matching character: %c\n", *t);
+	if (ret1)
+		printf("First matching character: %c\n", *ret1);
 	else
 		printf("Character not found");
-	return 0;
+
+	return (0);
 }
 
 // Assignment name	: ft_strpbrk

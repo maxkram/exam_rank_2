@@ -1,0 +1,22 @@
+lib stdlib for NULL and free
+include ft_list
+
+void func
+	create t_list *curr equal begin_list from argument
+	create t_list *prev equal NULL
+
+	while loop while curr not equal NULL
+		if result of func on curr -> data and dara_ref == 0
+			if prev equal NULL
+				*begin_list equal curr->next
+			else
+				prev->next equal curr->next
+			free(curr);
+			if prev equal NULL
+				curr equal *begin_list
+			else
+				curr equal prev->next
+		else
+			prev equal curr
+			curr equal curr->next
+

@@ -1,0 +1,13 @@
+create int i equal 0
+create len equal 0
+
+while len of str
+	increase len
+create *strcpy with malloc with size of len + 1
+if no strcpy
+	return NULL
+while i of src
+	i of strcpy equal i of src
+	increase I
+last i of strcpy = '\0'
+return strcpy

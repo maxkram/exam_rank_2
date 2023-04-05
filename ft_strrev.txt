@@ -1,0 +1,11 @@
+create int i equal -1
+create int len equal 0
+
+while len of str
+	len++
+while i less than len / 2
+	increase i
+	creat tmp equal str[i]
+	str[i] equal str[len - 1 - i]
+	str[len - 1 - i] equal tmp
+return tmp

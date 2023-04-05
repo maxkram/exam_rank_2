@@ -22,15 +22,15 @@ size_t ft_strspn(const char *s, const char *accept)
     return (i);
 }
 
-int main(void)
+int main()
 {
-    char s[] = "hellpo";
-    char accept[] = "oehl";
-    size_t num = ft_strspn(s, accept);
-    size_t num1 = strspn(s, accept);
-    printf("%ld\n", num);
-    printf("%ld", num1);
-    return 0;
+    int len = strspn("geeks for geeks", "geek");
+    int len1 = ft_strspn("geeks for geeks", "geek");
+
+    printf("Length of initial segment matching : %d\n", len);
+    printf("Length of initial segment matching : %d\n", len1);
+
+    return (0);
 }
 
 // Assignment name : ft_strspn
