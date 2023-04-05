@@ -10,7 +10,7 @@ char *ft_itoa(int nbr)
 	if (nbr == -2147483648)
 		return ("-2147483648");
 	// error with malloc
-	if (str == 0)
+	if (!str)
 		return (NULL);
 	// end of the line
 	str[len] = '\0';
