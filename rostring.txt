@@ -1,0 +1,21 @@
+int ft_check
+    if c equals 32 or 9
+        return 1
+    else
+        0
+void rostring with *str
+    create i equal 0 and k
+    if str exist
+        while ft_check of i of str is true
+            increase i
+        k equal i
+        while i of str and NOT ft_check of i of str
+            increase i
+        while i of str exist
+            if i of str and NOT ft_check of i of str AND ft_check of i-1 of str
+                while i of str and NOT ft_check of i of str
+                    write i of str
+                    include i
+                write 32
+        while k of str and NOT ft_check k of str
+            write k of str
