@@ -1,34 +1,31 @@
 #include <unistd.h>
 
-int ft_check(char c)
-{
-	return (c == '\0' || c == ' ' || c == '\t') ? 1 : 0;
-}
-
 int main(int ac, char **av)
 {
 	int start, end, i = 0;
+
 	if (ac == 2)
 	{
 		while (av[1][i])
 			i++;
 		while (i >= 0)
 		{
-			while (ft_check(av[1][i]))
+			while (i >= 0 && (av[1][i] == 32 || av[1][i] == 9))
 				i--;
 			end = i;
-			while (av[1][i] && !(ft_check(av[1][i])))
+			while (i >= 0 && av[1][i] != 32 && av[1][i] != 9)
 				i--;
 			start = i + 1;
-			int flag = start;
-			while (start <= end)
-				write(1, &av[1][start++], 1);
-			if (flag)
-				write(1, " ", 1);
+			if (start <= end)
+			{
+				write(1, &av[1][start], end - start + 1);
+				if (i >= 0)
+					write(1, " ", 1);
+			}
 		}
+		write(1, "\n", 1);
+		return (0);
 	}
-	write(1, "\n", 1);
-	return (0);
 }
 
 // Assignment name  : rev_wstr

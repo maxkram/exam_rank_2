@@ -31,7 +31,7 @@ int main(void)
 // Write a function who takes two unsigned int as parameters and returns the
 // computed LCM of those parameters.
 
-// LCM (Lowest Common Multiple) of two non-zero integers is the smallest postive
+// LCM (Lowest Common Multiple) of two non-zero integers is the smallest positive
 // integer divisible by the both integers.
 
 // A LCM can be calculated in two ways:

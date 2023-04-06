@@ -1,0 +1,24 @@
+lib unistd
+int ft_check with args *str char c and len
+create j equal 0
+while j less than len
+    if j of str equal to c
+        return 0
+    increase j
+return 1
+
+void ft_inter with *s1 and *s2
+create int i equal 0
+while i of s1 exists
+    if result of ft_check is 1
+        create j equal 0
+        while j of s2 exists
+            j of s2 equal i of s1
+                write i of s1
+                break
+            increase j
+    increase i
+
+main
+if ac equal 3
+    ft_inter with av1 and av2

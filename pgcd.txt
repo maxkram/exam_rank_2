@@ -1,0 +1,12 @@
+libs stdio and stdlib
+
+main
+if ac equals 3
+    create n1 and n2 with atoi from av
+    if n1, n2 more than 0
+        while n1 not equal n2
+            if n1 more n2
+                n1 - n2
+            else
+                n2 - n1
+        print n1

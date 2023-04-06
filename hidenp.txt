@@ -1,0 +1,13 @@
+lib unistd for write
+
+main
+create i an j equal 0
+if ac equal 3
+    while j of av2 and i of av1 exist
+        if j of av2 equal i of av1
+            increase i
+        increase j
+    if end of av is '\0'
+        write "1"
+    else
+        wriet "0"

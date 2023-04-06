@@ -1,0 +1,8 @@
+if no a or b
+    return 0
+create unsigned int n equal to biggest of a or b
+while a and b more than 0
+    if modulo of n and a and b equal 0
+        return n
+    increase n
+return 0

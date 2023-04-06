@@ -1,0 +1,8 @@
+main
+if ac equal 2
+    create int i equal 0
+    while i of av
+        increase i
+    while i
+        write i of av
+        decrease i

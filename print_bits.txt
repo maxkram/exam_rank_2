@@ -1,0 +1,11 @@
+lib unistd
+
+void print_bits
+create int div 128
+while div not equal 0
+    if div less or equal octet
+        write 1
+        octet modulo div
+    else
+        write 0
+    div divide 2

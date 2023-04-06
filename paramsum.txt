@@ -1,0 +1,8 @@
+void ft_putnbr
+if i > 9
+    ft_putnbr i / 10
+write from array "0..9" n-th element modulo by 10
+
+main
+    void av
+    ft_putnbr ac - 1

@@ -1,0 +1,9 @@
+create unsigned int i equal 0
+create int max_value equal 0
+if array from argument exist
+    max_value equals to 1st element
+    while i less than len from argument
+        if i of tab > max_value
+            max_value equals i of tab
+        increase if
+return max_value
