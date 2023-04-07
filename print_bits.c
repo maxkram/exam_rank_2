@@ -46,3 +46,10 @@ int main(void)
 // void	print_bits(unsigned char octet);
 
 // Example, if you pass 2 to print_bits, it will print "00000010"
+
+// DESCRIPTION
+// This program defines a function print_bits that takes an unsigned char as input and prints its binary representation to the standard output using the write system call from the unistd.h library.
+
+// The print_bits function works by using a loop to iterate through all the bits in the octet from left to right. It starts by initializing a divisor variable div to 128 (which is equal to 2^7). The loop continues until the divisor reaches zero. At each iteration, the function checks if the divisor is less than or equal to the input octet. If it is, then the function prints a '1' to the standard output and subtracts the divisor from the octet. Otherwise, the function prints a '0'. Then, the function divides the divisor by 2 (shifts it one bit to the right) and continues the loop with the new divisor.
+
+// The main function demonstrates how to use the print_bits function by calling it with different unsigned char values and printing a newline character to separate the output for each value. When run, the program outputs the binary representation of each input octet, one per line.
