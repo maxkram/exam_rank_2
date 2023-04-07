@@ -55,3 +55,15 @@ int main(void)
 //     struct s_list *next;
 //     void          *data;
 // }                 t_list;
+
+// DESCRIPTION
+// This program defines a function ft_list_foreach that takes a linked list of type t_list and a function pointer f as arguments.It then iterates through each element of the linked list and applies the function f to the data stored in each element.
+
+// 	The t_list structure is defined in a header file ft_list.h which is not shown in the code snippet.However,
+// 	based on the usage in the program, we can assume that it has two members : a void *pointer data and a pointer to the next element of the list next.
+
+// 																			   The ft_list_foreach function first sets a pointer list_ptr to the beginning of the list,
+// 	then enters a loop.The loop iterates through the list until list_ptr is NULL, which signifies the end of the list.During each iteration, it applies the function f to the data member of the current element pointed to by list_ptr.The function pointer f should be a function that takes a void *argument, so that it can be applied to any type of data stored in the linked list.
+
+// 																																																																												 The print_data function is defined to print the string pointed to by the data member of a t_list element.In the main function,
+// 	a test linked list is created with three elements, each containing a string.The ft_list_foreach function is then called with this list and the print_data function as arguments, which prints out each string in the list on a new line.

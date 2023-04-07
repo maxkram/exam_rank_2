@@ -53,3 +53,14 @@ int main(void)
 //     struct s_list *next;
 //     void          *data;
 // }                 t_list;
+
+// DESCRIPTION
+// This program is a simple implementation of a function that counts the number of elements in a linked list.
+
+// 	The ft_list_size function takes a pointer to the beginning of a linked list as an argument and returns the number of elements in that list.
+
+// 	The function works by initializing a variable size to zero,
+// 	and then iterating through the linked list using a while loop.Inside the loop, the function moves to the next element in the list by setting begin_list to begin_list->next and increments the size variable by one.This process continues until begin_list is equal to NULL, indicating that the end of the list has been reached.Finally, the function returns the value of size, which represents the number of elements in the list.
+
+// 																																																																																														The main function creates a simple linked list with three nodes and passes a pointer to the first node to ft_list_size.It then prints the value returned by ft_list_size,
+// 	which is 3 in this case.

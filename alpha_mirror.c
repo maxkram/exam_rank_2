@@ -46,3 +46,11 @@ int main(int ac, char **av)
 // $>./alpha_mirror | cat -e
 // $
 // $>
+
+// DESCRIPTION
+
+// This program takes a single command-line argument and converts each character in the argument to its "mirror" character in the alphabet. If the character is a lowercase letter between 'a' and 'z', its mirror is the lowercase letter that is the same distance from 'a' as the original letter is from 'z' (e.g. 'a' maps to 'z', 'b' maps to 'y', etc.). If the character is an uppercase letter between 'A' and 'Z', its mirror is the uppercase letter that is the same distance from 'A' as the original letter is from 'Z' (e.g. 'A' maps to 'Z', 'B' maps to 'Y', etc.). All non-letter characters are left unchanged.
+
+// The program uses a while loop to iterate through each character in the argument string, checking each character to see if it is a letter and if so, whether it is uppercase or lowercase. If it is uppercase, it calculates the ASCII code for the corresponding mirrored character and sets the current character in the string to that value. If it is lowercase, it performs the same calculation but adds 32 (the difference between the ASCII values of 'a' and 'A') before setting the current character to the result.
+
+// Finally, after all characters in the string have been processed, the program writes a newline character to the standard output before exiting.

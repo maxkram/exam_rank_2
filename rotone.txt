@@ -1,0 +1,10 @@
+lib unistd
+main
+if ac equal 2
+	create int i equal 0
+	while i of av1 exist
+		if i of av1 'Z' or 'z'
+			1 of av minus 25
+		if it's other letter
+			increase on one
+		write the i of av

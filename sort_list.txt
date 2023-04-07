@@ -1,0 +1,17 @@
+lib stdlib for t_list
+create int swap
+create t_list *tmp
+make tmp equal to lst
+check if list or list->next is empty
+	if yes return lst
+tmp equal lst
+while list->next isn't NULL
+	if cmp func result is 0
+		swap equal lst->data
+		lst->data equal lst->next->data
+		lst->next->data equal swap
+		lst equal tmp
+	else
+		lst equal lst->next
+lst equal tmp
+return lst

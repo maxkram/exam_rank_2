@@ -6,7 +6,11 @@ t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 	int swap;
 	t_list *tmp;
 
+	if (!lst || !lst->next)
+		return lst;
+
 	tmp = lst;
+
 	while (lst->next != NULL)
 	{
 		if (((*cmp)(lst->data, lst->next->data)) == 0)
@@ -19,6 +23,7 @@ t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 		else
 			lst = lst->next;
 	}
+
 	lst = tmp;
 	return (lst);
 }
@@ -94,3 +99,18 @@ int main(void)
 // {
 // 	return (a <= b);
 // }
+
+// DESCRIPTION
+// The sort_list function takes a pointer to a linked list lst and a pointer to a function cmp that takes two integers and returns an integer. It sorts the linked list in ascending order based on the comparison function cmp and returns a pointer to the sorted list.
+
+// The function starts by checking if the list is empty or if it contains only one element. If either of these conditions is true, the function simply returns the list as it is already sorted.
+
+// If the list has two or more elements, the function initializes a temporary pointer tmp to the start of the list. It then enters a loop that continues until the end of the list is reached.
+
+// In each iteration of the loop, the function compares the data of the current node lst with the data of the next node lst->next. It does this by calling the comparison function cmp with the two data values. If the comparison function returns 0, indicating that the two values are equal, the function swaps the data values of the two nodes and sets the current node lst back to the start of the list using the temporary pointer tmp. This is done to ensure that the entire list is checked again for any more adjacent equal elements that need to be swapped.
+
+// If the comparison function returns a non-zero value, indicating that the two data values are not equal and are already in the correct order, the function simply moves to the next node in the list.
+
+// Once the end of the list is reached and all adjacent equal elements have been swapped, the function sets the current node lst back to the start of the list using the temporary pointer tmp. It then returns a pointer to the sorted list.
+
+// Overall, this function uses a simple algorithm that iterates over the list, swapping adjacent equal elements until the list is sorted. This algorithm has a time complexity of O(n^2) in the worst case, which can be quite slow for large lists. However, it is simple to implement and can be useful for small lists or for educational purposes.

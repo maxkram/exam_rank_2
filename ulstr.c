@@ -41,3 +41,26 @@ int main(int ac, char **av)
 // 3:21 bA  ToUT  MOuN KI kA DI ke M'EN kA FE FOT$
 // $>./ulstr | cat -e
 // $
+
+// DESCRIPTIION
+// The program takes a single command - line argument and converts all uppercase letters in the argument to lowercase letters, and all lowercase letters to uppercase letters.It then prints the result to the standard output.
+
+// 																																Here's how it works step by step:
+
+// 																																The program checks if there is exactly one command -
+// 																																line argument passed to it.If there is not exactly one argument,
+// 	the program simply prints a newline character and exits.
+
+// 	If there is exactly one argument,
+// 	the program enters a loop that iterates through each character in the argument.
+
+// 	For each character in the argument,
+// 	the program checks if it is an uppercase letter(ASCII values 65 to 90).If it is, it adds the value of the ASCII space character(32) to the character, effectively converting it to its lowercase equivalent.If the character is a lowercase letter(ASCII values 97 to 122), the program subtracts the value of the ASCII space character from it, effectively converting it to its uppercase equivalent.
+
+// 																																																																																					  After converting the letter case (if applicable),
+// 	the program writes the current character to the standard output using the write system call.
+
+// 	The loop continues until all characters in the argument have been processed.
+
+// 	Finally,
+// 	the program prints a newline character to the standard output to end the output.

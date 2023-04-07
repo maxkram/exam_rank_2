@@ -1,0 +1,11 @@
+void sort_int_tab
+create unsigned int i equal 0
+create empty int tmp
+while i less than size minus 1
+	if i of tab > i+1 of tab
+		tmp equal i of tab
+		i of tab equal i+1 of tab
+		i+1 of tab equal tmp
+		i equal 0
+	else
+		increase i 

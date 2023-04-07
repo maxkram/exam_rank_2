@@ -1,0 +1,10 @@
+lib unistd
+void rstr_capitalizer with *str
+	create int i equal 0
+	while i of str exists
+		if i of str is a capital letter
+			add 32 to i of str making it minuscule
+		if it's minuscule already and was preceded by space
+			subtract 32 from i
+			increase i on 1
+		write i

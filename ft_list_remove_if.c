@@ -102,3 +102,14 @@ int main(void)
 //     void            *data;
 // }                   t_list;
 // $>
+
+// DESCRIPTION
+// This program demonstrates the implementation of ft_list_remove_if function which removes nodes from a linked list whose data matches a given reference data by calling a comparison function cmp which returns 0 if the two data are equal.
+
+// 	The program starts with defining the t_list struct and the ft_list_remove_if function which takes a double pointer to the first node of the linked list,
+// 	a reference data pointer, and a comparison function pointer as arguments.The function iterates through each node of the linked list and checks if the data matches the reference data by calling the comparison function cmp which returns 0 if they match.If a match is found, the node is removed from the linked list by updating its previous node's next pointer to its next node and freeing the memory of the removed node.
+
+// 	In the main function,
+// 	four nodes are created with some data and linked together to form a linked list.Then the linked list is printed and the ft_list_remove_if function is called with the reference data and the comparison function pointer.After removing the nodes from the linked list whose data matched the reference data, the updated linked list is printed again.
+
+// 																																																																												  The output of the program shows the original linked list followed by the updated linked list with the node whose data matched the reference data removed.

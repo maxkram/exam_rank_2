@@ -1,31 +1,64 @@
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(int argc, char **argv)
+typedef struct s_list
 {
-	int start;
-	int end;
-	int i = 0;
+	int data;
+	struct s_list *next;
+} t_list;
 
-	if (argc == 2)
+int should_remove(void *data)
+{
+	int *value = (int *)data;
+	return (*value % 2 == 0);
+}
+
+void ft_list_remove_if(t_list **head, int (*should_remove)(void *))
+{
+	t_list *current = *head;
+	t_list *previous = NULL;
+	while (current != NULL)
 	{
-		while (argv[1][i] != '\0')
-			i++;
-		while (i >= 0)
+		if (should_remove(current->data))
 		{
-			while (i >= 0 && (argv[1][i] == ' ' || argv[1][i] == '\t'))
-				i--;
-			end = i;
-			while (i >= 0 && argv[1][i] != ' ' && argv[1][i] != '\t')
-				i--;
-			start = i + 1;
-			if (start <= end)
+			if (previous == NULL)
 			{
-				write(1, &argv[1][start], end - start + 1);
-				if (i >= 0)
-					write(1, " ", 1);
+				*head = current->next;
 			}
+			else
+			{
+				previous->next = current->next;
+			}
+			t_list *temp = current;
+			current = current->next;
+			free(temp);
 		}
-		write(1, "\n", 1);
-		return (0);
+		else
+		{
+			previous = current;
+			current = current->next;
+		}
 	}
+}
+
+int main()
+{
+	t_list *head = malloc(sizeof(t_list));
+	head->data = 1;
+	head->next = malloc(sizeof(t_list));
+	head->next->data = 2;
+	head->next->next = malloc(sizeof(t_list));
+	head->next->next->data = 3;
+	head->next->next->next = NULL;
+
+	ft_list_remove_if(&head, should_remove);
+
+	t_list *current = head;
+	while (current != NULL)
+	{
+		printf("%d\n", current->data);
+		current = current->next;
+	}
+
+	return 0;
 }
