@@ -52,10 +52,10 @@ int main(int ac, char **av)
 
 // This program takes two strings as command - line arguments and prints the first string to standard output if all of its characters appear in the second string, in the order they appear in the first string.
 
-// 																																									Here's how it works step by step:
+//Here's how it works step by step:
 
-// 																																									The program checks if there are exactly two command -
-// 																																									line arguments passed to it.If there are not exactly two arguments,
+//The program checks if there are exactly two command -
+//line arguments passed to it.If there are not exactly two arguments,
 // 	the program simply prints a newline character and exits.
 
 // 	If there are exactly two arguments,
@@ -64,9 +64,9 @@ int main(int ac, char **av)
 // 	The program then enters another loop that iterates through each character in the second argument.As it does so,
 // 	it checks if the current character in the second argument matches the current character in the first argument.If there is a match, the program increments the index i to the next character in the first argument.
 
-// 																																		   After iterating through all characters in the second argument or
-// 																																		   if the index i reaches the end of the first argument,
+//After iterating through all characters in the second argument or
+//if the index i reaches the end of the first argument,
 // 	the program checks if i is equal to the length of the first argument.If i is equal to the length of the first argument, it means that all characters in the first argument appear in the second argument in the same order, so the program writes the first argument to the standard output using the write system call.
 
-// 																																																								Finally,
+//Finally,
 // 	the program prints a newline character to the standard output to end the output.

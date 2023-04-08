@@ -1,59 +1,43 @@
 #include <stdlib.h>
-#include <stdio.h>
 
-int *ft_rrange(int start, int end)
+int abs(int n)
 {
-	int *r;
-	int len = (end >= start) ? end - start + 1 : start - end + 1;
-	if (!(r = (int *)malloc(sizeof(int) * len)))
-		return (NULL);
-	while (len--)
-		r[len] = (end >= start) ? start++ : start--;
-	return (r);
+	if (n < 0)
+		return (-n);
+	return (n);
 }
+
+int *ft_range(int start, int end)
+{
+	int len = 1 + abs(end - start);
+	int *arr = (int *)malloc(sizeof(int) * len);
+	int step = (start < end) ? 1 : -1;
+	int i = 0;
+	while (i < len)
+	{
+		arr[i] = start;
+		start += step;
+		++i;
+	}
+	return (arr);
+}
+
+#include <stdio.h>
 
 int main(void)
 {
-	int i;
-	int *prt;
+	int start = -1;
+	int end = 2;
 
-	i = 0;
-	prt = ft_rrange(1, 3);
-	while (i <= 2)
+	int *arr = ft_range(start, end);
+
+	int i = 0;
+	while (i < 1 + absolute_value(end - start))
 	{
-		printf("%d ", prt[i]);
-		i++;
+		printf("%d, ", arr[i]);
+		++i;
 	}
 	printf("\n");
-
-	i = 0;
-	prt = ft_rrange(-1, 2);
-	while (i <= 3)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
-	printf("\n");
-
-	i = 0;
-	prt = ft_rrange(0, 0);
-	while (i <= 0)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
-	printf("\n");
-
-	i = 0;
-	prt = ft_rrange(0, -3);
-	while (i <= 3)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
-	printf("\n");
-
-	return (0);
 }
 
 // Assignment name : ft_range
