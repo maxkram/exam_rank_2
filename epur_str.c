@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void my_putchar(char c)
+void ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -17,9 +17,9 @@ void epur_str(char *str)
 		if (str[i] != ' ' && str[i] != '\t')
 		{
 			if (sp == 1)
-				my_putchar(' ');
+				ft_putchar(' ');
 			sp = 0;
-			my_putchar(str[i]);
+			ft_putchar(str[i]);
 		}
 		else if (sp == 0)
 			sp = 1;
@@ -27,11 +27,11 @@ void epur_str(char *str)
 	}
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc == 2)
-		epur_str(argv[1]);
-	my_putchar('\n');
+	if (ac == 2)
+		epur_str(av[1]);
+	ft_putchar('\n');
 	return (0);
 }
 
