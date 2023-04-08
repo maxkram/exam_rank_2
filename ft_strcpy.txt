@@ -1,6 +1,0 @@
-create int iterator equal 0
-while s1[i] exists
-	s2[i] equals s1[i]
-	increase i
-the last s2[i] eqauls 0
-return s2

@@ -1,8 +1,0 @@
-include ft_list
-
-int function
-	create int size equal 0
-	while loop while begin_list exists
-		begin_list equal begin_list -> next
-		increase size
-	return this size

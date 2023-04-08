@@ -61,11 +61,11 @@ int main(int ac, char **av)
 
 // The program takes two command - line arguments and prints the union of the characters in both arguments to the standard output.The union of two sets is the set of all elements that appear in either set(or both).
 
-// 								Here's how it works step by step:
+// Here's how it works step by step:
 
-// 								The program checks if there are exactly two command
-// 	- line arguments passed to it.If there are not exactly two arguments,
-// 	the program simply prints a newline character and exits.
+// The program checks if there are exactly two command
+//  	- line arguments passed to it.If there are not exactly two arguments,
+//  	the program simply prints a newline character and exits.
 
 // 	If there are exactly two arguments,
 // 	the program enters a loop that iterates through each character in the first argument.
@@ -73,12 +73,12 @@ int main(int ac, char **av)
 // 	For each character in the first argument,
 // 	the program checks if it has already been printed to the standard output by calling the ft_check function with the character and the current position in the string as arguments.If the character has not been printed yet, the program writes the character to the standard output using the write system call.
 
-// 																																																								The program then enters a second loop that iterates through each character in the second argument.
+// The program then enters a second loop that iterates through each character in the second argument.
 
-// 																																																								For each character in the second argument,
-// 	the program checks if it has already been printed to the standard output and if it appears in the first argument by calling the ft_check function with the character, the current position in the string, and the first argument as arguments.If the character has not been printed yet and does not appear in the first argument, the program writes the character to the standard output using the write system call.
+// For each character in the second argument,
+//  	the program checks if it has already been printed to the standard output and if it appears in the first argument by calling the ft_check function with the character, the current position in the string, and the first argument as arguments.If the character has not been printed yet and does not appear in the first argument, the program writes the character to the standard output using the write system call.
 
-// 																																																																																	   The loop continues until all characters in both arguments have been processed.
+// The loop continues until all characters in both arguments have been processed.
 
-// 																																																																																	   Finally,
-// 	the program prints a newline character to the standard output to end the output.
+// Finally,
+//  	the program prints a newline character to the standard output to end the output.

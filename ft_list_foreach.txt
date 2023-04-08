@@ -1,7 +1,0 @@
-include ft list
-
-void function
-create t_list *something equalt to begin_list
-while loop with this something
-	*function from argument applied to something -> data
-	something equals something -> next

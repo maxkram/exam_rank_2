@@ -1,7 +1,0 @@
-create unsigned int res equal 0
-create int i equal 8
-while i more than 0
-    res add res times 2 plus modulo of octet from argmuent and 2
-    divide octet on 2
-    decrease i
-return res

@@ -1,7 +1,0 @@
-int is n ^ 2
-create unsigned int test equal 1
-while test less than or equal n
-    if test equal n
-        return 1
-    test times 2
-return 0

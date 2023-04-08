@@ -1,9 +1,0 @@
-lib unistd
-main
-if ac equal 4
-create int i equal 0
-while i of av1 exist and no 2nd i-s of av2 and av3
-	if i of av1 equal 0-th of av2
-		replace i of av1 by 0-th of av3
-	write i of av1
-	increase on 1 the i

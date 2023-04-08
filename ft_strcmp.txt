@@ -1,4 +1,0 @@
-create unsigned int iterator equal 0
-while s1[i] and s2[i] exists and s1[i] equal s2[i]
-	increase iterator
-return difference between s1[i] and s2[i]
