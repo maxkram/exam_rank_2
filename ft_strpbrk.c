@@ -19,7 +19,7 @@ char *ft_strpbrk(const char *s1, const char *s2)
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main(void)
 {
 	const char str1[] = "abcde2fghi3jk4l";
 	const char str2[] = "34";
@@ -36,7 +36,6 @@ int main()
 		printf("First matching character: %c\n", *ret1);
 	else
 		printf("Character not found");
-
 	return (0);
 }
 

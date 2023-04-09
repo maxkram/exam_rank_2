@@ -3,7 +3,6 @@
 
 int *ft_rrange(int start, int end)
 {
-	int *rrange;
 	int len;
 
 	if (start > end)
@@ -11,7 +10,7 @@ int *ft_rrange(int start, int end)
 	else
 		len = (end - start) + 1;
 
-	rrange = (int *)malloc(sizeof(int) * len);
+	int *rrange = (int *)malloc(sizeof(int) * len);
 
 	while (len--)
 	{

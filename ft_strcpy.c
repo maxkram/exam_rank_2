@@ -1,24 +1,24 @@
 char *ft_strcpy(char *s1, char *s2)
 {
 	int i = 0;
-	while (s1[i])
+	while (s2[i] != '\0')
 	{
-		s2[i] = s1[i];
+		s1[i] = s2[i];
 		i++;
 	}
-	s2[i] = 0;
-	return (s2);
+	s1[i] = '\0';
+	return (s1);
 }
+
 #include <stdio.h>
+
 int main(void)
 {
-	char str1[] = "Rumpel";
-	char str2[] = "Stiltskin";
-
-	printf("%s\n", str1);
-	ft_strcpy(str1, str2);
-	printf("%s\n", str1);
-	return (0);
+	char dest[20];
+	char *src = "Hello, world!";
+	ft_strcpy(dest, src);
+	printf("Destination string: %s\n", dest);
+	return 0;
 }
 
 // Assignment name  : ft_strcpy

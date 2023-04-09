@@ -7,7 +7,7 @@ char *ft_strdup(char *src)
 
 	while (src[len])
 		len++;
-	char *strcpy = malloc(sizeof(char) * len + 1);
+	char *strcpy = (char *)malloc(sizeof(char) * len + 1);
 	if (!strcpy)
 		return (NULL);
 	while (src[i])
@@ -20,15 +20,20 @@ char *ft_strdup(char *src)
 }
 
 #include <stdio.h>
-char *ft_strdup(char *src);
+#include <string.h>
 
 int main(void)
 {
-	char *greet = "Salut";
+	char *greet = "ft_strdup";
 	char *test1 = "Gonna pass this test, even if I gotta dup!\n";
 	char *test2 = ft_strdup(test1);
 
 	printf("%s\n", ft_strdup(greet));
+	printf("test1: %s", test1);
+	printf("test2: %s", test2);
+
+	char *greet1 = "strdup";
+	printf("%s\n", strdup(greet1));
 	printf("test1: %s", test1);
 	printf("test2: %s", test2);
 	return (0);

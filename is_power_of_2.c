@@ -11,11 +11,14 @@ int is_power_of_2(unsigned int n)
 }
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(void)
+int main(int ac, char **av)
 {
-	printf("%d", is_power_of_2(16));
-	return 0;
+	if (ac == 2)
+		printf("%d", is_power_of_2(atoi(&av[1][0])));
+	printf("\n");
+	return (0);
 }
 
 // Assignment name  : is_power_of_2

@@ -11,6 +11,11 @@ char *ft_strncpy(char *s1, char *s2, int n)
 	return (s1);
 }
 
+int is_space(char c)
+{
+	return (c == 32 || c == 9 || c == '\n') ? 1 : 0;
+}
+
 char **ft_split(char *str)
 {
 	int i = 0;
@@ -19,21 +24,21 @@ char **ft_split(char *str)
 	int wc = 0;
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (str[i] && is_space(str[i]))
 			i++;
 		if (str[i])
 			wc++;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+		while (str[i] && !is_space(str[i]))
 			i++;
 	}
 	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
 	i = 0;
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (str[i] && is_space(str[i]))
 			i++;
 		j = i;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+		while (str[i] && !is_space(str[i]))
 			i++;
 		if (i > j)
 		{
@@ -47,11 +52,8 @@ char **ft_split(char *str)
 
 int main(void)
 {
-	char **words;
-	int i;
-
-	words = ft_split("This is a test string!");
-	i = 0;
+	char **words = ft_split("This is a test string!");
+	int i = 0;
 	while (words[i])
 	{
 		printf("%s\n", words[i]);
