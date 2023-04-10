@@ -3,24 +3,17 @@
 
 int *ft_rrange(int start, int end)
 {
-	int len;
-
-	if (start > end)
-		len = (start - end) + 1;
-	else
-		len = (end - start) + 1;
-
-	int *rrange = (int *)malloc(sizeof(int) * len);
-
-	while (len--)
+	int len = 1 + abs(end - start);
+	int *arr = (int *)malloc(sizeof(int) * len);
+	int step = start < end ? -1 : 1;
+	int i = 0;
+	while (i < len)
 	{
-		rrange[len] = start;
-		start -= (start < end) ? (-1) : (1);
+		arr[i] = end;
+		end += step;
+		i++;
 	}
-
-	rrange[len] = end;
-
-	return (rrange);
+	return (arr);
 }
 
 int main(void)

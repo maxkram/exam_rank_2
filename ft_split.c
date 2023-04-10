@@ -1,14 +1,11 @@
 #include <stdlib.h>
-#include <stdio.h>
 
-char *ft_strncpy(char *s1, char *s2, int n)
+int ft_strlen(char *str)
 {
-	int i = -1;
-
-	while (++i < n && s2[i])
-		s1[i] = s2[i];
-	s1[i] = '\0';
-	return (s1);
+	int i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 int is_space(char c)
@@ -16,40 +13,46 @@ int is_space(char c)
 	return (c == 32 || c == 9 || c == '\n') ? 1 : 0;
 }
 
-char **ft_split(char *str)
+int ft_wordcount(char *str)
 {
-	int i = 0;
-	int j = 0;
-	int k = 0;
-	int wc = 0;
-	while (str[i])
+	int count = 0;
+	while (*str)
 	{
-		while (str[i] && is_space(str[i]))
-			i++;
-		if (str[i])
-			wc++;
-		while (str[i] && !is_space(str[i]))
-			i++;
-	}
-	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
-	i = 0;
-	while (str[i])
-	{
-		while (str[i] && is_space(str[i]))
-			i++;
-		j = i;
-		while (str[i] && !is_space(str[i]))
-			i++;
-		if (i > j)
+		if (!is_space(*str))
 		{
-			out[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
-			ft_strncpy(out[k++], &str[j], i - j);
+			count++;
+			while (!is_space(*str) && *str)
+				str++;
 		}
+		else
+			str++;
 	}
-	out[k] = NULL;
-	return (out);
+	return (count);
 }
 
+char **ft_split(char *str)
+{
+	char **arr = malloc(sizeof(char *) * (ft_wordcount(str) + 1));
+	int i = -1;
+	int j = 0;
+	while (++i < ft_wordcount(str))
+	{
+		int k = 0;
+		while (is_space(str[j]))
+			j++;
+		while (!is_space(str[j + k]) && str[j + k])
+			k++;
+		arr[i] = malloc(sizeof(char) * (k + 1));
+		k = 0;
+		while (!is_space(str[j]) && str[j])
+			arr[i][k++] = str[j++];
+		arr[i][k] = '\0';
+	}
+	arr[i] = NULL;
+	return (arr);
+}
+
+#include <stdio.h>
 int main(void)
 {
 	char **words = ft_split("This is a test string!");
@@ -57,10 +60,8 @@ int main(void)
 	while (words[i])
 	{
 		printf("%s\n", words[i]);
-		free(words[i]);
 		i++;
 	}
-	free(words);
 	return (0);
 }
 

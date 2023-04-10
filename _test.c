@@ -1,40 +1,68 @@
 #include <stdlib.h>
 
-int abc(int n)
+int ft_strlen(char *str)
 {
-	return n < 0 ? -n : n;
+	int i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int *ft_range(int start, int end)
+int is_space(char c)
 {
-	int len = 1 + abs(end - start);
-	int *arr = (int *)malloc(sizeof(int) * len);
-	int step = start < end ? 1 : -1;
-	int i = 0;
-	while (i < len)
+	return (c == 32 || c == 9 || c == '\n') ? 1 : 0;
+}
+
+int ft_wordcount(char *str)
+{
+	int count = 0;
+	while (*str)
 	{
-		arr[i] = start;
-		start += step;
-		i++;
+		if (!is_space(*str))
+		{
+			count++;
+			while (!is_space(*str) && *str)
+				str++;
+		}
+		else
+			str++;
 	}
+	return (count);
+}
+
+char **ft_split(char *str)
+{
+	char **arr = malloc(sizeof(char *) * (ft_wordcount(str) + 1));
+	int i = -1;
+	int j = 0;
+	while (++i < ft_wordcount(str))
+	{
+		int k = 0;
+		while (is_space(str[j]))
+			j++;
+		while (!is_space(str[j + k]) && str[j + k])
+			k++;
+		arr[i] = malloc(sizeof(char) * (k + 1));
+		k = 0;
+		while (!is_space(str[j]) && str[j])
+			arr[i][k++] = str[j++];
+		arr[i][k] = '\0';
+	}
+	arr[i] = NULL;
 	return (arr);
 }
 
 #include <stdio.h>
-
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac == 3)
+	char **words = ft_split("This is a test string!");
+	int i = 0;
+	while (words[i])
 	{
-		int start = atoi(av[1]);
-		int end = atoi(av[2]);
-		int *arr = ft_range(start, end);
-		int i = 0;
-		while (i < 1 + abc(end - start))
-		{
-			printf("%d, ", arr[i]);
-			i++;
-		}
-		printf("\n");
+		printf("%s\n", words[i]);
+		free(words[i]);
+		i++;
 	}
+	free(words);
+	return (0);
 }
