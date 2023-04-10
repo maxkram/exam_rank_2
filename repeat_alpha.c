@@ -8,7 +8,7 @@ void ft_repeat_alpha(char *str)
 		letter = 0;
 		if (str[i] > 64 && str[i] < 91)
 			letter = str[i] - 64;
-		else if (str[i] > 64 && str[i] < 123)
+		else if (str[i] > 96 && str[i] < 123)
 			letter = str[i] - 96;
 		else
 			letter = 1;

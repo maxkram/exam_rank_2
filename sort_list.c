@@ -1,30 +1,50 @@
 #include <stdlib.h>
 #include "sort_list.h"
 
+// t_list *sort_list(t_list *lst, int (*cmp)(int, int))
+// {
+// 	int swap;
+// 	t_list *tmp;
+
+// 	if (!lst || !lst->next)
+// 		return lst;
+
+// 	tmp = lst;
+
+// 	while (lst->next != NULL)
+// 	{
+// 		if (((*cmp)(lst->data, lst->next->data)) == 0)
+// 		{
+// 			swap = lst->data;
+// 			lst->data = lst->next->data;
+// 			lst->next->data = swap;
+// 			lst = tmp;
+// 		}
+// 		else
+// 			lst = lst->next;
+// 	}
+
+// 	lst = tmp;
+// 	return (lst);
+// }
+
 t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	int swap;
-	t_list *tmp;
-
 	if (!lst || !lst->next)
-		return lst;
-
-	tmp = lst;
-
-	while (lst->next != NULL)
+		return (lst);
+	t_list *current = lst;
+	while (current->next)
 	{
-		if (((*cmp)(lst->data, lst->next->data)) == 0)
+		if (cmp(current->data, current->next->data) == 0)
 		{
-			swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = tmp;
+			int temp = current->data;
+			current->data = current->next->data;
+			current->next->data = temp;
+			current = lst;
 		}
 		else
-			lst = lst->next;
+			current = current->next;
 	}
-
-	lst = tmp;
 	return (lst);
 }
 

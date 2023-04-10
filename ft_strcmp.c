@@ -9,18 +9,23 @@ int ft_strcmp(char *s1, char *s2)
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main()
 {
-    char *first_str = "Geeks2";
-    char *second_str = "Geeks1";
+    char str1[15];
+    char str2[15];
 
-    printf("First String: %s\n", first_str);
-    printf("Second String: %s\n", second_str);
+    strcpy(str1, "abcdef");
+    strcpy(str2, "ABCDEF");
 
-    printf("Return value of strcmp(): %d\n",
-           strcmp(first_str, second_str));
-    printf("Return value of ft_strcmp(): %d\n",
-           ft_strcmp(first_str, second_str));
+    int ret = ft_strcmp(str1, str2);
+
+    if (ret < 0)
+        printf("str1 is less than str2");
+    else if (ret > 0)
+        printf("str2 is less than str1");
+    else
+        printf("str1 is equal to str2");
+
     return (0);
 }
 

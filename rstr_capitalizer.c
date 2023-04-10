@@ -6,9 +6,9 @@ void rstr_capitalizer(char *str)
 	while (str[i])
 	{
 		if (str[i] > 64 && str[i] < 91)
-			str[i] += ' ';
+			str[i] += 32;
 		if ((str[i] > 96 && str[i] < 123) && (str[i + 1] == 9 || str[i + 1] == 32 || str[i + 1] == '\0'))
-			str[i] -= ' ';
+			str[i] -= 32;
 		write(1, &str[i++], 1);
 	}
 }

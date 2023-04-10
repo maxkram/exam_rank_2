@@ -11,13 +11,18 @@ char *ft_strcpy(char *s1, char *s2)
 }
 
 #include <stdio.h>
+#include <string.h>
 
-int main(void)
+int main()
 {
-	char dest[20];
-	char *src = "Hello, world!";
-	ft_strcpy(dest, src);
-	printf("Destination string: %s\n", dest);
+	char str1[20] = "C programming";
+	char str2[20];
+
+	// copying str1 to str2
+	strcpy(str2, str1);
+
+	puts(str2); // C programming
+
 	return 0;
 }
 

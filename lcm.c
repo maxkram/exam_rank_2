@@ -9,7 +9,7 @@ unsigned int lcm(unsigned int a, unsigned int b)
 	{
 		if (n % a == 0 && n % b == 0)
 			return (n);
-		++n;
+		n++;
 	}
 	return (0);
 }

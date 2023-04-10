@@ -19,24 +19,23 @@ char *ft_strdup(char *src)
 	return (strcpy);
 }
 
+// C program to demonstrate strdup()
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main()
 {
-	char *greet = "ft_strdup";
-	char *test1 = "Gonna pass this test, even if I gotta dup!\n";
-	char *test2 = ft_strdup(test1);
+	char source[] = "GeeksForGeeks";
 
-	printf("%s\n", ft_strdup(greet));
-	printf("test1: %s", test1);
-	printf("test2: %s", test2);
+	// A copy of source is created dynamically
+	// and pointer to copy is returned.
+	char *target = strdup(source);
+	char *target1 = ft_strdup(source);
 
-	char *greet1 = "strdup";
-	printf("%s\n", strdup(greet1));
-	printf("test1: %s", test1);
-	printf("test2: %s", test2);
-	return (0);
+	printf("%s\n", target);
+	printf("%s\n", target1);
+
+	return 0;
 }
 
 // Assignment name  : ft_strdup

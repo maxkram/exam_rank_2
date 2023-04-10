@@ -1,15 +1,15 @@
 unsigned char reverse_bits(unsigned char octet)
 {
-	unsigned char res = 0;
+	unsigned char result = 0;
 	int i = 8;
 
 	while (i > 0)
 	{
-		res = res * 2 + (octet % 2);
+		result = result * 2 + (octet % 2);
 		octet /= 2;
 		i--;
 	}
-	return (res);
+	return (result);
 }
 #include <stdio.h>
 

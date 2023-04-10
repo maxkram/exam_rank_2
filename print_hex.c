@@ -10,7 +10,7 @@ int ft_atoi(char *str)
 
 void print_hex(int n)
 {
-	if (n >= 16)
+	if (n > 15)
 		print_hex(n / 16);
 	write(1, &"0123456789abcdef"[n % 16], 1);
 }
