@@ -22,20 +22,21 @@ int *ft_range(int start, int end)
 
 #include <stdio.h>
 
-int main(void)
+int main(int ac, char **av)
 {
-	int start = -1;
-	int end = 2;
-
-	int *arr = ft_range(start, end);
-
-	int i = 0;
-	while (i < 1 + absolute_value(end - start))
+	if (ac == 3)
 	{
-		printf("%d, ", arr[i]);
-		++i;
+		int start = atoi(av[1]);
+		int end = atoi(av[2]);
+		int *arr = ft_range(start, end);
+		int i = 0;
+		while (i < 1 + abc(end - start))
+		{
+			printf("%d, ", arr[i]);
+			i++;
+		}
+		printf("\n");
 	}
-	printf("\n");
 }
 
 // Assignment name : ft_range
