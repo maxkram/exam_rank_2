@@ -3,15 +3,11 @@
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-	t_list *curr, *prev;
-	curr = *begin_list;
-	prev = NULL;
-	// use cmp func, if beginning, assign to next
-	// if not, assign prev, than clean curr
-	// then assign curr
+	t_list *curr = *begin_list;
+	t_list *prev = NULL;
+
 	while (curr != NULL)
 	{
-		// if func works
 		if (cmp(curr->data, data_ref) == 0)
 		{
 			if (prev == NULL)
@@ -21,7 +17,6 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 			free(curr);
 			curr = prev == NULL ? *begin_list : prev->next;
 		}
-		// skip func move over
 		else
 		{
 			prev = curr;
@@ -38,7 +33,7 @@ void print_list(t_list **begin_list)
 	t_list *cur = *begin_list;
 	while (cur != 0)
 	{
-		printf("%s\n", cur->data);
+		printf("%s\n", (char *)cur->data);
 		cur = cur->next;
 	}
 }

@@ -7,14 +7,12 @@ void ft_putchar(char c)
 
 void epur_str(char *str)
 {
-	char sp;
-	int i;
+	int sp = -1;
+	int i = 0;
 
-	sp = -1;
-	i = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ' && str[i] != '\t')
+		if (str[i] != ' ' || str[i] != '\t')
 		{
 			if (sp == 1)
 				ft_putchar(' ');

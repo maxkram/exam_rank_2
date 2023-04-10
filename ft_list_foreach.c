@@ -1,33 +1,38 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "ft_list.h"
 
 void ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-	t_list *list_ptr = begin_list;
-	while (list_ptr)
+	t_list *current = begin_list;
+	while (current != NULL)
 	{
-		(*f)(list_ptr->data);
-		list_ptr = list_ptr->next;
+		f(current->data);
+		current = current->next;
 	}
 }
 
-#include <stdio.h>
 void print_data(void *data)
 {
-	printf("%s\n", data);
+	printf("%s\n", (char *)data);
 }
 
 int main(void)
 {
-	t_list *test_list = malloc(sizeof(t_list));
-	test_list->data = "what's up";
-	test_list->next = malloc(sizeof(t_list));
-	test_list->next->data = "42";
-	test_list->next->next = malloc(sizeof(t_list));
-	test_list->next->next->data = "peeps?";
-	test_list->next->next->next = NULL;
+	char *str1 = "Hello";
+	char *str2 = "World";
+	char *str3 = "!";
 
-	ft_list_foreach(test_list, print_data);
+	t_list *list = (t_list *)malloc(sizeof(t_list));
+	list->data = str1;
+	list->next = (t_list *)malloc(sizeof(t_list));
+	list->next->data = str2;
+	list->next->next = (t_list *)malloc(sizeof(t_list));
+	list->next->next->data = str3;
+	list->next->next->next = NULL;
+
+	ft_list_foreach(list, &print_data);
+
 	return (0);
 }
 
@@ -62,8 +67,8 @@ int main(void)
 // 	The t_list structure is defined in a header file ft_list.h which is not shown in the code snippet.However,
 // 	based on the usage in the program, we can assume that it has two members : a void *pointer data and a pointer to the next element of the list next.
 
-// 																			   The ft_list_foreach function first sets a pointer list_ptr to the beginning of the list,
-// 	then enters a loop.The loop iterates through the list until list_ptr is NULL, which signifies the end of the list.During each iteration, it applies the function f to the data member of the current element pointed to by list_ptr.The function pointer f should be a function that takes a void *argument, so that it can be applied to any type of data stored in the linked list.
+// The ft_list_foreach function first sets a pointer list_ptr to the beginning of the list,
+//  	then enters a loop.The loop iterates through the list until list_ptr is NULL, which signifies the end of the list.During each iteration, it applies the function f to the data member of the current element pointed to by list_ptr.The function pointer f should be a function that takes a void *argument, so that it can be applied to any type of data stored in the linked list.
 
-// 																																																																												 The print_data function is defined to print the string pointed to by the data member of a t_list element.In the main function,
-// 	a test linked list is created with three elements, each containing a string.The ft_list_foreach function is then called with this list and the print_data function as arguments, which prints out each string in the list on a new line.
+// The print_data function is defined to print the string pointed to by the data member of a t_list element.In the main function,
+//  	a test linked list is created with three elements, each containing a string.The ft_list_foreach function is then called with this list and the print_data function as arguments, which prints out each string in the list on a new line.
