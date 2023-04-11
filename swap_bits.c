@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-unsigned char swap_bits(unsigned char c)
+unsigned char swap_bits(unsigned char octet)
 {
-	return ((c >> 4) | (c << 4));
+	return ((octet >> 4) | (octet << 4));
 }
 
 int main(void)
 {
-	char letter_t = 't';
-	char letter_G = 'G';
+	char t = 't';
+	char G = 'G';
 
-	printf("letter_t after swap: %c\n", swap_bits(letter_t));
-	printf("letter_G after swap: %c\n", swap_bits(letter_G));
+	printf("letter_t after swap: %c\n", swap_bits(t));
+	printf("letter_G after swap: %c\n", swap_bits(G));
 	return (0);
 }
 

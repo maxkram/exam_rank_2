@@ -1,68 +1,29 @@
-#include <stdlib.h>
+#include <unistd.h>
 
-int ft_strlen(char *str)
+void str_capitalizer(char *str)
 {
 	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int is_space(char c)
-{
-	return (c == 32 || c == 9 || c == '\n') ? 1 : 0;
-}
-
-int ft_wordcount(char *str)
-{
-	int count = 0;
-	while (*str)
+	if (str[i] > 96 && str[i] < 123)
+		str[i] -= 32;
+	write(1, &str[i], 1);
+	while (str[++i])
 	{
-		if (!is_space(*str))
-		{
-			count++;
-			while (!is_space(*str) && *str)
-				str++;
-		}
-		else
-			str++;
+		if (str[i] > 64 && str[i] < 91)
+			str[i] += 32;
+		if ((str[i] > 96 & str[i] < 123) && ((str[i - 1] > 8 && str[i - 1] < 14) || str[i - 1] == 32))
+			str[i] -= 32;
+		write(1, &str[i], 1);
 	}
-	return (count);
 }
 
-char **ft_split(char *str)
+int main(int ac, char **av)
 {
-	char **arr = malloc(sizeof(char *) * (ft_wordcount(str) + 1));
-	int i = -1;
-	int j = 0;
-	while (++i < ft_wordcount(str))
+	if (ac > 1)
 	{
-		int k = 0;
-		while (is_space(str[j]))
-			j++;
-		while (!is_space(str[j + k]) && str[j + k])
-			k++;
-		arr[i] = malloc(sizeof(char) * (k + 1));
-		k = 0;
-		while (!is_space(str[j]) && str[j])
-			arr[i][k++] = str[j++];
-		arr[i][k] = '\0';
+		int i = 1;
+		while (i < ac)
+			str_capitalizer(av[i++]);
 	}
-	arr[i] = NULL;
-	return (arr);
-}
-
-#include <stdio.h>
-int main(void)
-{
-	char **words = ft_split("This is a test string!");
-	int i = 0;
-	while (words[i])
-	{
-		printf("%s\n", words[i]);
-		free(words[i]);
-		i++;
-	}
-	free(words);
+	write(1, "\n", 1);
 	return (0);
 }
