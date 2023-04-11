@@ -1,35 +1,32 @@
 #include <unistd.h>
-
-void ft_putchar(char c)
+int is_space(char c)
 {
-	write(1, &c, 1);
+	return (c == 32 || c == 9) ? 1 : 0;
 }
-
-void epur_str(char *str)
+int main(int argc, char const *argv[])
 {
-	int sp = -1;
-	int i = 0;
+	int flg;
 
-	while (str[i])
+	if (argc == 2)
 	{
-		if (str[i] != ' ' || str[i] != '\t')
+		int i = 0;
+		while (is_space(argv[1][i]))
+			i++;
+		while (argv[1][i])
 		{
-			if (sp == 1)
-				ft_putchar(' ');
-			sp = 0;
-			ft_putchar(str[i]);
+			if (is_space(argv[1][i]))
+				flg = 1;
+			if (!(is_space(argv[1][i])))
+			{
+				if (flg)
+					write(1, " ", 1);
+				flg = 0;
+				write(1, &argv[1][i], 1);
+			}
+			i++;
 		}
-		else if (sp == 0)
-			sp = 1;
-		i++;
 	}
-}
-
-int main(int ac, char **av)
-{
-	if (ac == 2)
-		epur_str(av[1]);
-	ft_putchar('\n');
+	write(1, "\n", 1);
 	return (0);
 }
 

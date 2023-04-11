@@ -1,5 +1,10 @@
 #include <unistd.h>
 
+int is_space(char c)
+{
+	return (c == 32 || c == 9) ? 1 : 0;
+}
+
 int main(int ac, char **av)
 {
 	int i, flg;
@@ -7,13 +12,13 @@ int main(int ac, char **av)
 	if (ac == 2)
 	{
 		i = 0;
-		while (av[1][i] == ' ' || av[1][i] == '\t')
+		while (is_space(av[1][i]))
 			i++;
 		while (av[1][i])
 		{
-			if (av[1][i] == ' ' || av[1][i] == '\t')
+			if (is_space(av[1][i]))
 				flg = 1;
-			if (!(av[1][i] == ' ' || av[1][i] == '\t'))
+			if (!(is_space(av[1][i])))
 			{
 				if (flg)
 					write(1, "   ", 3);
