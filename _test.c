@@ -1,29 +1,34 @@
-#include <unistd.h>
-
-void str_capitalizer(char *str)
-{
-	int i = 0;
-	if (str[i] > 96 && str[i] < 123)
-		str[i] -= 32;
-	write(1, &str[i], 1);
-	while (str[++i])
-	{
-		if (str[i] > 64 && str[i] < 91)
-			str[i] += 32;
-		if ((str[i] > 96 & str[i] < 123) && ((str[i - 1] > 8 && str[i - 1] < 14) || str[i - 1] == 32))
-			str[i] -= 32;
-		write(1, &str[i], 1);
-	}
-}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(int ac, char **av)
 {
-	if (ac > 1)
+	if (ac == 4)
 	{
-		int i = 1;
-		while (i < ac)
-			str_capitalizer(av[i++]);
+		int n1 = atoi(av[1]);
+		int n2 = atoi(av[3]);
+		switch (av[2][0])
+		{
+		case '+':
+			printf("%d", n1 + n2);
+			break;
+		case '-':
+			printf("%d", n1 - n2);
+			break;
+		case '*':
+			printf("%d", n1 * n2);
+			break;
+		case '/':
+			printf("%d", n1 / n2);
+			break;
+		case '%':
+			printf("%d", n1 % n2);
+			break;
+		default:
+			break;
+		}
 	}
-	write(1, "\n", 1);
+	printf("\n");
+	// write(1, "\n", 1);
 	return (0);
 }

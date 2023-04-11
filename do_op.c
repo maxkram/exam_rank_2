@@ -25,6 +25,8 @@ int main(int ac, char **av)
 		case '%':
 			printf("%d", n1 % n2);
 			break;
+		default:
+			break;
 		}
 	}
 	printf("\n");
