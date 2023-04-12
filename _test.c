@@ -1,40 +1,27 @@
 #include <unistd.h>
 
-int is_space(char c)
+void last_word(char *str)
 {
-	return (c == 32 || c == 9) ? 1 : 0;
-}
-
-void rostring(char *str)
-{
+	int j = 0;
 	int i = 0;
-	int k;
-	if (*str)
+
+	while (str[i])
 	{
-		while (is_space(str[i]))
-			i++;
-		k = i;
-		while (str[i] && !is_space(str[i]))
-			i++;
-		while (str[i])
-		{
-			if (str[i] && !is_space(str[i]) && is_space(str[i - 1]))
-			{
-				while (str[i] && !is_space(str[i]))
-					write(1, &str[i++], 1);
-				write(1, " ", 1);
-			}
-			i++;
-		}
-		while (str[k] && !is_space(str[k]))
-			write(1, &str[k++], 1);
+		if (str[i] == ' ' && str[i + 1] >= 33 && str[i + 1] <= 126)
+			j = i + 1;
+		i++;
+	}
+	while (str[j] >= 33 && str[j] <= 127)
+	{
+		write(1, &str[j], 1);
+		j++;
 	}
 }
 
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	if (ac > 1)
-		rostring(av[1]);
+	if (argc == 2)
+		last_word(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
