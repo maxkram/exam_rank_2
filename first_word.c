@@ -1,13 +1,18 @@
 #include <unistd.h>
 
+int is_space(char c)
+{
+    return (c == 32 || (c > 8 && c < 14));
+}
+
 int main(int ac, char **av)
 {
     if (ac == 2)
     {
         int i = 0;
-        while (av[1][i] == 32 || (av[1][i] > 8 && av[1][i] < 14))
+        while (is_space(av[1][i]))
             i++;
-        while (!(av[1][i] == 32 || (av[1][i] > 8 && av[1][i] < 14)) && av[1][i])
+        while (!(is_space(av[1][i])) && av[1][i])
             write(1, &av[1][i++], 1);
     }
     write(1, "\n", 1);
