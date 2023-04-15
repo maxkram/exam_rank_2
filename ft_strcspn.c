@@ -3,6 +3,7 @@
 size_t ft_strcspn(const char *s, const char *reject)
 {
 	int i = 0;
+
 	while (s[i])
 	{
 		int j = 0;
@@ -20,14 +21,17 @@ size_t ft_strcspn(const char *s, const char *reject)
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main()
 {
-	char str[] = "fcba73";
-	char keys[] = "1234567890";
-	int i = ft_strcspn(str, keys);
-	printf("The first number in str is at position %d.\n", i + 1);
-	int j = strcspn(str, keys);
-	printf("The first number in str is at position %d.\n", j + 1);
+	const char str1[] = "ABCDEF4960910";
+	const char str2[] = "013";
+
+	int len = strcspn(str1, str2);
+	int len1 = ft_strcspn(str1, str2);
+
+	printf("First matched character is at %d\n", len + 1);
+	printf("First matched character is at %d\n", len1 + 1);
+
 	return (0);
 }
 

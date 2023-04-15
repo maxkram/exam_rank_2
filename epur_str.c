@@ -1,7 +1,7 @@
 #include <unistd.h>
 int is_space(char c)
 {
-	return (c == 32 || c == 9) ? 1 : 0;
+	return (c == 32 || c == 9);
 }
 int main(int argc, char const *argv[])
 {

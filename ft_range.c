@@ -1,13 +1,13 @@
 #include <stdlib.h>
 
-int abs(int n)
+int ft_abs(int n)
 {
 	return (n < 0) ? -n : n;
 }
 
 int *ft_range(int start, int end)
 {
-	int len = 1 + abs(end - start);
+	int len = 1 + ft_abs(end - start);
 	int *arr = (int *)malloc(sizeof(int) * len);
 	int step = (start < end) ? 1 : -1;
 	int i = 0;

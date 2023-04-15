@@ -10,7 +10,7 @@ int ft_strlen(char *str)
 
 int is_space(char c)
 {
-	return (c == 32 || c == 9 || c == '\n') ? 1 : 0;
+	return (c == 32 || c == 9 || c == '\n');
 }
 
 int ft_wordcount(char *str)
