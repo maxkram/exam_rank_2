@@ -24,43 +24,29 @@ int *ft_range(int start, int end)
 
 int main(void)
 {
-	int i;
-	int *prt;
+	int i = 0;
+	int *prt = ft_range(1, 3);
 
-	i = 0;
-	prt = ft_range(1, 3);
 	while (i <= 2)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
+		printf("%d ", prt[i++]);
 	printf("\n");
 
 	i = 0;
 	prt = ft_range(-1, 2);
 	while (i <= 3)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
+		printf("%d ", prt[i++]);
 	printf("\n");
 
 	i = 0;
 	prt = ft_range(0, 0);
 	while (i <= 0)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
+		printf("%d ", prt[i++]);
 	printf("\n");
 
 	i = 0;
 	prt = ft_range(0, -3);
 	while (i <= 3)
-	{
-		printf("%d ", prt[i]);
-		i++;
-	}
+		printf("%d ", prt[i++]);
 	printf("\n");
 	return (0);
 }
