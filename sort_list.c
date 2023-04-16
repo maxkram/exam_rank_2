@@ -22,7 +22,6 @@ t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 }
 
 #include <stdio.h>
-#include <stdlib.h>
 
 t_list *add_int(t_list *list, int nb)
 {

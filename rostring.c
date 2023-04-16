@@ -2,13 +2,12 @@
 
 int is_space(char c)
 {
-	return (c == ' ' || c == '\t') ? 1 : 0;
+	return (c == ' ' || c == '\t');
 }
 
 void rostring(char *str)
 {
-	int i = 0;
-	int k;
+	int k, i = 0;
 
 	if (*str)
 	{
