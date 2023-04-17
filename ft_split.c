@@ -32,10 +32,11 @@ int ft_wordcount(char *str)
 
 char **ft_split(char *str)
 {
-	char **arr = malloc(sizeof(char *) * (ft_wordcount(str) + 1));
+	int len = ft_wordcount(str);
+	char **arr = malloc(sizeof(char *) * len + 1);
 	int i = -1;
 	int j = 0;
-	while (++i < ft_wordcount(str))
+	while (++i < len)
 	{
 		int k = 0;
 		while (is_space(str[j]))
