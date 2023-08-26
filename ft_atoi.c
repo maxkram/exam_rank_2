@@ -4,7 +4,7 @@ int ft_atoi(const char *str)
 	int res = 0;
 	int sign = 1;
 	// blank spaces
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
+	while (*str == ' ' || (*str > 8 && *str < 14))
 		str++;
 	// minus
 	if (*str == '-')

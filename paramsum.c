@@ -16,7 +16,7 @@ int main(int ac, char **av)
 }
 
 // Assignment name  : paramsum
-// Expected files   : paramsum.c
+// Expected files   : paramsum.cparamsum.cpa
 // Allowed functions: write
 // --------------------------------------------------------------------------------
 

@@ -1,23 +1,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int ft_abs(int n)
-{
-	return (n < 0) ? -n : n;
-}
 int *ft_rrange(int start, int end)
 {
-	int len = 1 + ft_abs(end - start);
-	int *arr = (int *)malloc(sizeof(int) * len);
-	int step = start < end ? -1 : 1;
+	int *range;
 	int i = 0;
-	while (i < len)
+	int n = end - start + 1;
+
+	if (start > end)
+		return (ft_range(end, start));
+	range = (int *)malloc(sizeof(int) * n);
+	if (range)
 	{
-		arr[i] = end;
-		end += step;
-		i++;
+		while (i < n)
+		{
+			range[i] = end;
+			end--;
+			i++;
+		}
 	}
-	return (arr);
+	return (range);
 }
 
 int main(void)

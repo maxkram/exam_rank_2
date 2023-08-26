@@ -1,21 +1,20 @@
 #include <stddef.h>
 
-size_t ft_strcspn(const char *s, const char *reject)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int i = 0;
+	const char *s1 = s;
 
-	while (s[i])
+	while (*s1)
 	{
-		int j = 0;
-		while (reject[j])
+		const char *s2 = reject;
+		while (*s2)
 		{
-			if (s[i] == reject[j])
-				return (i);
-			j++;
+			if (*s1 == *s2++)
+				return (s1 - s);
 		}
-		i++;
+		s1++;
 	}
-	return (i);
+	return (s1 - s);
 }
 
 #include <stdio.h>

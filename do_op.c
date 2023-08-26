@@ -1,33 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int ac, char **av)
+int main(int argc, char *argv[])
 {
-	if (ac == 4)
+	if (argc == 4)
 	{
-		int n1 = atoi(av[1]);
-		int n2 = atoi(av[3]);
-
-		switch (av[2][0])
-		{
-		case '+':
-			printf("%d", n1 + n2);
-			break;
-		case '-':
-			printf("%d", n1 - n2);
-			break;
-		case '*':
-			printf("%d", n1 * n2);
-			break;
-		case '/':
-			printf("%d", n1 / n2);
-			break;
-		case '%':
-			printf("%d", n1 % n2);
-			break;
-		default:
-			break;
-		}
+		if (argv[2][0] == '+')
+			printf("%d", (atoi(argv[1]) + atoi(argv[3])));
+		if (argv[2][0] == '-')
+			printf("%d", (atoi(argv[1]) - atoi(argv[3])));
+		if (argv[2][0] == '*')
+			printf("%d", (atoi(argv[1]) * atoi(argv[3])));
+		if (argv[2][0] == '/')
+			printf("%d", (atoi(argv[1]) / atoi(argv[3])));
+		if (argv[2][0] == '%')
+			printf("%d", (atoi(argv[1]) % atoi(argv[3])));
 	}
 	printf("\n");
 	return (0);
