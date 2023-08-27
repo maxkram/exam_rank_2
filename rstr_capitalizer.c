@@ -15,9 +15,9 @@ int main(int argc, char **argv){
 		while(argv[x][i])
 		{
 			if (argv[x][i] >= 'A' && argv[x][i] <= 'Z' && !ft_isSpaceEnd(argv[x][i + 1]))
-				argv[x][i] = argv[x][i] + 32;
+				argv[x][i] += 32;
 			else if (argv[x][i] >= 'a' && argv[x][i] <= 'z' && ft_isSpaceEnd(argv[x][i + 1]))
-				argv[x][i] = argv[x][i] - 32;
+				argv[x][i] -= 32;
 			write(1, &argv[x][i], 1);
 			i++;
 		}
