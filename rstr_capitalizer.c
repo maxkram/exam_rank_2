@@ -1,28 +1,28 @@
 #include <unistd.h>
 
-void rstr_capitalizer(char *str)
+int ft_isSpaceEnd(char c)
 {
-	int i = 0;
-	while (str[i])
-	{
-		if (str[i] > 64 && str[i] < 91)
-			str[i] += 32;
-		if ((str[i] > 96 && str[i] < 123) && (str[i + 1] == 9 || str[i + 1] == 32 || str[i + 1] == '\0'))
-			str[i] -= 32;
-		write(1, &str[i++], 1);
-	}
+	return(c == ' ' || c == '\t' || c == '\0');
 }
 
-int main(int ac, char **av)
-{
-	if (ac > 1)
+int main(int argc, char **argv){
+	if (argc == 1)
+		write(1, "\n", 1);
+	int x = 0;
+	while (++x < argc)
 	{
-		int i = 1;
-		while (i < ac)
-			rstr_capitalizer(av[i++]);
+		int i = 0;
+		while(argv[x][i])
+		{
+			if (argv[x][i] >= 'A' && argv[x][i] <= 'Z' && !ft_isSpaceEnd(argv[x][i + 1]))
+				argv[x][i] += 32;
+			else if (argv[x][i] >= 'a' && argv[x][i] <= 'z' && ft_isSpaceEnd(argv[x][i + 1]))
+				argv[x][i] -= 32;
+			write(1, &argv[x][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
 	}
-	write(1, "\n", 1);
-	return (0);
 }
 
 // Assignment name  : rstr_capitalizer

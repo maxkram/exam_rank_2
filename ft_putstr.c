@@ -6,13 +6,13 @@ void ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-int main(int ac, char **av)
-{
-	if (ac == 2)
-		ft_putstr(av[1]);
-	write(1, "\n", 1);
-	return (0);
-}
+// int main(int ac, char **av)
+// {
+// 	if (ac == 2)
+// 		ft_putstr(av[1]);
+// 	write(1, "\n", 1);
+// 	return (0);
+// }
 
 // Assignment name  : ft_putstr
 // Expected files   : ft_putstr.c
