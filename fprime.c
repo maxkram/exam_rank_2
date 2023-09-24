@@ -6,18 +6,18 @@ int main(int ac, char **av)
 	if (ac == 2)
 	{
 		int i = 1;
-		int number = atoi(av[1]);
-		if (number == 1)
+		int num = atoi(av[1]);
+		if (num == 1)
 			printf("1");
-		while (number >= ++i)
+		while (num >= ++i)
 		{
-			if (number % i == 0)
+			if (num % i == 0)
 			{
 				printf("%d", i);
-				if (number == i)
+				if (num == i)
 					break;
 				printf("*");
-				number /= i;
+				num /= i;
 				i = 1;
 			}
 		}

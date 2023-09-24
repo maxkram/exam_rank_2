@@ -9,10 +9,10 @@ int main(int ac, char **av)
 		{
 			// for lower case a+z - var
 			if (av[1][i] > 64 && av[1][i] < 91)
-				av[1][i] = 90 - av[1][i] + 65;
+				av[1][i] = 90 - (av[1][i] + 65);
 			// for upper case a+z - var
 			else if (av[1][i] > 96 && av[1][i] < 123)
-				av[1][i] = 122 - av[1][i] + 97;
+				av[1][i] = 122 - (av[1][i] + 97);
 			write(1, &av[1][i++], 1);
 		}
 	}

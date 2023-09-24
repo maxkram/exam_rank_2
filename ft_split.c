@@ -1,13 +1,5 @@
 #include <stdlib.h>
 
-int ft_strlen(char *str)
-{
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int is_space(char c)
 {
 	return (c == 32 || c == 9 || c == '\n');
