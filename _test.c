@@ -1,43 +1,58 @@
-char	to_lower(char c)
+#include "sort_list.h"
+#include <stdlib.h>
+
+t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
-	return (c);
+	if (!lst || !lst->next)
+		return (lst);
+	t_list *curr = lst;
+	while (curr->next)
+	{
+		if (cmp(curr->data, curr->next->data) == 0)
+		{
+			int tmp = curr->data;
+			curr->data = curr->next->data;
+			curr->next->data = tmp;
+			curr = lst;
+		}
+		else
+			curr = curr->next;
+	}
+	return (lst);
 }
 
-int		get_digit(char c, int digits_in_base)
-{
-	int max_digit;
-	if (digits_in_base <= 10)
-		max_digit = digits_in_base + '0';
-	else
-		max_digit = digits_in_base - 10 + 'a';
+#include <stdio.h>
 
-	if (c >= '0' && c <= '9' && c <= max_digit)
-		return (c - '0');
-	else if (c >= 'a' && c <= 'f' && c <= max_digit)
-		return (10 + c - 'a');
-	else
-		return (-1);
+t_list *add_int(t_list *list, int nb)
+{
+	t_list *new = (t_list *)malloc(sizeof(t_list));
+	new->data = nb;
+	new->next = list;
+	return (new);
 }
 
-int		ft_atoi_base(const char *str, int str_base)
+int ascending(int a, int b)
 {
-	int result = 0;
-	int sign = 1;
-	int digit;
+	return (a <= b);
+}
 
-	if (*str == '-')
+int main(void)
+{
+	t_list *list;
+
+	list = NULL;
+	list = add_int(list, 9);
+	list = add_int(list, 3);
+	list = add_int(list, 2);
+	list = add_int(list, 4);
+	list = add_int(list, 1);
+	list = sort_list(list, &ascending);
+
+	while (list != NULL)
 	{
-		sign = -1;
-		++str;
+		printf("%d\n", list->data);
+		list = list->next;
 	}
 
-	while ((digit = get_digit(to_lower(*str), str_base)) >= 0)
-	{
-		result = result * str_base;
-		result = result + (digit * sign);
-		++str;
-	}
-	return (result);
+	return (0);
 }
