@@ -13,6 +13,7 @@ unsigned int lcm(unsigned int a, unsigned int b)
 	}
 	return (0);
 }
+
 #include <stdio.h>
 int main(void)
 {
