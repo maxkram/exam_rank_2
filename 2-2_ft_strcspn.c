@@ -4,7 +4,7 @@ size_t	ft_strcspn(const char *s, const char *reject)
 {
 	const char *s1 = s;
 
-	while (*s1)
+	while (*s1++)
 	{
 		const char *s2 = reject;
 		while (*s2)
@@ -12,7 +12,6 @@ size_t	ft_strcspn(const char *s, const char *reject)
 			if (*s1 == *s2++)
 				return (s1 - s);
 		}
-		s1++;
 	}
 	return (s1 - s);
 }

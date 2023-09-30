@@ -3,21 +3,32 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	max(int* tab, unsigned int len)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	unsigned int i = -1;
-	int res = 0;
-	while (++i < len)
-		if (res < tab[i])
-			res = tab[i];
-	return (res);
+	const char *s1 = s;
+
+	while (*s1++)
+	{
+		const char *s2 = reject;
+		while (*s2)
+		{
+			if (*s1 == *s2++)
+				return (s1 - s);
+		}
+	}
+	return (s1 - s);
 }
 
-int main(void)
+int main()
 {
-	int tab[] = {1, 6, 73, 12, 60, 31};
-	printf("%d\n", max(tab, 6));
+	const char s1[] = "ABCDEF4960910";
+	const char s2[] = "013";
 
-	write(1, "\n", 1);
+	int l1 = strcspn(s1, s2);
+	int l2 = ft_strcspn(s1, s2);
+
+	printf("%d\n", l1);
+	printf("%d\n", l2);
+
 	return (0);
 }
