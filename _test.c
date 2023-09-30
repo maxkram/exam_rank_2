@@ -3,24 +3,60 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int    ft_strcmp(char *s1, char *s2)
-{
-	unsigned int i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+int ft_atoi(char *s)
+{	
+	int sgn = 1;
+	int res = 0;
+	if (*s == '-')
+	{
+		sgn = -1;
+		s++;
+	}
+	while (*s >= '0' && *s <= '9')
+		res = res * 10 + *s++ - '0';
+	return (res * sgn);
 }
 
-int main(void)
+void ft_putnbr(int n)
 {
-	char s1[] = "abcdef";
-	char s2[] = "ABCDEF";
+	if (n > 9)
+		ft_putnbr(n / 10);
+	write(1, &"01234567890"[n % 10], 1);
+}
 
-	int r1 = strcmp(s1, s2);
-	int r2 = ft_strcmp(s1, s2);
+int is_prime(int n)
+{
+	int i = 2;
+	if (n <= 1)
+		return (0);
+	while (i * i <= n)
+		return (n % i == 0) ? 0 : i++;
+	return (1);
+}
 
-	printf("%d\n", r1);
-	printf("%d\n", r2);
+int main(int ac, char **av)
+{
+	if (ac != 2)
+		ft_putnbr(0);
+	else
+	{
+		int sum = 0;
+		int n = ft_atoi(av[1]);
 
+		if (n < 0)
+		{
+			write(1, "0\n", 2);
+			return (0);
+		}
+		else
+		{
+			while (n > 0)
+				if (is_prime(n--))
+					sum += n + 1;
+			ft_putnbr(sum);
+		}
+	}
+
+	write(1, "\n", 1);
 	return (0);
 }

@@ -1,22 +1,17 @@
 #include <unistd.h>
 
-int ft_atoi(char *str)
-{
+int ft_atoi(char *s)
+{	
+	int sgn = 1;
 	int res = 0;
-	int sign = 1;
-
-	while (*str == ' ' || (*str > 8 && *str < 14))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	while (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	if (*s == '-')
 	{
-		res = res * 10 + *str - '0';
-		str++;
+		sgn = -1;
+		s++;
 	}
-	return (sign * res);
+	while (*s >= '0' && *s <= '9')
+		res = res * 10 + *s++ - '0';
+	return (res * sgn);
 }
 
 void ft_putnbr(int i)
@@ -36,20 +31,29 @@ int is_prime(int n)
 	return (1);
 }
 
-int main(int ac, char *av[])
+int main(int ac, char **av)
 {
-	int sum = 0;
-
-	if (ac == 2)
-	{
-		int n = ft_atoi(av[1]);
-		while (n > 0)
-			if (is_prime(n--))
-				sum += n + 1;
-		ft_putnbr(sum);
-	}
 	if (ac != 2)
 		ft_putnbr(0);
+	else
+	{
+		int sum = 0;
+		int n = ft_atoi(av[1]);
+
+		if (n < 0)
+		{
+			write(1, "0\n", 2);
+			return (0);
+		}
+		else
+		{
+			while (n > 0)
+				if (is_prime(n--))
+					sum += n + 1;
+			ft_putnbr(sum);
+		}
+	}
+
 	write(1, "\n", 1);
 	return (0);
 }
