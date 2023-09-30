@@ -1,16 +1,13 @@
-int max(int *tab, unsigned int len)
+int	max(int* tab, unsigned int len)
 {
-	unsigned int i = 0;
-	int result = 0;
-
-	while (i < len)
-	{
-		if (result < tab[i])
-			result = tab[i];
-		i++;
-	}
-	return result;
+	unsigned int i = -1;
+	int res = 0;
+	while (++i < len)
+		if (res < tab[i])
+			res = tab[i];
+	return (res);
 }
+
 #include <stdio.h>
 int main(void)
 {

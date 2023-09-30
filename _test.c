@@ -3,24 +3,21 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void last_word(char *str)
+int	max(int* tab, unsigned int len)
 {
-	int i = 0;
-	int j = 0;
-	while (str[i])
-	{
-		if (str[i] == 32 && str[i + 1] > 32 && str[i + 1] < 127)
-			j = i + 1;
-		i++;
-	}
-	while (str[j] > 32 && str[j] < 127)
-		write(1, &str[j++], 1);
+	unsigned int i = -1;
+	int res = 0;
+	while (++i < len)
+		if (res < tab[i])
+			res = tab[i];
+	return (res);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac == 2)
-		last_word(av[1]);
+	int tab[] = {1, 6, 73, 12, 60, 31};
+	printf("%d\n", max(tab, 6));
+
 	write(1, "\n", 1);
 	return (0);
 }
