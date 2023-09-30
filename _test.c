@@ -3,32 +3,33 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+size_t ft_strspn(const char *s, const char *accept)
 {
-	const char *s1 = s;
+	int i = 0;
 
-	while (*s1++)
+	while (s[i])
 	{
-		const char *s2 = reject;
-		while (*s2)
+		int j = 0;
+		while (accept[j])
 		{
-			if (*s1 == *s2++)
-				return (s1 - s);
+			if (s[i] == accept[j])
+				break;
+			else if (accept[j + 1] == '\0')
+				return (i);
+			j++;
 		}
+		i++;
 	}
-	return (s1 - s);
+	return (i);
 }
 
 int main()
 {
-	const char s1[] = "ABCDEF4960910";
-	const char s2[] = "013";
-
-	int l1 = strcspn(s1, s2);
-	int l2 = ft_strcspn(s1, s2);
-
-	printf("%d\n", l1);
-	printf("%d\n", l2);
-
-	return (0);
+    char str[] = "abc123";
+    char charset[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    size_t length = strspn(str, charset);
+    size_t length1 = ft_strspn(str, charset);
+    printf("Length of initial segment: %zu\n", length);
+    printf("Length of initial segment: %zu\n", length1);
+    return 0;
 }

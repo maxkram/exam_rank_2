@@ -3,23 +3,22 @@
 
 size_t ft_strspn(const char *s, const char *accept)
 {
-    int i = 0;
-    int c = 0;
+	int i = 0;
 
-    while (s[i])
-    {
-        while (accept[c])
-        {
-            if (s[i] == accept[c])
-                break;
-            else if (accept[c + 1] == '\0')
-                return (i);
-            c++;
-        }
-        c = 0;
-        i++;
-    }
-    return (i);
+	while (s[i])
+	{
+		int j = 0;
+		while (accept[j])
+		{
+			if (s[i] == accept[j])
+				break;
+			else if (accept[j + 1] == '\0')
+				return (i);
+			j++;
+		}
+		i++;
+	}
+	return (i);
 }
 
 #include <string.h>
