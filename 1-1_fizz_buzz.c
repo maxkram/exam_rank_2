@@ -9,7 +9,7 @@ void ft_putnbr(int i)
 
 int main(void)
 {
-    int i = 0;
+    int i = 1;
     while (i < 101)
     {
         if (i % 15 == 0)
