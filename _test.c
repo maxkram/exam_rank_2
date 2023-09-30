@@ -3,21 +3,24 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	    is_power_of_2(unsigned int n)
+int    ft_strcmp(char *s1, char *s2)
 {
-	unsigned long int i = 1;
-	while (i <= n)
-	{
-		if (i == n)
-			return (1);
-		i *= 2;
-	}
-	return (0);
+	unsigned int i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac == 2)
-		printf("%d\n", is_power_of_2(atoi(&av[1][0])));
+	char s1[] = "abcdef";
+	char s2[] = "ABCDEF";
+
+	int r1 = strcmp(s1, s2);
+	int r2 = ft_strcmp(s1, s2);
+
+	printf("%d\n", r1);
+	printf("%d\n", r2);
+
 	return (0);
 }
