@@ -3,29 +3,24 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-char *ft_strdup(char *str)
+void last_word(char *str)
 {
-	int len = 0;
-	int i = -1;
-	while (str[len])
-		len++;
-	char *strcpy = (char *)malloc(sizeof(char) * (len + 1));
-	if (!strcpy)
-		return (NULL);
-	while (str[++i])
-		strcpy[i] = str[i];
-	strcpy[i] = '\0';
-	return (strcpy);
+	int i = 0;
+	int j = 0;
+	while (str[i])
+	{
+		if (str[i] == 32 && str[i + 1] > 32 && str[i + 1] < 127)
+			j = i + 1;
+		i++;
+	}
+	while (str[j] > 32 && str[j] < 127)
+		write(1, &str[j++], 1);
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-	char src[] = "blaHblaH!";
-	char *trgt1 = strdup(src);
-	char *trgt2 = ft_strdup(src);
-
-	printf("%s\n", trgt1);
-	printf("%s\n", trgt2);
-
+	if (ac == 2)
+		last_word(av[1]);
+	write(1, "\n", 1);
 	return (0);
 }

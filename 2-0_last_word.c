@@ -12,10 +12,7 @@ void last_word(char *str)
 		i++;
 	}
 	while (str[j] > 32 && str[j] < 127)
-	{
-		write(1, &str[j], 1);
-		j++;
-	}
+		write(1, &str[j++], 1);
 }
 
 int main(int argc, char **argv)
