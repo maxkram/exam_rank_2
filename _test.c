@@ -3,33 +3,21 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-size_t ft_strspn(const char *s, const char *accept)
+int	    is_power_of_2(unsigned int n)
 {
-	int i = 0;
-
-	while (s[i])
+	unsigned long int i = 1;
+	while (i <= n)
 	{
-		int j = 0;
-		while (accept[j])
-		{
-			if (s[i] == accept[j])
-				break;
-			else if (accept[j + 1] == '\0')
-				return (i);
-			j++;
-		}
-		i++;
+		if (i == n)
+			return (1);
+		i *= 2;
 	}
-	return (i);
+	return (0);
 }
 
-int main()
+int main(int ac, char **av)
 {
-    char str[] = "abc123";
-    char charset[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    size_t length = strspn(str, charset);
-    size_t length1 = ft_strspn(str, charset);
-    printf("Length of initial segment: %zu\n", length);
-    printf("Length of initial segment: %zu\n", length1);
-    return 0;
+	if (ac == 2)
+		printf("%d\n", is_power_of_2(atoi(&av[1][0])));
+	return (0);
 }
