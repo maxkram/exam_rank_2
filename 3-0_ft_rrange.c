@@ -6,13 +6,13 @@
 int		*ft_rrange(int start, int end)
 {
 	int		*rrange;
-	int		i;
+	int		i = 0;
 
 	if (start > end)
 		rrange = (int *)malloc(sizeof(int) * (start - end) + 1);
 	else
 		rrange = (int *)malloc(sizeof(int) * (end - start) + 1);
-	i = 0;
+		
 	while (start != end)
 	{
 		rrange[i++] = end;
