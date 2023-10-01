@@ -30,13 +30,13 @@ int ft_atoi_base(const char *str, int str_base)
 	if (*str == '-')
 	{
 		sign = -1;
-		++str;
+		str++;
 	}
 
 	while ((digit = get_digit(to_lower(*str), str_base)) >= 0)
 	{
 		result = result * str_base + (digit * sign);
-		++str;
+		str++;
 	}
 	return (result);
 }
