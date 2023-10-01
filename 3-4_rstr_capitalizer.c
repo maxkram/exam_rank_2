@@ -2,23 +2,23 @@
 
 int is_space(char c)
 {
-	return(c == ' ' || c == '\t' || c == '\0');
+	return(c == 32 || c == 9 || c == '\0');
 }
 
-int main(int argc, char **argv){
-	if (argc == 1)
+int main(int ac, char **av){
+	if (ac == 1)
 		write(1, "\n", 1);
 	int x = 0;
-	while (++x < argc)
+	while (++x < ac)
 	{
 		int i = 0;
-		while(argv[x][i])
+		while(av[x][i])
 		{
-			if (argv[x][i] >= 'A' && argv[x][i] <= 'Z' && !is_space(argv[x][i + 1]))
-				argv[x][i] += 32;
-			else if (argv[x][i] >= 'a' && argv[x][i] <= 'z' && is_space(argv[x][i + 1]))
-				argv[x][i] -= 32;
-			write(1, &argv[x][i], 1);
+			if (av[x][i] >= 'A' && av[x][i] <= 'Z' && !is_space(av[x][i + 1]))
+				av[x][i] += 32;
+			else if (av[x][i] >= 'a' && av[x][i] <= 'z' && is_space(av[x][i + 1]))
+				av[x][i] -= 32;
+			write(1, &av[x][i], 1);
 			i++;
 		}
 		write(1, "\n", 1);
