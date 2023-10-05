@@ -1,5 +1,10 @@
 #include <unistd.h>
 
+int sp(char c)
+{
+	return (c==32||c==9||c=='\0');
+}
+
 int main(int ac, char **av)
 {
     int i = 0;
@@ -22,6 +27,8 @@ int main(int ac, char **av)
             if (flag != 0)
                 write(1, " ", 1);
         }
+        write(1,"\n",1);
+        return 0;
     }
     write(1, "\n", 1);
     return (0);

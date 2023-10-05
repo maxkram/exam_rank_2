@@ -1,28 +1,39 @@
 #include <unistd.h>
 
-int is_space(char c)
+int space(char c)
 {
-	return (c == 32 || c == 9 || c == '\0');
+	return (c==32||c==9);
+}
+
+void rostring(char *s)
+{
+	int k, i=0;
+	if(*s)
+	{
+		while(space(s[i]))
+			i++;
+		k=i;
+		while(s[i]&&!space(s[i]))
+			i++;
+		while(s[i])
+		{
+			if(s[i]&&!space(s[i])&&space(s[i-1]))
+			{
+				while(s[i]&&!space(s[i]))
+					write(1,&s[i++],1);
+				write(1," ",1);
+			}
+			i++;
+		}
+		while(s[k]&&!space(s[k]))
+			write(1,&s[k++],1);
+	}
 }
 
 int main(int ac, char **av)
 {
-	if (ac == 1)
-		write(1, "\n", 1);
-	
-	int j = 0;
-	while (++j < ac)
-	{
-		int i = 0;
-		while (av[j][i])
-		{
-			if (av[j][i] > 64 && av[j][i] < 91 && !is_space(av[j][i + 1]))
-				av[j][i] += 32;
-			else if (av[j][i] > 96 && av[j][i] < 123 && is_space(av[j][i + 1]))
-				av[j][i] -= 32;
-			write(1, &av[j][i], 1);
-			i++;
-		}
-		write(1, "\n", 1);
-	}
+	if(ac>1)
+		rostring(av[1]);
+	write(1,"\n",1);
+	return 0;
 }
