@@ -1,23 +1,15 @@
 int ft_atoi(const char *str)
 {
-	// variables
 	int res = 0;
 	int sign = 1;
-	// blank spaces
 	while (*str == ' ' || (*str > 8 && *str < 14))
 		str++;
-	// minus
 	if (*str == '-')
 		sign = -1;
-	// minus or plus
 	while (*str == '-' || *str == '+')
 		str++;
-	// passing digits
 	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10 + *str - '0';
-		str++;
-	}
+		res = res * 10 + *str++ - '0';
 	return (sign * res);
 }
 
@@ -42,6 +34,10 @@ int main(void)
 	printf("atoi: %d\n", atoi("\t\n\v\f\r 42"));
 	printf("ft_atoi: %d\n", ft_atoi("5"));
 	printf("atoi: %d\n", atoi("5"));
+	printf("ft_atoi: %d\n", ft_atoi("2147483647"));
+	printf("atoi: %d\n", atoi("2147483647"));
+	printf("ft_atoi: %d\n", ft_atoi("-2147483648"));
+	printf("atoi: %d\n", atoi("-2147483648"));
 	return (0);
 }
 
