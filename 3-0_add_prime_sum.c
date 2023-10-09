@@ -53,7 +53,6 @@ int main(int ac, char **av)
 			ft_putnbr(sum);
 		}
 	}
-
 	write(1, "\n", 1);
 	return (0);
 }

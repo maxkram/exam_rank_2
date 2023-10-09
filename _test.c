@@ -1,23 +1,33 @@
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int ft_strcmp(char *s1, char *s2)
+int is_space(char c)
 {
-	int i = 0;
-	while(s1[i]&&s2[i]&&s1[i]==s2[i])
-		i++;
-	return (s1[i]-s2[i]);
+	return (c==32||c==9);
 }
 
-int main()
+int main(int ac, char **av)
 {
-	char s1[]="abcdef";
-	char s2[]="ABCDEF";
-	int r1 = strcmp(s1,s2);
-	int r2 = ft_strcmp(s1,s2);
-	printf("%d\n",r1);
-	printf("%d\n",r2);
-	return 0;
+    int i;
+    int flg = 0;
+
+    if (ac == 2)
+    {
+        i = 0;
+        while (is_space(av[1][i]))
+            i++;
+        while (av[1][i])
+        {
+            if (is_space(av[1][i]))
+                flg = 1;
+            if (!is_space(av[1][i]))
+            {
+                if (flg)
+                    write(1, " ", 1);
+                flg = 0;
+                write(1, &av[1][i], 1);
+            }
+            i++;
+        }
+    }
+    write(1, "\n", 1);
 }

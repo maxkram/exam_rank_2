@@ -5,11 +5,11 @@ int is_space(char c)
 }
 int main(int ac, char const *av[])
 {
-	int flg;
+    int i = 0;
+    int flg = 0;
 
 	if (ac == 2)
 	{
-		int i = 0;
 		while (is_space(av[1][i]))
 			i++;
 		while (av[1][i])
