@@ -1,8 +1,8 @@
 #include <unistd.h>
 
-int sp(char c)
+int space(char c)
 {
-	return (c==32||c==9||c=='\0');
+	return (c==32||c==9);
 }
 
 int main(int ac, char **av)
@@ -15,10 +15,10 @@ int main(int ac, char **av)
             i++;
         while (i >= 0)
         {
-            while (av[1][i] == '\0' || av[1][i] == 32 || av[1][i] == 9)
+            while (space(av[1][i]) || av[1][i] == '\0')
                 i--;
             int end = i;
-            while (av[1][i] && av[1][i] != 32 && av[1][i] != 9)
+            while (av[1][i] && !space(av[1][i]))
                 i--;
             int start = i + 1;
             int flag = start;
