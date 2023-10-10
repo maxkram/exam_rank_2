@@ -7,7 +7,7 @@ int is_space(char c)
 
 int main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac < 2)
 		write(1, "\n", 1);
 	int x = 0;
 	while (++x < ac)
@@ -24,6 +24,7 @@ int main(int ac, char **av)
 		}
 		write(1, "\n", 1);
 	}
+	return (0);
 }
 
 // Assignment name  : rstr_capitalizer
