@@ -1,34 +1,56 @@
-#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-void str_cap(char *s)
+int space(char c)
 {
-	int i = 0;
-	if(s[i]>='a'&&s[i]<='z')
-		s[i]-=32;
-	write(1,&s[i],1);
-	while(s[i])
-	{
-		if(s[i]>='A'&&s[i]<='Z')
-			s[i]+=32;
-		if(s[i]>='a'&&s[i]<='z'&&(s[i-1]==32||s[i-1]==9))
-			s[i]-=32;
-		write(1,&s[i++],1);
-	}
+	return (c==32||c==9||c=='\n'||c=='\0');
 }
 
-int main(int ac, char **av)
+int wc(char *s)
 {
-	if(ac<2)
-		write(1,"\n",1);
-	else
+	int c = 0;
+	while(*s)
 	{
-		int i = 1;
-		while(i<ac)
+		if(!space(*s))
 		{
-			str_cap(av[i]);
-			write(1,"\n",1);
-			i++;
+			c++;
+			while(!space(*s) && *s)
+				s++;
 		}
+		else
+			s++;
 	}
-	return (0);
+	return c;
+}
+
+char **ft_split(char *str)
+{
+	int len = wc(str);
+	char **arr = malloc(sizeof(char *) * (len + 1));
+	int i = -1;
+	int j = 0;
+	while(++i < len)
+	{
+		int k = 0;
+		while(space(str[j]))
+			str++;
+		while(!space(str[j + k] && str[j + k]))
+			k++;
+		arr[i] = malloc(sizeof(char) * (k + 1));
+		k = 0;
+		while(!space(str[j]) && str[j])
+			arr[i][k++] = str[j++];
+		arr[i][k] = '\0';
+	}
+	arr[i] = NULL;
+	return (arr);
+}
+
+int main()
+{
+	char **w = ft_split("Osti de calisse de ciboire de tabarnak!");
+	int i = 0;
+	while(w[i])
+		printf("%s\n", w[i++]);
+	return 0;
 }

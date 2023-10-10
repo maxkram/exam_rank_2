@@ -1,19 +1,19 @@
 #include <stdlib.h>
 
-int is_space(char c)
+int space(char c)
 {
 	return (c == 32 || c == 9 || c == '\n');
 }
 
-int ft_wordcount(char *str)
+int wordcount(char *str)
 {
 	int count = 0;
 	while (*str)
 	{
-		if (!is_space(*str))
+		if (!space(*str))
 		{
 			count++;
-			while (!is_space(*str) && *str)
+			while (!space(*str) && *str)
 				str++;
 		}
 		else
@@ -24,20 +24,20 @@ int ft_wordcount(char *str)
 
 char **ft_split(char *str)
 {
-	int len = ft_wordcount(str);
+	int len = wordcount(str);
 	char **arr = malloc(sizeof(char *) * len + 1);
 	int i = -1;
 	int j = 0;
 	while (++i < len)
 	{
 		int k = 0;
-		while (is_space(str[j]))
+		while (space(str[j]))
 			j++;
-		while (!is_space(str[j + k]) && str[j + k])
+		while (!space(str[j + k]) && str[j + k])
 			k++;
 		arr[i] = malloc(sizeof(char) * (k + 1));
 		k = 0;
-		while (!is_space(str[j]) && str[j])
+		while (!space(str[j]) && str[j])
 			arr[i][k++] = str[j++];
 		arr[i][k] = '\0';
 	}
@@ -48,7 +48,7 @@ char **ft_split(char *str)
 #include <stdio.h>
 int main(void)
 {
-	char **words = ft_split("This is a test string!");
+	char **words = ft_split("Osti de calisse de ciboire de tabarnak!");
 	int i = 0;
 	while (words[i])
 	{
