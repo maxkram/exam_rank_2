@@ -2,6 +2,8 @@
 
 void	str_capitalizer(char *str)
 {
+	if (ac == 1)
+		write(1, "\n", 1);
 	int i = 0;
 
 	if (str[i] >= 'a' && 'z' >= str[i])
