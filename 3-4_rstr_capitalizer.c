@@ -5,7 +5,8 @@ int is_space(char c)
 	return(c == 32 || c == 9 || c == '\0');
 }
 
-int main(int ac, char **av){
+int main(int ac, char **av)
+{
 	if (ac == 1)
 		write(1, "\n", 1);
 	int x = 0;
