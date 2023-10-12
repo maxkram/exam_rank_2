@@ -51,10 +51,7 @@ int main(void)
 	char **words = ft_split("Osti de calisse de ciboire de tabarnak!");
 	int i = 0;
 	while (words[i])
-	{
-		printf("%s\n", words[i]);
-		i++;
-	}
+		printf("%s\n", words[i++]);
 	return (0);
 }
 
