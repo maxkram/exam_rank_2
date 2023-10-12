@@ -1,28 +1,26 @@
-#include <stdlib.h>
+#include <unistd.h>
 
-int space(char c)
+void putnbr42(int n)
 {
-	return (c==32||c==9||c=='\n');
+	if(n > 9)
+		putnbr42(n/10);
+	write(1, &"0123456789"[n%10], 1);
 }
 
-int wc(char *s)
+int main(int ac, char **av)
 {
-	int cnt = 0;
-	while(*s)
+	int i = 0;
+	while(i++ < 101)
 	{
-		if(!space(*s))
-		{
-			cnt++;
-			while(!space(*s)&&*s)
-				s++;
-		}
+		if(i%15==0)
+			write(1, "fizzbuzz", 8);
+		else if(i%5==0)
+			write(1, "buzz", 4);
+		else if(i%3==0)
+			write(1, "fizz", 4);
 		else
-			s++;
+			putnbr42(i);
+		write(1, "\n", 1);
 	}
-	return cnt;
-}
-
-char **ft_split(char *str)
-{
-	
+	return 0;
 }
