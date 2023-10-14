@@ -1,23 +1,63 @@
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void last_word(char *str)
+// size_t	ft_strcspn(const char *s, const char *reject)
+// {
+// 	const char *s1 = s;
+// 	while(*s1++)
+// 	{
+// 		const char *s2 = reject;
+// 		while(*s2)
+// 			if(*s1 == *s2++)
+// 				return s1 - s;
+// 	}
+// 	return s1 - s;
+// }
+
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int i = 0;
-	int j = 0;
-	while(str[i])
-	{
-		if(str[i]==32&&(str[i+1]>32&&str[i+1]<127))
-			j=i+1;
-		i++;
-	}
-	while(str[j]>32&&str[j]<127)
-		write(1, &str[j++], 1);
+    int     i = 0;
+
+    while (s[i])
+    {
+		int j = 0;
+        while (reject[j])
+        {
+            if(s[i] == reject[j])
+                return (i);
+            j++;
+        }
+        i++;
+    }
+    return (i);
 }
 
-int main(int ac, char **av)
+int main()
 {
-	if(ac==2)
-		last_word(av[1]);
-	write(1, "\n", 1);
+	const char s1[] = "ABCDEF4960910";
+	const char s2[] = "013";
+
+	int l1 = strcspn(s1, s2);
+	int l2 = ft_strcspn(s1, s2);
+
+	printf("%d\n", l1);
+	printf("%d\n", l2);
+
 	return 0;
 }
+
+// int main(int ac, char **av)
+// {
+// 	if(ac == 2)
+// 	{
+// 		int i = 0;
+// 		while(av[1][i])
+// 		{
+
+// 		}
+// 	}
+// 	write(1, "\n", 1);
+// 	return 0;
+// }
