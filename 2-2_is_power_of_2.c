@@ -17,8 +17,7 @@ int is_power_of_2(unsigned int n)
 int main(int ac, char **av)
 {
 	if (ac == 2)
-		printf("%d", is_power_of_2(atoi(&av[1][0])));
-	printf("\n");
+		printf("%d\n", is_power_of_2(atoi(&av[1][0])));
 	return (0);
 }
 
