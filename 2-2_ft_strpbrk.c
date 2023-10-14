@@ -19,22 +19,11 @@ char *ft_strpbrk(const char *s1, const char *s2)
 
 int main(void)
 {
-	const char str1[] = "abcde2fghi3jk4l";
-	const char str2[] = "34";
+   char str[] = "1234567890";
 
-	char *ret = strpbrk(str1, str2);
-	char *ret1 = ft_strpbrk(str1, str2);
-
-	if (ret)
-		printf("First matching character: %c\n", *ret);
-	else
-		printf("Character not found");
-
-	if (ret1)
-		printf("First matching character: %c\n", *ret1);
-	else
-		printf("Character not found");
-	return (0);
+   char sym[] = "9876";
+  
+   printf ("\"%s\" - Кусок первой строки в котором впервые встречаются символы из второй строки.\n", ft_strpbrk(str,sym));
 }
 
 // Assignment name	: ft_strpbrk

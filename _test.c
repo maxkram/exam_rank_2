@@ -3,49 +3,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-// size_t	ft_strcspn(const char *s, const char *reject)
-// {
-// 	const char *s1 = s;
-// 	while(*s1++)
-// 	{
-// 		const char *s2 = reject;
-// 		while(*s2)
-// 			if(*s1 == *s2++)
-// 				return s1 - s;
-// 	}
-// 	return s1 - s;
-// }
-
-size_t	ft_strcspn(const char *s, const char *reject)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-    int     i = 0;
-
-    while (s[i])
-    {
-		int j = 0;
-        while (reject[j])
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+	while(*s1)
+	{
+		int i = 0;
+		while(s2[i])
+		{
+			if(*s1 == s2[i])
+				return (char *) s2[i];
+			i++;
+		}
+		s1++;
+	}
+	return 0;
 }
 
-int main()
+
+int		main(void)
 {
-	const char s1[] = "ABCDEF4960910";
-	const char s2[] = "013";
+   char str[] = "1234567890";
 
-	int l1 = strcspn(s1, s2);
-	int l2 = ft_strcspn(s1, s2);
+   char sym[] = "9876";
+  
+   printf ("\"%s\" - Кусок первой строки в котором впервые встречаются символы из второй строки.\n", ft_strpbrk(str,sym));
 
-	printf("%d\n", l1);
-	printf("%d\n", l2);
-
-	return 0;
+   return (0);
 }
 
 // int main(int ac, char **av)
