@@ -4,35 +4,27 @@
 #include <string.h>
 #include "ft_list.h"
 
-void str_capitalizer(char *str)
-{
-	int i = 0;
-	if (str[i] >= 'a' && str[i] <= 'z')
-		str[i] -= 32;
-	write(1, &str[i], 1);
-	while(str[++i])
-	{
-		if(str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		if(str[i] >= 'a' && str[i] <= 'z' && (str[i - 1] == 32 || str[i - 1] == 9))
-			str[i] -= 32;
-		write(1, &str[i], 1);
-	}
-}
-
 int main(int ac, char **av)
 {
-	if (ac<2)
-		write(1, "\n", 1);
-	else
+	if(ac==2)
 	{
-		int x = 1;
-		while(x < ac)
+		int i = 1;
+		int n = atoi(av[1]);
+		if(n==1)
+			printf("1");
+		while(n>=++i)
 		{
-			str_capitalizer(av[x]);
-			write(1, "\n", 1);
-			x++;
+			if(n%i==0)
+			{
+				printf("%d", i);
+				if(n==i)
+					break;
+				printf("*");
+				n/=i;
+				i=1;
+			}
 		}
 	}
+	printf("\n");
 	return 0;
 }
