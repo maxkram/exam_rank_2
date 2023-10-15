@@ -2,37 +2,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ft_list.h"
 
-int	    is_power_of_2(unsigned int n)
+void str_capitalizer(char *str)
 {
-	unsigned i = 1;
-	while(i <= n)
+	int i = 0;
+	if (str[i] >= 'a' && str[i] <= 'z')
+		str[i] -= 32;
+	write(1, &str[i], 1);
+	while(str[++i])
 	{
-		if(i == n)
-			return 1;
-		i *= 2;
+		if(str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		if(str[i] >= 'a' && str[i] <= 'z' && (str[i - 1] == 32 || str[i - 1] == 9))
+			str[i] -= 32;
+		write(1, &str[i], 1);
 	}
-	return 0;
 }
 
 int main(int ac, char **av)
 {
-	if (ac == 2)
-		printf("%d", is_power_of_2(atoi(&av[1][0])));
-	write(1, "\n", 1);
+	if (ac<2)
+		write(1, "\n", 1);
+	else
+	{
+		int x = 1;
+		while(x < ac)
+		{
+			str_capitalizer(av[x]);
+			write(1, "\n", 1);
+			x++;
+		}
+	}
 	return 0;
 }
-
-// int main(int ac, char **av)
-// {
-// 	if(ac == 2)
-// 	{
-// 		int i = 0;
-// 		while(av[1][i])
-// 		{
-
-// 		}
-// 	}
-// 	write(1, "\n", 1);
-// 	return 0;
-// }
