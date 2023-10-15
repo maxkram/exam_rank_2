@@ -19,8 +19,6 @@ void sort_int_tab(int *tab, unsigned int size)
 
 #include <stdio.h>
 
-void sort_int_tab(int *tab, unsigned int size);
-
 int main(void)
 {
     int a[6] = {9, 7, 6, 4, 5, 10};
