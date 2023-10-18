@@ -18,8 +18,8 @@ char *ft_itoa(int nbr)
 		len++;
 	}
 
-	char *result = (char *)malloc(sizeof(char) * (len + 1));
-	if (result == NULL)
+	char *result = malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return NULL;
 
 	result[len] = '\0';
@@ -56,6 +56,8 @@ int main(void)
 	printf("%s\n", ft_itoa(-2147483648));
 	printf("%s\n", ft_itoa(2147483647));
 	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(-0));
+
 	return (0);
 }
 

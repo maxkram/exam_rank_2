@@ -1,46 +1,46 @@
 #include <stddef.h>
 
-// size_t	ft_strcspn(const char *s, const char *reject)
-// {
-//     int     i = 0;
-
-//     while (s[i])
-//     {
-// 		int j = 0;
-//         while (reject[j])
-//         {
-//             if(s[i] == reject[j])
-//                 return (i);
-//             j++;
-//         }
-//         i++;
-//     }
-//     return (i);
-// }
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
-	}
-	return ((void *)0);
-}
-
 size_t	ft_strcspn(const char *s, const char *reject)
 {
-	size_t	i = 0;
-    
+	int	i = 0;
+
 	while (s[i])
 	{
-		if (ft_strchr(reject, s[i]))
-			break;
+		int	j = 0;
+		while (reject[j])
+		{
+			if(s[i] == reject[j])
+				return (i);
+			j++;
+		}
 		i++;
 	}
 	return (i);
 }
+
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	while (*s)
+// 	{
+// 		if (*s == c)
+// 			return ((char *)s);
+// 		s++;
+// 	}
+// 	return ((void *)0);
+// }
+
+// size_t	ft_strcspn(const char *s, const char *reject)
+// {
+// 	size_t	i = 0;
+	
+// 	while (s[i])
+// 	{
+// 		if (ft_strchr(reject, s[i]))
+// 			break;
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
 #include <stdio.h>
 #include <string.h>
