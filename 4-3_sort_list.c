@@ -3,8 +3,6 @@
 
 t_list *sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	if (!lst || !lst->next)
-		return (lst);
 	t_list *current = lst;
 	while (current->next)
 	{
