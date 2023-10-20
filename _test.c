@@ -2,74 +2,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ft_list.h"
+// #include "ft_list.h"
 // #include "flood_fill.h"
 // #include "sort_list.h"
 
-void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+int space(char c)
 {
-	t_list *curr = *begin_list;
-	t_list *prev = NULL;
-	while(curr)
-	{
-		if(cmp(curr->data, data_ref)==0)
-		{
-			if(prev==NULL)
-				*begin_list=curr->next;
-			else
-				prev->next=curr->next;
-			free(curr);
-			curr=prev==NULL?*begin_list:prev->next;
-		}
-		else
-		{
-			prev=curr;
-			curr=curr->next;
-		}
-	}
+	return c==32||c==9;
 }
 
-void print_list(t_list **begin_list)
+int main(int ac, char **av)
 {
-	t_list *cur=*begin_list;
-	while(cur)
+	int i = 0;
+	if(ac==2)
 	{
-		printf("%s\n", cur->data);
-		cur=cur->next;
+		while(av[1][i])
+			i++;
+		while(i >= 0)
+		{
+			while(space(av[1][i]) || av[1][i] == '\0')
+				i--;
+			int end = i;
+			while(av[1][i] && !space(av[1][i]))
+				i--;
+			int start = i + 1;
+			int flag = start;
+			while(start <= end)
+				write(1, &av[1][start++], 1);
+			if(flag)
+				write(1, " ", 1);
+		}
+		write(1, "\n", 1);
+		return 0;
 	}
-}
-
-int main(void)
-{
-	char straa[] = "String aa";
-	t_list *aa = malloc(sizeof(t_list));
-	aa->next = 0;
-	aa->data = straa;
-
-	char strbb[] = "String bb";
-	t_list *bb = malloc(sizeof(t_list));
-	bb->next = 0;
-	bb->data = strbb;
-
-	char strcc[] = "String cc";
-	t_list *cc = malloc(sizeof(t_list));
-	cc->next = 0;
-	cc->data = strcc;
-
-	char strdd[] = "String dd";
-	t_list *dd = malloc(sizeof(t_list));
-	dd->next = 0;
-	dd->data = strdd;
-
-	aa->next = bb;
-	bb->next = cc;
-	cc->next = dd;
-
-	t_list **begin_list = &aa;
-
-	print_list(begin_list);
-	printf("----------\n");
-	ft_list_remove_if(begin_list, straa, strcmp);
-	print_list(begin_list);
-	return (0);
+	write(1,"\n",1);
+	return 0;
 }

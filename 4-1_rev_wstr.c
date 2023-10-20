@@ -24,7 +24,7 @@ int main(int ac, char **av)
             int flag = start;
             while (start <= end)
                 write(1, &av[1][start++], 1);
-            if (flag != 0)
+            if (flag)
                 write(1, " ", 1);
         }
         write(1,"\n",1);
