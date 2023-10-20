@@ -6,35 +6,60 @@
 // #include "flood_fill.h"
 // #include "sort_list.h"
 
-int space(char c)
+int sp(char c)
 {
-	return c==32||c==9;
+	return c==32||c==9||c=='\n';
 }
 
-int main(int ac, char **av)
+int wc(char *s)
 {
-	int i = 0;
-	if(ac==2)
+	int cnt = 0;
+	while(*s)
 	{
-		while(av[1][i])
-			i++;
-		while(i >= 0)
+		if(!sp(*s))
 		{
-			while(space(av[1][i]) || av[1][i] == '\0')
-				i--;
-			int end = i;
-			while(av[1][i] && !space(av[1][i]))
-				i--;
-			int start = i + 1;
-			int flag = start;
-			while(start <= end)
-				write(1, &av[1][start++], 1);
-			if(flag)
-				write(1, " ", 1);
+			cnt++;
+			while(!sp(*s) && *s)
+				s++;
 		}
-		write(1, "\n", 1);
-		return 0;
+		else
+			s++;
 	}
-	write(1,"\n",1);
+	return cnt;
+}
+
+char **ft_split(char *s)
+{
+	int len = wc(s);
+	char **arr = malloc(sizeof(char *) * len + 1);
+	if (!arr)
+		return NULL;
+	int i = -1;
+	int j = 0;
+	while (++i < len)
+	{
+		while(sp(s[j]))
+			j++;
+		int k = 0;
+		while(!sp(s[j + k]) && s[j + k])
+			k++;
+		arr[i] = malloc(sizeof(char) * k + 1);
+		if(!arr[i])
+			return NULL;
+		k = 0;
+		while(!sp(s[j]) && s[j])
+			arr[i][k++] = s[j++];
+		arr[i][k] = '\0';
+	}
+	arr[i] = NULL;
+	return arr;
+}
+
+int main()
+{
+	char **arr=ft_split("zhopa s ru4koy shla na slu4ku");
+	int i = 0;
+	while(arr[i])
+		printf("%s\n", arr[i++]);
 	return 0;
 }

@@ -26,6 +26,8 @@ char **ft_split(char *str)
 {
 	int len = wordcount(str);
 	char **arr = malloc(sizeof(char *) * len + 1);
+	if(!arr)
+		return NULL;
 	int i = -1;
 	int j = 0;
 	while (++i < len)
@@ -36,6 +38,8 @@ char **ft_split(char *str)
 		while (!space(str[j + k]) && str[j + k])
 			k++;
 		arr[i] = malloc(sizeof(char) * (k + 1));
+		if (!arr[i])
+			return NULL;
 		k = 0;
 		while (!space(str[j]) && str[j])
 			arr[i][k++] = str[j++];
