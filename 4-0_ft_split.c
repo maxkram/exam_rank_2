@@ -28,9 +28,9 @@ char **ft_split(char *str)
 	char **arr = malloc(sizeof(char *) * len + 1);
 	if(!arr)
 		return NULL;
-	int i = -1;
+	int i = 0;
 	int j = 0;
-	while (++i < len)
+	while (i < len)
 	{
 		int k = 0;
 		while (space(str[j]))
@@ -44,6 +44,7 @@ char **ft_split(char *str)
 		while (!space(str[j]) && str[j])
 			arr[i][k++] = str[j++];
 		arr[i][k] = '\0';
+		i++;
 	}
 	arr[i] = NULL;
 	return (arr);
