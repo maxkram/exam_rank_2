@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int is_space(char c)
+int space(char c)
 {
 	return (c == ' ' || c == '\t');
 }
@@ -11,22 +11,22 @@ void rostring(char *str)
 
 	if (*str)
 	{
-		while (is_space(str[i]))
+		while (space(str[i]))
 			i++;
 		k = i;
-		while (str[i] && !is_space(str[i]))
+		while (str[i] && !space(str[i]))
 			i++;
 		while (str[i])
 		{
-			if (str[i] && !is_space(str[i]) && is_space(str[i - 1]))
+			if (str[i] && !space(str[i]) && space(str[i - 1]))
 			{
-				while (str[i] && !is_space(str[i]))
+				while (str[i] && !space(str[i]))
 					write(1, &str[i++], 1);
 				write(1, " ", 1);
 			}
 			i++;
 		}
-		while (str[k] && !is_space(str[k]))
+		while (str[k] && !space(str[k]))
 			write(1, &str[k++], 1);
 	}
 }
