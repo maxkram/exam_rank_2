@@ -9,8 +9,9 @@ int main(int ac, char **av)
 		int num = atoi(av[1]);
 		if (num == 1)
 			printf("1");
-		while (num >= ++i)
+		while (num >= i)
 		{
+			i++;
 			if (num % i == 0)
 			{
 				printf("%d", i);
