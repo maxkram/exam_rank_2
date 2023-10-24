@@ -9,14 +9,14 @@ int get_digit(char c, int digits_in_base)
 {
 	int max_digit;
 	if (digits_in_base <= 10)
-		max_digit = digits_in_base + '0';
+		max_digit = digits_in_base + '0'; // 10 || 2 || 8 + '0' = '10' || '2' || '8'
 	else
-		max_digit = digits_in_base - 10 + 'a';
+		max_digit = digits_in_base - 10 + 'a'; // 16 - 10 + 'a' = 6 + 'a' = 'e'
 
 	if (c >= '0' && c <= '9' && c <= max_digit)
-		return (c - '0');
+		return (c - '0'); // 0, 1, 2, 3
 	else if (c >= 'a' && c <= 'f' && c <= max_digit)
-		return (10 + c - 'a');
+		return (10 + c - 'a'); // 10 + 'b || c || e - 'a' = 11, 12, 13
 	else
 		return (-1);
 }
