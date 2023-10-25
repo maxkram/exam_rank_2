@@ -16,7 +16,7 @@ void rostring(char *str)
 		i++;
 	while (str[i])
 	{
-		if (str[i] && !space(str[i]) && space(str[i - 1]))
+		if (!space(str[i]) && space(str[i - 1]))
 		{
 			while (str[i] && !space(str[i]))
 				write(1, &str[i++], 1);
