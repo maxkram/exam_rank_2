@@ -9,26 +9,23 @@ void rostring(char *str)
 {
 	int k, i = 0;
 
-	if (*str)
+	while (space(str[i]))
+		i++;
+	k = i;
+	while (str[i] && !space(str[i]))
+		i++;
+	while (str[i])
 	{
-		while (space(str[i]))
-			i++;
-		k = i;
-		while (str[i] && !space(str[i]))
-			i++;
-		while (str[i])
+		if (str[i] && !space(str[i]) && space(str[i - 1]))
 		{
-			if (str[i] && !space(str[i]) && space(str[i - 1]))
-			{
-				while (str[i] && !space(str[i]))
-					write(1, &str[i++], 1);
-				write(1, " ", 1);
-			}
-			i++;
+			while (str[i] && !space(str[i]))
+				write(1, &str[i++], 1);
+			write(1, " ", 1);
 		}
-		while (str[k] && !space(str[k]))
-			write(1, &str[k++], 1);
+		i++;
 	}
+	while (str[k] && !space(str[k]))
+		write(1, &str[k++], 1);
 }
 
 int main(int ac, char *av[])
